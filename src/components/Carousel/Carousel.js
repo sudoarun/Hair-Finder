@@ -39,7 +39,7 @@ const Carousel = () => {
         data-mdb-target="#carouselControls"
         data-mdb-slide="prev"
       >
-        <span class="material-icons">arrow_back_ios</span>
+        <span className="material-icons">arrow_back_ios</span>
         <span className="visually-hidden">Previous</span>
       </button>
       <button
@@ -48,7 +48,7 @@ const Carousel = () => {
         data-mdb-target="#carouselControls"
         data-mdb-slide="next"
       >
-        <span class="material-icons">arrow_forward_ios</span>
+        <span className="material-icons">arrow_forward_ios</span>
         <span className="visually-hidden">Next</span>
       </button>
     </div>

@@ -16,7 +16,7 @@ const Header = () => {
             </li>
             <li className="me-5">My Booking</li>
             <li className="me-5">Help</li>
-            <li>Logout</li>
+            <li>Signin</li>
           </div>
         </div>
       </div>

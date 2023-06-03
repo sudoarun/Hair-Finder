@@ -23,7 +23,7 @@ const ShopCard = () => {
             <div className="d-flex card mx-2 ">
               <div className="w-100 position-relative ">
                 <img
-                  src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp"
+                  src="https://img.freepik.com/premium-photo/portrait-stylish-bearded-man-with-hair-scissors_265223-2028.jpg?w=740"
                   className="w-100 rounded"
                   alt=""
                 />
@@ -40,7 +40,7 @@ const ShopCard = () => {
             <div className="d-flex card mx-2">
               <div className="w-100 position-relative">
                 <img
-                  src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp"
+                  src="https://img.freepik.com/free-photo/portrait-bearded-urban-male-isolated-with-contrast-illumination-grey-vignette-background_613910-1277.jpg?w=740&t=st=1685810987~exp=1685811587~hmac=0b844fa06182eb2381989f4266ae503b547751fba703bb9243778989e7a28061"
                   className="w-100 rounded"
                   alt=""
                 />
@@ -57,7 +57,7 @@ const ShopCard = () => {
             <div className="d-flex card mx-2">
               <div className="w-100 position-relative">
                 <img
-                  src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp"
+                  src="https://img.freepik.com/free-photo/portrait-serious-bearded-male-sunglasses-cylinder-hat_613910-1612.jpg?w=740&t=st=1685811034~exp=1685811634~hmac=c8af15682c138e720b31ebf5a2be9a24f969b6790038613669b6da77aa687b2f"
                   className="w-100 rounded"
                   alt=""
                 />
@@ -74,7 +74,7 @@ const ShopCard = () => {
             <div className="d-flex card mx-2">
               <div className="w-100 position-relative">
                 <img
-                  src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp"
+                  src="https://img.freepik.com/premium-photo/young-handsome-bearded-man-with-long-beard-moustache_120494-1.jpg?w=740"
                   className="w-100 rounded"
                   alt=""
                 />

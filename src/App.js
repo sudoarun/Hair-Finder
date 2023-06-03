@@ -1,13 +1,16 @@
 import "./App.css";
+import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
-import ShopCard from "./components/ShopCard/ShopCard";
+import Home from "./components/Home/Home";
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
-      <ShopCard />
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </>
   );
 }
 

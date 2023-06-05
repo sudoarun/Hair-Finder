@@ -11,20 +11,22 @@ const Header = () => {
           <img src={logo} width={50} alt="profile" />
         </Link>
         <div>
-          <div className="d-flex list-unstyled fw-bold">
+          <div className="d-flex list-unstyled fw-bold ">
             <Link
-              to={"/barber-registration"}
-              className="me-5 text-decoration-underline"
+              to={"/professional-register"}
+              className="me-5 text-decoration-underline text-white"
             >
               Register as Barber
             </Link>
-            <Link to={"/book"} className="me-5">
+            <Link to={"/book"} className="me-5 text-white">
               My Booking
             </Link>
-            <Link to={"/help"} className="me-5">
+            <Link to={"/help"} className="me-5 text-white">
               Help
             </Link>
-            <Link to={"/user"}>User</Link>
+            <Link to={"/user"} className="text-white">
+              User
+            </Link>
           </div>
         </div>
       </div>

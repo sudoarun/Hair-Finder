@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import BookShop from "./components/Pages/BookShop";
 import User from "./components/Pages/User";
 import Help from "./components/Pages/Help";
+import BarberRegister from "./components/Pages/BarberRegister";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/shop" element={<ShopDetail />} />
         <Route path="/book" element={<BookShop />} />
         <Route path="/user" element={<User />} />
+        <Route path="/professional-register" element={<BarberRegister />} />
         <Route path="/help" element={<Help />} />
       </Routes>
     </>

@@ -7,6 +7,25 @@ import { faGoogle, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 
 function LoginPage({ name }) {
   const [isSignUpMode, setIsSignUpMode] = useState(false);
+  const [user, setUser] = useState({
+    username: "",
+    password: "",
+  });
+  const onload = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setUser((user) => {
+      return { ...user, [name]: value };
+    });
+  };
+  const handlesignIn = (e) => {
+    e.preventDefault();
+    console.log(user);
+    setUser({
+      username: "",
+      password: "",
+    });
+  };
 
   const handleSignUpClick = () => {
     setIsSignUpMode(true);
@@ -27,26 +46,34 @@ function LoginPage({ name }) {
               <FontAwesomeIcon icon={faUser} className="my-auto mx-auto" />
               <input
                 className="LoginInput"
+                name="username"
+                value={user.username}
+                onChange={onload}
                 type="text"
                 placeholder="Username"
               />
             </div>
 
-            <div className="input-field">
+            {/* <div className="input-field">
               <FontAwesomeIcon icon={faEnvelope} className="my-auto mx-auto" />
               <input className="LoginInput" type="email" placeholder="Email" />
-            </div>
+            </div> */}
 
             <div className="input-field">
               <FontAwesomeIcon icon={faLock} className="my-auto mx-auto" />
               <input
                 className="LoginInput"
                 type="password"
+                value={user.password}
+                name="password"
+                onChange={onload}
                 placeholder="Password"
               />
             </div>
 
-            <button className="btn">Sign In</button>
+            <button className="btn" onClick={handlesignIn}>
+              Sign In
+            </button>
 
             <p className="social-text loginp"> or Sign in with </p>
 

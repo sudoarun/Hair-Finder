@@ -23,14 +23,14 @@ function LoginPage() {
           <form action="#" className="sign-in-form loginForm">
             <h2 className="title">Sign in</h2>
 
-            <div className="input-field">
+             <div className="input-field">
               <FontAwesomeIcon icon={faUser} className="my-auto mx-auto" />
               <input
                 className="LoginInput"
                 type="text"
                 placeholder="Username"
               />
-            </div>
+            </div> 
 
             <div className="input-field">
               <FontAwesomeIcon icon={faEnvelope} className="my-auto mx-auto" />
@@ -48,7 +48,7 @@ function LoginPage() {
 
             <button className="btn">Sign In</button>
 
-            <p className="social-text loginp"> Sign in with social platforms</p>
+            <p className="social-text loginp"> or Sign in with </p>
 
             <div className="social-media">
               <a href="#!" className="social-icon">
@@ -80,6 +80,11 @@ function LoginPage() {
               <FontAwesomeIcon icon={faEnvelope} className="my-auto mx-auto" />
               <input className="LoginInput" type="email" placeholder="Email" />
             </div>
+             
+            <div className="input-field">
+              <FontAwesomeIcon icon={faEnvelope} className="my-auto mx-auto" />
+              <input className="LoginInput" type="phone" placeholder="Phone number" />
+            </div>
 
             <div className="input-field">
               <FontAwesomeIcon icon={faLock} className="my-auto mx-auto" />
@@ -93,7 +98,7 @@ function LoginPage() {
             <button className="btn">Sign Up</button>
 
             <p className="social-text loginp">
-              Or Sign up with social platforms
+              Or Sign up with 
             </p>
 
             <div className="social-media">
@@ -115,11 +120,10 @@ function LoginPage() {
       <div className="panels-container">
         <div className="panel left-panel">
           <div className="content">
-            <h3 className="loginh3">New User?</h3>
+            <h3 className="loginh3">New User ?</h3>
 
             <p className="loginp">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-              ex ratione. Aliquid!
+              Hairfinder, your one stop solution for Grooming 
             </p>
 
             <button className="btn transparent" onClick={handleSignUpClick}>
@@ -132,11 +136,10 @@ function LoginPage() {
 
         <div className="panel right-panel">
           <div className="content">
-            <h3 className="loginh3">One of us ?</h3>
+            <h3 className="loginh3">Already Registered ?</h3>
 
             <p className="loginp">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-              laboriosam ad deleniti.
+            Hairfinder, your one stop solution for Grooming
             </p>
 
             <button

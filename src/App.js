@@ -15,7 +15,7 @@ import Help from "./components/Pages/Help";
 import BarberRegister from "./components/Pages/BarberRegister";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   function PrivateRoute({ isLoggedIn, children }) {
     if (!isLoggedIn) {

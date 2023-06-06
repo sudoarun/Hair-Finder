@@ -18,6 +18,7 @@ const ShopCard = () => {
     <div className="d-flex justify-content-center">
       <div className=" w-85 mt-n5 px-4 card pt-3 pb-3">
         <Slider {...settings}>
+
           <div className="">
             <Link to={"/shop"}>
               <div className="d-flex card mx-2 ">
@@ -37,6 +38,7 @@ const ShopCard = () => {
               </div>
             </Link>
           </div>
+
           <div className="">
             <Link to={"/shop"}>
               <div className="d-flex card mx-2">
@@ -56,6 +58,7 @@ const ShopCard = () => {
               </div>
             </Link>
           </div>
+
           <div className="">
             <Link to={"/shop"}>
               <div className="d-flex card mx-2">
@@ -75,6 +78,7 @@ const ShopCard = () => {
               </div>
             </Link>
           </div>
+
           <div className="">
             <Link to={"/shop"}>
               <div className="d-flex card mx-2">
@@ -94,6 +98,7 @@ const ShopCard = () => {
               </div>
             </Link>
           </div>
+          
         </Slider>
       </div>
     </div>

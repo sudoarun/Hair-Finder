@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faGoogle, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 
-function LoginPage() {
+function LoginPage({ name }) {
   const [isSignUpMode, setIsSignUpMode] = useState(false);
 
   const handleSignUpClick = () => {
@@ -122,7 +122,9 @@ function LoginPage() {
       <div className="panels-container">
         <div className="panel left-panel">
           <div className="content">
-            <h3 className="loginh3">New User ?</h3>
+            <h3 className="loginh3">
+              New {name ? <span>{name}</span> : <span>user</span>} ?
+            </h3>
 
             <p className="loginp">
               Hairfinder, your one stop solution for Grooming

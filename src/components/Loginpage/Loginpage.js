@@ -23,14 +23,14 @@ function LoginPage() {
           <form action="#" className="sign-in-form loginForm">
             <h2 className="title">Sign in</h2>
 
-             <div className="input-field">
+            <div className="input-field">
               <FontAwesomeIcon icon={faUser} className="my-auto mx-auto" />
               <input
                 className="LoginInput"
                 type="text"
                 placeholder="Username"
               />
-            </div> 
+            </div>
 
             <div className="input-field">
               <FontAwesomeIcon icon={faEnvelope} className="my-auto mx-auto" />
@@ -80,10 +80,14 @@ function LoginPage() {
               <FontAwesomeIcon icon={faEnvelope} className="my-auto mx-auto" />
               <input className="LoginInput" type="email" placeholder="Email" />
             </div>
-             
+
             <div className="input-field">
               <FontAwesomeIcon icon={faEnvelope} className="my-auto mx-auto" />
-              <input className="LoginInput" type="phone" placeholder="Phone number" />
+              <input
+                className="LoginInput"
+                type="phone"
+                placeholder="Phone number"
+              />
             </div>
 
             <div className="input-field">
@@ -97,9 +101,7 @@ function LoginPage() {
 
             <button className="btn">Sign Up</button>
 
-            <p className="social-text loginp">
-              Or Sign up with 
-            </p>
+            <p className="social-text loginp">Or Sign up with</p>
 
             <div className="social-media">
               <a href="#!" className="social-icon">
@@ -123,10 +125,13 @@ function LoginPage() {
             <h3 className="loginh3">New User ?</h3>
 
             <p className="loginp">
-              Hairfinder, your one stop solution for Grooming 
+              Hairfinder, your one stop solution for Grooming
             </p>
 
-            <button className="btn transparent" onClick={handleSignUpClick}>
+            <button
+              className="btn transparent text-white"
+              onClick={handleSignUpClick}
+            >
               Sign up
             </button>
           </div>
@@ -139,12 +144,12 @@ function LoginPage() {
             <h3 className="loginh3">Already Registered ?</h3>
 
             <p className="loginp">
-            Hairfinder, your one stop solution for Grooming
+              Hairfinder, your one stop solution for Grooming
             </p>
 
             <button
               onClick={handleSignInClick}
-              className="btn transparent"
+              className="btn transparent text-white"
               id="sign-in-btn"
             >
               Sign in

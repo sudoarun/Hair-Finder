@@ -17,6 +17,7 @@ function LoginPage({ name }) {
     username: "",
     password: "",
   });
+  // Onchange for Sign in User
   const onloadSignin = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -24,6 +25,15 @@ function LoginPage({ name }) {
       return { ...user, [name]: value };
     });
   };
+  // ON Change for Sign Up user
+  const onloadSignUp = (e) => {
+    const sign = e.target.name;
+    const value = e.target.value;
+    setSignUser((data) => {
+      return { ...data, [sign]: value };
+    });
+  };
+  // One Submit of Sign In
   const handlesignIn = (e) => {
     e.preventDefault();
     console.log(user);
@@ -33,14 +43,7 @@ function LoginPage({ name }) {
     });
   };
 
-  const onloadSignUp = (e) => {
-    const sign = e.target.name;
-    const value = e.target.value;
-    setSignUser((data) => {
-      return { ...data, [sign]: value };
-    });
-  };
-
+  // on Submit for Sign up User
   const handleSignUp = (e) => {
     e.preventDefault();
     console.log(signUser);

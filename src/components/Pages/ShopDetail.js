@@ -17,7 +17,7 @@ const ShopDetail = () => {
     <div>
       <h1 className="text-white text-center">Shop Details</h1>
       <div className="container">
-        <Slider {...settings}>
+        {/* <Slider {...settings}>
           <div className="px-2">
             <StyleCard />
           </div>
@@ -30,7 +30,21 @@ const ShopDetail = () => {
           <div className="px-2">
             <StyleCard />
           </div>
-        </Slider>
+        </Slider> */}
+        <div className="row">
+          <div className="col">
+            <StyleCard />
+          </div>
+          <div className="col">
+            <StyleCard />
+          </div>
+          <div className="col">
+            <StyleCard />
+          </div>
+          <div className="col">
+            <StyleCard />
+          </div>
+        </div>
       </div>
       <div className="mt-5">
         <h1 className="text-white text-center">
@@ -38,7 +52,7 @@ const ShopDetail = () => {
         </h1>
         <div>
           <div className="container">
-            <Slider {...settings}>
+            {/* <Slider {...settings}>
               <div className="px-2">
                 <StyleCard />
               </div>
@@ -51,7 +65,7 @@ const ShopDetail = () => {
               <div className="px-2">
                 <StyleCard />
               </div>
-            </Slider>
+            </Slider> */}
           </div>
         </div>
       </div>

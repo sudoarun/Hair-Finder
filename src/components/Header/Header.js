@@ -16,7 +16,7 @@ const Header = () => {
               to={"/professional-register"}
               className="me-5 text-decoration-underline text-white"
             >
-              Register as Barber
+              Register as Professional
             </Link>
             <Link to={"/book"} className="me-5 text-white">
               My Booking

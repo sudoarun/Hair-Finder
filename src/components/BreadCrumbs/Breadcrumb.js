@@ -12,7 +12,7 @@ const Breadcrumb = ({ path }) => {
             </Link>
           </li>
           <li
-            className="breadcrumb-item active text-secondary"
+            className="breadcrumb-item active text-secondary text-decoration-underline"
             aria-current="page"
           >
             {path}

@@ -23,7 +23,7 @@ const ShopDetail = () => {
         <span className=" border  py-2 px-4">Shop Details</span>
       </h3>
       <div className="mt-5">
-        <div className="d-flex justify-content-between">
+        <div className="d-flex justify-content-between align-items-center">
           <div>
             <img
               alt=""

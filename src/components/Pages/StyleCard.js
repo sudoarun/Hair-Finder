@@ -13,10 +13,10 @@ const StyleCard = ({ price }) => {
           <h5 className="card-title fw-semibold text-white">Style Name</h5>
           <p className="card-text">
             <span className="fw-bold text-white">
-              Price: <span className="text-primary">{price}</span>
+              Price: <span className="text-primary">{price} /-</span>
             </span>
           </p>
-          <a href="#!" className="border px-4 py-2 fw-bold text-success">
+          <a href="#!" className="border px-4 py-2 fw-bold text-warning">
             Buy
           </a>
         </div>

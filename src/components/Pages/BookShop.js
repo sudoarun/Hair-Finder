@@ -57,8 +57,8 @@ const BookShop = () => {
                   <li className="py-2 my-1 px-5">10:30 AM</li>
                   <li className="py-2 my-1 px-5">11:00 AM</li>
                   <li className="py-2 my-1 px-5">11:30 AM</li>
-                  <li className="py-2 my-1 px-5">12:00 AM</li>
-                  <li className="py-2 my-1 px-5">12:30 AM</li>
+                  <li className="py-2 my-1 px-5">12:00 PM</li>
+                  <li className="py-2 my-1 px-5">12:30 PM</li>
                   <li className="py-2 my-1 px-5">01:00 PM</li>
                   <li className="py-2 my-1 px-5">01:30 PM</li>
                   <li className="py-2 my-1 px-5">02:00 PM</li>

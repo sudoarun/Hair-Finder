@@ -9,14 +9,14 @@ const StyleCard = ({ price }) => {
           className="card-img-top"
           alt="Fissure in Sandstone"
         />
-        <div className="card-body" style={{ backgroundColor: "#222222" }}>
-          <h5 className="card-title fw-semibold text-white">Style Name</h5>
+        <div className="card-body" style={{ backgroundColor: "white" }}>
+          <h5 className="card-title fw-semibold">Style Name</h5>
           <p className="card-text">
-            <span className="fw-bold text-white">
-              Price: <span className="text-primary">{price} /-</span>
+            <span className="fw-bold">
+              Price: <span className="text-primary fw-bold">{price} /-</span>
             </span>
           </p>
-          <a href="#!" className="border px-4 py-2 fw-bold text-warning">
+          <a href="#!" className="px-5 py-2 fw-bold text-white bg-black">
             Buy
           </a>
         </div>

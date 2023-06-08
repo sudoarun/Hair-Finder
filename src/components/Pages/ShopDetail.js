@@ -20,7 +20,9 @@ const ShopDetail = () => {
         <Breadcrumb path="Shop Details" />
       </div>
       <h3 className="text-white text-center">
-        <span className=" border  py-2 px-4">Shop Details</span>
+        <span className=" border  py-2 ps-4">
+          Shop <span className="bg-white text-black py-2 pe-4">Details</span>
+        </span>
       </h3>
       <div className="mt-5">
         <div className="d-flex justify-content-between align-items-center">

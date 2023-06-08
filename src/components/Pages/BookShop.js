@@ -81,59 +81,79 @@ const BookShop = () => {
       <div className="mt-5 bg-white">
         <h4 className=" text-center pt-5">
           <span className="border ps-3 py-3 fw-bold">
-            Free Services
+            Payment
             <span className="text-white fw-normal bg-black ms-1 ps-1 py-3 pe-3">
-              If Eligible
+              Section
             </span>
           </span>
         </h4>
-        <div className="d-flex mt-5">
-          <div>
+        <div className="row mt-5 pb-3">
+          <div className="col-4 text-center">
             <img
               src="https://img.freepik.com/premium-vector/hand-drawn-barbershop-illustration_9829-82.jpg?size=626&ext=jpg&ga=GA1.2.1543915203.1685795707&semt=ais"
               alt=""
-              className="w-50 border"
+              className="w-50 ms-4"
             />
           </div>
-          <div>
-            <div>
-              <div>
-                <input type="checkbox" id="cbx2" style={{ display: "none" }} />
-                <label for="cbx2" class="check">
-                  <svg width="30px" height="30px" viewBox="0 0 18 18">
-                    <path d="M 1 9 L 1 9 c 0 -5 3 -8 8 -8 L 9 1 C 14 1 17 5 17 9 L 17 9 c 0 4 -4 8 -8 8 L 9 17 C 5 17 1 14 1 9 L 1 9 Z"></path>
-                    <polyline points="1 9 7 14 15 4"></polyline>
-                  </svg>
+          <div className="col-4 d-flex justify-content-center">
+            <div className="">
+              <h6 className="fw-bold">Additional Services</h6>
+              <div className="d-block pt-2">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Shampoo (80rs)
                 </label>
-                <label>Shampoo</label>
-                <input type="checkbox" id="cbx2" style={{ display: "none" }} />
-                <label for="cbx2" class="check">
-                  <svg width="30px" height="30px" viewBox="0 0 18 18">
-                    <path d="M 1 9 L 1 9 c 0 -5 3 -8 8 -8 L 9 1 C 14 1 17 5 17 9 L 17 9 c 0 4 -4 8 -8 8 L 9 17 C 5 17 1 14 1 9 L 1 9 Z"></path>
-                    <polyline points="1 9 7 14 15 4"></polyline>
-                  </svg>
+              </div>
+              <div className="d-block">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Head Massage (50rs)
                 </label>
-                <label>Hair massage</label>
-                <input type="checkbox" id="cbx2" style={{ display: "none" }} />
-                <label for="cbx2" class="check">
-                  <svg width="30px" height="30px" viewBox="0 0 18 18">
-                    <path d="M 1 9 L 1 9 c 0 -5 3 -8 8 -8 L 9 1 C 14 1 17 5 17 9 L 17 9 c 0 4 -4 8 -8 8 L 9 17 C 5 17 1 14 1 9 L 1 9 Z"></path>
-                    <polyline points="1 9 7 14 15 4"></polyline>
-                  </svg>
+              </div>
+              <div className="d-block">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Face Mask (80rs)
                 </label>
-                <label>Face Mask</label>
               </div>
             </div>
           </div>
-          <div>
-            <h4 className=" text-center ">
-              <span className="border ps-3 py-3 fw-bold">
-                Paym
-                <span className="text-white fw-normal bg-black ms-1 ps-1 py-3 pe-3">
-                  ent
-                </span>
-              </span>
-            </h4>
+          <div className="col-4 d-flex justify-content-center">
+            <div className="w-75">
+              <h6 className="fw-bold text-center">Services Details</h6>
+              <div className="pt-2">
+                <div className="d-flex justify-content-between">
+                  <span>Total Services :</span>
+                  <span>Name of Services</span>
+                </div>
+                <div className="d-flex justify-content-between">
+                  <span>Book Time :</span>
+                  <span>23/05/23 at 12pm</span>
+                </div>
+                <div className="d-flex justify-content-between">
+                  <span>Total Bill :</span>
+                  <span className="fw-bold">3000rs</span>
+                </div>
+              </div>
+              <button className="px-5 py-2 bg-black text-white border-0 mt-3">
+                Paynow
+              </button>
+            </div>
           </div>
         </div>
       </div>

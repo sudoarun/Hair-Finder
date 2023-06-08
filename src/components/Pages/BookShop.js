@@ -2,9 +2,22 @@ import React, { useState } from "react";
 import { DayPicker } from "react-day-picker";
 import BreadCrumb from "../BreadCrumbs/Breadcrumb";
 import "react-day-picker/dist/style.css";
+// import { format } from "date-fns";
 
 const BookShop = () => {
-  const [selected, setSelected] = useState(Date);
+  let today = new Date();
+  let day = today.getDate();
+  let year = today.getFullYear();
+  const [selected, setSelected] = useState(Date || (() => day));
+
+  // console.log(year, month);
+  // console.log(selected);
+  // let footer = <p>Please pick a day.</p>;
+  // if (selected) {
+  //   footer = <p>You picked {format(selected, "")}.</p>;
+  // }
+  // console.log(footer);
+
   return (
     <div className="container">
       <BreadCrumb path={"Booking"} />
@@ -21,9 +34,19 @@ const BookShop = () => {
           <div className="border p-2">
             <DayPicker
               mode="single"
+              required
               selected={selected}
               onSelect={setSelected}
+              footer={selected.toString().substring(0, 15)}
+              fromYear={year}
+              fromMonth={today}
+              showOutsideDays
+              fixedWeeks
+              modifiersClassNames={{
+                today: "my-today",
+              }}
             />
+            {/* <h6>{selected}</h6> */}
           </div>
         </div>
         <div className="text-white">

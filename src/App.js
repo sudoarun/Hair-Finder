@@ -13,8 +13,8 @@ import BookShop from "./components/Pages/BookShop";
 import User from "./components/Pages/User";
 import Help from "./components/Pages/Help";
 import BarberRegister from "./components/Pages/BarberRegister";
-import SearchShop from "./components/Pages/SearchShop";
 import Schedule from "./components/Pages/Schedule";
+import SearchShop from "./components/Search/SearchShop";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);

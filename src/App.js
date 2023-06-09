@@ -16,7 +16,7 @@ import BarberRegister from "./components/Pages/BarberRegister";
 import SearchShop from "./components/Pages/SearchShop";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   function PrivateRoute({ isLoggedIn, children }) {
     if (!isLoggedIn) {

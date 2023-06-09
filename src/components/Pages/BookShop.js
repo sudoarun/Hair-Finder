@@ -11,14 +11,14 @@ const BookShop = () => {
   return (
     <div className="">
       <div className="container">
-        <BreadCrumb path={"Booking"} />
+        <BreadCrumb path={"Booking"} link={"Shop"} />
       </div>
       <h4 className="text-white text-center ">
         <span className="border pe-4 py-2">
           <span className="py-2 ps-4 bg-white text-black">Book the</span> Shop
         </span>
       </h4>
-      
+
       <div className=" container mt-5 d-flex justify-content-between align-items-center">
         <div className="text-white">
           <span className="d-block">Shop Name</span>

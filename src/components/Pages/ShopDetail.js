@@ -64,22 +64,22 @@ const ShopDetail = () => {
           <div className="row">
             <div className="col">
               <div className=" ">
-                <StyleCard price={120} />
+                <StyleCard price={120} book="/booking" />
               </div>
             </div>
             <div className="col">
               <div className=" ">
-                <StyleCard price={250} />
+                <StyleCard price={250} book="/booking" />
               </div>
             </div>
             <div className="col">
               <div className="">
-                <StyleCard price={430} />
+                <StyleCard price={430} book="/booking" />
               </div>
             </div>
             <div className="col">
               <div className="">
-                <StyleCard price={299} />
+                <StyleCard price={299} book="/booking" />
               </div>
             </div>
           </div>

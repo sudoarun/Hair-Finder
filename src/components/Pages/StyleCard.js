@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const StyleCard = ({ price }) => {
+const StyleCard = ({ price, book }) => {
   return (
     <div>
       <div className="card">
@@ -16,9 +17,9 @@ const StyleCard = ({ price }) => {
               Price: <span className="text-primary fw-bold">{price} /-</span>
             </span>
           </p>
-          <a href="#!" className="px-5 py-2 fw-bold text-white bg-black">
+          <Link to={book} className="px-5 py-2 fw-bold text-white bg-black">
             Buy
-          </a>
+          </Link>
         </div>
       </div>
     </div>

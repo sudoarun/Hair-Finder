@@ -18,6 +18,7 @@ const BookShop = () => {
           <span className="py-2 ps-4 bg-white text-black">Book the</span> Shop
         </span>
       </h4>
+      
       <div className=" container mt-5 d-flex justify-content-between align-items-center">
         <div className="text-white">
           <span className="d-block">Shop Name</span>
@@ -25,6 +26,7 @@ const BookShop = () => {
           <span className="d-block">Shop Rating</span>
           <span className="d-block">Shop Time</span>
         </div>
+
         <div className="text-white ">
           <div
             className="d-flex border p-2 text-center"

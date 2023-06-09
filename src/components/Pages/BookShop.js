@@ -82,8 +82,9 @@ const BookShop = () => {
           </div>
         </div>
       </div>
-      <div className="mt-5 bg-white">
-        <h4 className=" text-center pt-5">
+      {/* Payment Section */}
+      <div className="mt-5 bg-white container-fluid">
+        <h4 className=" text-center pt-4">
           <span className="border ps-3 py-3 fw-bold">
             Payment
             <span className="text-white fw-normal bg-black ms-1 ps-1 py-3 pe-3">
@@ -93,14 +94,16 @@ const BookShop = () => {
         </h4>
         <div className="row mt-5 pb-3">
           <div className="col-4 text-center">
-            <img
-              src="https://img.freepik.com/premium-vector/hand-drawn-barbershop-illustration_9829-82.jpg?size=626&ext=jpg&ga=GA1.2.1543915203.1685795707&semt=ais"
-              alt=""
-              className="w-50 ms-4"
-            />
+            <div className="w-100">
+              <img
+                src="https://img.freepik.com/premium-vector/hand-drawn-barbershop-illustration_9829-82.jpg?size=626&ext=jpg&ga=GA1.2.1543915203.1685795707&semt=ais"
+                alt=""
+                className="w-50"
+              />
+            </div>
           </div>
           <div className="col-4 d-flex justify-content-center">
-            <div className="">
+            <div className="w-100">
               <h6 className="fw-bold">Additional Services</h6>
               <div className="d-block pt-2">
                 <input
@@ -137,7 +140,7 @@ const BookShop = () => {
               </div>
             </div>
           </div>
-          <div className="col-4 d-flex justify-content-center">
+          <div className="col-4 d-flex justify-content-center me-0 overflow-hidden">
             <div className="w-75">
               <h6 className="fw-bold text-center">Services Details</h6>
               <div className="pt-2">

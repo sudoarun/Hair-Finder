@@ -109,34 +109,34 @@ const BookShop = () => {
               <h6 className="fw-bold">Additional Services</h6>
               <div className="d-block pt-2">
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="checkbox"
                   value=""
                   id="flexCheckDefault"
                 />
-                <label class="form-check-label" for="flexCheckDefault">
+                <label className="form-check-label" for="flexCheckDefault">
                   Shampoo (80rs)
                 </label>
               </div>
               <div className="d-block">
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="checkbox"
                   value=""
                   id="flexCheckDefault"
                 />
-                <label class="form-check-label" for="flexCheckDefault">
+                <label className="form-check-label" for="flexCheckDefault">
                   Head Massage (50rs)
                 </label>
               </div>
               <div className="d-block">
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="checkbox"
                   value=""
                   id="flexCheckDefault"
                 />
-                <label class="form-check-label" for="flexCheckDefault">
+                <label className="form-check-label" for="flexCheckDefault">
                   Face Mask (80rs)
                 </label>
               </div>

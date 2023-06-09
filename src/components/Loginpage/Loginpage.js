@@ -83,7 +83,7 @@ function LoginPage() {
              
             <div className="input-field">
               <FontAwesomeIcon icon={faEnvelope} className="my-auto mx-auto" />
-              <input className="LoginInput" type="phone" placeholder="Phone number" />
+              <input className="LoginInput" type="phone" placeholder="Phone" />
             </div>
 
             <div className="input-field">
@@ -159,3 +159,5 @@ function LoginPage() {
 }
 
 export default LoginPage;
+
+// export

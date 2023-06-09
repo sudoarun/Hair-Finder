@@ -18,7 +18,7 @@ const Header = () => {
             >
               Register as Professional
             </Link>
-            <Link to={"/booking"} className="me-5 text-white">
+            <Link to={"/schedule"} className="me-5 text-white">
               My Booking
             </Link>
             <Link to={"/help"} className="me-5 text-white">

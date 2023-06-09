@@ -14,6 +14,7 @@ import User from "./components/Pages/User";
 import Help from "./components/Pages/Help";
 import BarberRegister from "./components/Pages/BarberRegister";
 import SearchShop from "./components/Pages/SearchShop";
+import Schedule from "./components/Pages/Schedule";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -45,6 +46,7 @@ function App() {
         <Route path="/help" element={<Help />} />
         <Route path="/Login" element={<Loginpage />} />
         <Route path="/search" element={<SearchShop />} />
+        <Route path="/schedule" element={<Schedule />} />
       </Routes>
     </>
   );

@@ -1,7 +1,9 @@
-import React from 'react'
+import React from "react";
 
 export default function Schedule() {
   return (
-    <div>Schedule</div>
-  )
+    <div>
+      <h1 className="text-white">Hello Schedule</h1>
+    </div>
+  );
 }

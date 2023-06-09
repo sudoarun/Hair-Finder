@@ -148,6 +148,9 @@ function LoginPage({ name }) {
             </div>
             <div className="input-field">
               <FontAwesomeIcon icon={faEnvelope} className="my-auto mx-auto" />
+
+              
+
               <input
                 className="LoginInput"
                 type="phone"
@@ -156,6 +159,7 @@ function LoginPage({ name }) {
                 onChange={onloadSignUp}
                 placeholder="Phone number"
               />
+
             </div>
             <div className="input-field">
               <FontAwesomeIcon icon={faLock} className="my-auto mx-auto" />
@@ -235,3 +239,5 @@ function LoginPage({ name }) {
 }
 
 export default LoginPage;
+
+// export

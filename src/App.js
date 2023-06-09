@@ -13,6 +13,7 @@ import BookShop from "./components/Pages/BookShop";
 import User from "./components/Pages/User";
 import Help from "./components/Pages/Help";
 import BarberRegister from "./components/Pages/BarberRegister";
+import SearchShop from "./components/Pages/SearchShop";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -43,6 +44,7 @@ function App() {
         <Route path="/professional-register" element={<BarberRegister />} />
         <Route path="/help" element={<Help />} />
         <Route path="/Login" element={<Loginpage />} />
+        <Route path="/search" element={<SearchShop />} />
       </Routes>
     </>
   );

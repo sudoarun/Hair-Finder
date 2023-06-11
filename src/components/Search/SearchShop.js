@@ -6,20 +6,9 @@ import SearchContent from "./SearchContent";
 // import { Link } from "react-router-dom";
 const SearchShop = () => {
   return (
-    <div>
+    <div className="mb-3">
       <div className="bg-white mt-3">
         <div className="container pt-3 pb-5">
-          {/* <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <Link to={"/"} className="text-black">
-                Home
-              </Link>
-            </li>
-            <li className="breadcrumb-item">
-              <span>Search Page</span>
-            </li>
-          </ol> */}
-
           <BreadCrumbs text="black" path={"Search Page"} link={"search"} />
           <div className="d-flex justify-content-center pt-3">
             <input
@@ -41,7 +30,12 @@ const SearchShop = () => {
             <span>Filter</span>
           </div>
           <div className="border p-3">
-            <SearchContent />
+            <div className="overflow-auto" style={{ height: "500px" }}>
+              <SearchContent />
+              <SearchContent />
+              <SearchContent />
+              <SearchContent />
+            </div>
           </div>
         </div>
       </div>

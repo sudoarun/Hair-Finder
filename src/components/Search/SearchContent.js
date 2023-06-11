@@ -5,7 +5,7 @@ const SearchContent = () => {
   const ShopImg =
     "https://img.freepik.com/premium-vector/vintage-art-illustration-man-getting-his-hair-cut_697324-8454.jpg?size=626&ext=jpg&ga=GA1.1.1543915203.1685795707&semt=sph";
   return (
-    <div className="row ">
+    <div className="row pb-3 mt-3 border-bottom">
       <div className="col-3">
         <img alt="" src={ShopImg} className="w-100 rounded" />
       </div>

@@ -25,16 +25,19 @@ const SearchShop = () => {
       </div>
       <div className="mt-5">
         <div className="container">
-          <div className="d-flex justify-content-between text-white mb-3">
+          <div className="d-flex justify-content-between text-white mb-3 align-items-center">
             <h6>Search Results ...</h6>
-            <span>Filter</span>
+            <div className="d-flex align-items-center">
+              <span class="material-icons-outlined">tune</span>
+              <span className="ms-2">Filter</span>
+            </div>
           </div>
           <div className="border p-3">
             <div className="overflow-auto" style={{ height: "500px" }}>
-              <SearchContent />
-              <SearchContent />
-              <SearchContent />
-              <SearchContent />
+              <SearchContent shop="/shop" />
+              <SearchContent shop="/shop" />
+              <SearchContent shop="/shop" />
+              <SearchContent shop="/shop" />
             </div>
           </div>
         </div>

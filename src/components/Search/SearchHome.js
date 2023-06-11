@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SearchHome = () => {
   return (
@@ -19,9 +20,12 @@ const SearchHome = () => {
             id="HomeSearch"
             className="text- w-100 border-0 ms-2 py-3"
           />
-          <span className="material-icons bg-black text-white py-3 px-3">
+          <Link
+            to={"search"}
+            className="material-icons bg-black text-white py-3 px-3"
+          >
             search
-          </span>
+          </Link>
         </div>
       </div>
     </div>

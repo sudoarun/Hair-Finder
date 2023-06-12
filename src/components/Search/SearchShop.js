@@ -7,7 +7,7 @@ import SearchContent from "./SearchContent";
 const SearchShop = () => {
   return (
     <div className="mb-3">
-      <div className="bg-white mt-3">
+      <div className="bg-white ">
         <div className="container pt-3 pb-5">
           <BreadCrumbs text="black" path={"Search Page"} link={"search"} />
           <div className="d-flex justify-content-center pt-3">

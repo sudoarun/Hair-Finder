@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div>
       <div>
-        <div className="bg-black text-white py-3">
+        <div className="bg-black text-white py-2">
           <div className="d-flex justify-content-between container-fluid px-sm-5 align-items-center">
             <Link to={"/"}>
               <img src={logo} width={50} alt="profile" />

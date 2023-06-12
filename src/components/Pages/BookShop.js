@@ -93,7 +93,7 @@ const BookShop = () => {
                   </div>
                 </div>
               </div>
-              <div className="container mt-4">
+              <div className="container mt-4" id="mobileSchedlueMenu">
                 <h6 className="fw-bold text-center mb-3">Pick Your Time</h6>
                 <Slider {...settings} className="liStyle">
                   <li className="py-2 my-1 px-5">10:00&nbsp;AM</li>
@@ -134,17 +134,17 @@ const BookShop = () => {
             </span>
           </span>
         </h4>
-        <div className="row mt-5 pb-3">
-          <div className="col-4 text-center">
+        <div className="row mt-5 align-items-center pb-3">
+          <div className="col-5 col-sm-4 text-center">
             <div className="w-100">
               <img
                 src="https://img.freepik.com/premium-vector/hand-drawn-barbershop-illustration_9829-82.jpg?size=626&ext=jpg&ga=GA1.2.1543915203.1685795707&semt=ais"
                 alt=""
-                className="w-50"
+                className="w-100"
               />
             </div>
           </div>
-          <div className="col-4 d-flex justify-content-center">
+          <div className="col-7 col-sm-4 d-flex justify-content-center">
             <div className="w-100">
               <h6 className="fw-bold">Additional Services</h6>
               <div className="d-block pt-2">
@@ -182,7 +182,7 @@ const BookShop = () => {
               </div>
             </div>
           </div>
-          <div className="col-4 d-flex justify-content-center me-0 overflow-hidden">
+          <div className="col-12 col-sm-4 mt-5 d-flex justify-content-center me-0 overflow-hidden">
             <div className="w-75">
               <h6 className="fw-bold text-center">Services Details</h6>
               <div className="pt-2">

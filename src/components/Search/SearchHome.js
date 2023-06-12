@@ -13,7 +13,7 @@ const SearchHome = () => {
         </h4>
       </div>
       <div className="d-flex justify-content-center mt-5">
-        <div className="align-items-center d-flex border w-50 bg-white">
+        <div className="align-items-center d-flex border w-sm-50 bg-white">
           <input
             placeholder="Search Your Service..."
             type="search"

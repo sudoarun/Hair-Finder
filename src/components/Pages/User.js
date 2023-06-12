@@ -1,10 +1,34 @@
 import React from "react";
+import "./User.css";
 
-const User = () => {
+const User = ({ user }) => {
   return (
-    <div>
-      <h1 className="text-white text-center">User</h1>
-    </div>
+      <div class="profile-page">
+        
+       {/* <div class="profile-header">
+         <h1> {user.name}</h1>
+         <p>Email : {user.email}</p>
+         <p>Age : {user.age}</p>
+         <p>Location : {user.location}</p>
+        </div> */}
+
+        <div class="profile-details">
+          <h2>Your Previous Styles</h2>
+          <p>Lorem </p>
+        </div>
+      
+        <div class="review-info">
+          <h3></h3>
+          <p></p>
+          <p></p>
+        </div>
+
+        
+        
+      </div>
+    
+    
+      
   );
 };
 

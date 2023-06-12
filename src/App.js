@@ -17,7 +17,9 @@ import Schedule from "./components/Pages/Schedule";
 import SearchShop from "./components/Search/SearchShop";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  
 
   function PrivateRoute({ isLoggedIn, children }) {
     if (!isLoggedIn) {

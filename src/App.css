@@ -42,3 +42,9 @@ body {
     padding-right: 0rem;
   }
 }
+.responsiveTimeSchedule {
+  display: none;
+}
+/* .liStyle {
+  list-style-type: none;
+} */

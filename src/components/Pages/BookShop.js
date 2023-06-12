@@ -2,11 +2,19 @@ import React, { useState } from "react";
 import { DayPicker } from "react-day-picker";
 import BreadCrumb from "../BreadCrumbs/Breadcrumb";
 import "react-day-picker/dist/style.css";
+import Slider from "react-slick";
 
 const BookShop = () => {
   const [selected, setSelected] = useState(Date);
   let today = new Date();
   let year = today.getFullYear();
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+  };
 
   return (
     <div className="">
@@ -19,66 +27,98 @@ const BookShop = () => {
         </span>
       </h4>
 
-      <div className=" container mt-5 d-flex justify-content-between align-items-center">
-        <div className="text-white">
-          <span className="d-block">Shop Name</span>
-          <span className="d-block">Service Name</span>
-          <span className="d-block">Shop Rating</span>
-          <span className="d-block">Shop Time</span>
-        </div>
-
-        <div className="text-white ">
-          <div
-            className="d-flex border p-2 text-center"
-            style={{ height: "400px" }}
-          >
-            <div>
-              <h6 className="fw-bold">Pick Your Date</h6>
-              <div className="">
-                <DayPicker
-                  mode="single"
-                  required
-                  selected={selected}
-                  onSelect={setSelected}
-                  footer={selected.toString().substring(0, 15)}
-                  fromYear={year}
-                  fromMonth={today}
-                  showOutsideDays
-                  fixedWeeks
-                  modifiersClassNames={{
-                    today: "my-today",
-                  }}
-                />
-              </div>
+      <div className="container">
+        <div className="row mt-5  align-items-center">
+          <div className="col-12 col-sm-6">
+            <div className="text-white">
+              <span className="d-block">Shop Name</span>
+              <span className="d-block">Service Name</span>
+              <span className="d-block">Shop Rating</span>
+              <span className="d-block">Shop Time</span>
             </div>
-            <div className="h-100">
-              <h6 className="fw-bold">Pick Your Time</h6>
-              <div className="text-white scheduleTime h-100 mt-5">
-                <div className="overflow-auto h-75">
-                  <li className="py-2 my-1 px-5">10:00 AM</li>
-                  <li className="py-2 my-1 px-5">10:30 AM</li>
-                  <li className="py-2 my-1 px-5">11:00 AM</li>
-                  <li className="py-2 my-1 px-5">11:30 AM</li>
-                  <li className="py-2 my-1 px-5">12:00 PM</li>
-                  <li className="py-2 my-1 px-5">12:30 PM</li>
-                  <li className="py-2 my-1 px-5">01:00 PM</li>
-                  <li className="py-2 my-1 px-5">01:30 PM</li>
-                  <li className="py-2 my-1 px-5">02:00 PM</li>
-                  <li className="py-2 my-1 px-5">02:30 PM</li>
-                  <li className="py-2 my-1 px-5">03:00 PM</li>
-                  <li className="py-2 my-1 px-5">03:30 PM</li>
-                  <li className="py-2 my-1 px-5">04:00 PM</li>
-                  <li className="py-2 my-1 px-5">04:30 PM</li>
-                  <li className="py-2 my-1 px-5">05:00 PM</li>
-                  <li className="py-2 my-1 px-5">05:30 PM</li>
-                  <li className="py-2 my-1 px-5">06:00 PM</li>
-                  <li className="py-2 my-1 px-5">06:30 PM</li>
-                  <li className="py-2 my-1 px-5">07:00 PM</li>
-                  <li className="py-2 my-1 px-5">07:30 PM</li>
-                  <li className="py-2 my-1 px-5">08:00 PM</li>
-                  <li className="py-2 my-1 px-5">08:30 PM</li>
-                  <li className="py-2 my-1 px-5">09:00 PM</li>
+          </div>
+          <div className="col-12 col-sm-6 mt-3">
+            <div className="text-white ">
+              <div
+                className="d-flex border justify-content-center p-2 text-center"
+                style={{ height: "400px" }}
+              >
+                <div>
+                  <h6 className="fw-bold">Pick Your Date</h6>
+                  <div className="">
+                    <DayPicker
+                      mode="single"
+                      required
+                      selected={selected}
+                      onSelect={setSelected}
+                      footer={selected.toString().substring(0, 15)}
+                      fromYear={year}
+                      fromMonth={today}
+                      showOutsideDays
+                      fixedWeeks
+                      modifiersClassNames={{
+                        today: "my-today",
+                      }}
+                    />
+                  </div>
                 </div>
+                <div className="h-100 responsiveTimeSchedule">
+                  <h6 className="fw-bold">Pick Your Time</h6>
+                  <div className="text-white scheduleTime h-100 mt-5">
+                    <div className="overflow-auto h-75">
+                      <li className="py-2 my-1 px-5">10:00 AM</li>
+                      <li className="py-2 my-1 px-5">10:30 AM</li>
+                      <li className="py-2 my-1 px-5">11:00 AM</li>
+                      <li className="py-2 my-1 px-5">11:30 AM</li>
+                      <li className="py-2 my-1 px-5">12:00 PM</li>
+                      <li className="py-2 my-1 px-5">12:30 PM</li>
+                      <li className="py-2 my-1 px-5">01:00 PM</li>
+                      <li className="py-2 my-1 px-5">01:30 PM</li>
+                      <li className="py-2 my-1 px-5">02:00 PM</li>
+                      <li className="py-2 my-1 px-5">02:30 PM</li>
+                      <li className="py-2 my-1 px-5">03:00 PM</li>
+                      <li className="py-2 my-1 px-5">03:30 PM</li>
+                      <li className="py-2 my-1 px-5">04:00 PM</li>
+                      <li className="py-2 my-1 px-5">04:30 PM</li>
+                      <li className="py-2 my-1 px-5">05:00 PM</li>
+                      <li className="py-2 my-1 px-5">05:30 PM</li>
+                      <li className="py-2 my-1 px-5">06:00 PM</li>
+                      <li className="py-2 my-1 px-5">06:30 PM</li>
+                      <li className="py-2 my-1 px-5">07:00 PM</li>
+                      <li className="py-2 my-1 px-5">07:30 PM</li>
+                      <li className="py-2 my-1 px-5">08:00 PM</li>
+                      <li className="py-2 my-1 px-5">08:30 PM</li>
+                      <li className="py-2 my-1 px-5">09:00 PM</li>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="container mt-4">
+                <h6 className="fw-bold text-center mb-3">Pick Your Time</h6>
+                <Slider {...settings} className="liStyle">
+                  <li className="py-2 my-1 px-5">10:00&nbsp;AM</li>
+                  <li className="py-2 my-1 px-5">10:30&nbsp;AM</li>
+                  <li className="py-2 my-1 px-5">11:00&nbsp;AM</li>
+                  <li className="py-2 my-1 px-5">11:30&nbsp;AM</li>
+                  <li className="py-2 my-1 px-5">12:00&nbsp;PM</li>
+                  <li className="py-2 my-1 px-5">12:30&nbsp;PM</li>
+                  <li className="py-2 my-1 px-5">01:00&nbsp;PM</li>
+                  <li className="py-2 my-1 px-5">01:30&nbsp;PM</li>
+                  <li className="py-2 my-1 px-5">02:00&nbsp;PM</li>
+                  <li className="py-2 my-1 px-5">02:30&nbsp;PM</li>
+                  <li className="py-2 my-1 px-5">03:00&nbsp;PM</li>
+                  <li className="py-2 my-1 px-5">03:30&nbsp;PM</li>
+                  <li className="py-2 my-1 px-5">04:00&nbsp;PM</li>
+                  <li className="py-2 my-1 px-5">04:30&nbsp;PM</li>
+                  <li className="py-2 my-1 px-5">05:00&nbsp;PM</li>
+                  <li className="py-2 my-1 px-5">05:30&nbsp;PM</li>
+                  <li className="py-2 my-1 px-5">06:00&nbsp;PM</li>
+                  <li className="py-2 my-1 px-5">06:30&nbsp;PM</li>
+                  <li className="py-2 my-1 px-5">07:00&nbsp;PM</li>
+                  <li className="py-2 my-1 px-5">07:30&nbsp;PM</li>
+                  <li className="py-2 my-1 px-5">08:00&nbsp;PM</li>
+                  <li className="py-2 my-1 px-5">08:30&nbsp;PM</li>
+                </Slider>
               </div>
             </div>
           </div>

@@ -1,20 +1,49 @@
 import React from "react";
 import "./User.css";
+import Slider from "react-slick";
 
-const User = ({ user }) => {
+const User = () => {
+  const Slide={
+    dots: true,
+    infinite: true,
+    // eslint-disable-next-line no-dupe-keys
+    dots: false,
+    speed: 500,
+    useTransform: true,
+    slidesToShow: 3,
+    slidesToScroll: 2,
+  }
   return (
+    <div>
+    <div className="container">
       <div class="profile-page">
+        <div className="row">
+          <div className="col">
+            <img src="https://img.freepik.com/premium-vector/realistic-sunbed-illustration_23-2149443982.jpg?size=626&ext=jpg" alt="" className="w-50"/>
+          </div>
+          <div className="col">
+            <div class="text-white">
+         <h1>Name : Arun </h1>
+         <p>Mobile : 9993335555</p>
+         <p>Email : yourmail@gmail.com</p>
+         <p>Age : 25</p>
+         <p>Location : India </p>
+        </div> 
+          </div>
+        </div>
         
-       {/* <div class="profile-header">
-         <h1> {user.name}</h1>
-         <p>Email : {user.email}</p>
-         <p>Age : {user.age}</p>
-         <p>Location : {user.location}</p>
-        </div> */}
-
-        <div class="profile-details">
-          <h2>Your Previous Styles</h2>
-          <p>Lorem </p>
+      </div>
+      
+    </div>
+    <div className="bg-white">
+      <div class=" container">
+          <h2 className="">Recently Visited Saloons</h2>
+         <Slider {...Slide}>
+         
+            
+            
+        
+         </Slider>
         </div>
       
         <div class="review-info">
@@ -22,10 +51,10 @@ const User = ({ user }) => {
           <p></p>
           <p></p>
         </div>
-
-        
-        
-      </div>
+    </div>
+    
+    </div>
+      
     
     
       

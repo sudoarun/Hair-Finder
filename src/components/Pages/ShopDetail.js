@@ -26,14 +26,14 @@ const ShopDetail = () => {
       </h3>
       <div className="mt-5">
         <div className="d-flex justify-content-between align-items-center">
-          <div>
+          <div className="w-50">
             <img
               alt=""
               src="https://img.freepik.com/premium-photo/beauty-saloon-eyebrow-care_524291-978.jpg?size=626&ext=jpg&ga=GA1.2.1543915203.1685795707&semt=ais"
-              className=" w-50"
+              className="w-100"
             />
           </div>
-          <div className="w-50">
+          <div className="w-50 ms-3">
             <div className="text-white">
               <span className="d-block">Shop Name</span>
               <span className="d-block">Shop Timing</span>
@@ -62,22 +62,22 @@ const ShopDetail = () => {
             <span className="text-decoration-underline">Professional</span>
           </h3>
           <div className="row">
-            <div className="col">
+            <div className="col-6 col-sm-3 mt-2">
               <div className=" ">
                 <StyleCard price={120} book="/booking" />
               </div>
             </div>
-            <div className="col">
+            <div className="col-6 col-sm-3 mt-2">
               <div className=" ">
                 <StyleCard price={250} book="/booking" />
               </div>
             </div>
-            <div className="col">
+            <div className="col-6 col-sm-3 mt-2">
               <div className="">
                 <StyleCard price={430} book="/booking" />
               </div>
             </div>
-            <div className="col">
+            <div className="col-6 col-sm-3 mt-2">
               <div className="">
                 <StyleCard price={299} book="/booking" />
               </div>

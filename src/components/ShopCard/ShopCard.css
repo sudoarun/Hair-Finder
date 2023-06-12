@@ -1,7 +1,9 @@
-.w-85 {
+.responsiveWidth {
   width: 85%;
 }
-/* 
-.slick-next {
-  background: red !important;
-} */
+@media (max-width: 700px) {
+  .responsiveWidth {
+    width: 95%;
+    height: 40%;
+  }
+}

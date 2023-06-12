@@ -17,7 +17,7 @@ const ShopCard = () => {
   return (
     <div className="d-flex justify-content-center">
       <div
-        className=" w-85 mt-n5 px-4 card pt-3 pb-3"
+        className=" responsiveWidth mt-n5 px-4 card pt-3 pb-3"
         style={{ backgroundColor: "#2D2727" }}
       >
         <Slider {...settings}>

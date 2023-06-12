@@ -25,3 +25,20 @@ body {
 .overflow-auto::-webkit-scrollbar {
   display: none;
 }
+
+.responsiveSearchHome {
+  width: 75%;
+}
+.aboutRating {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+@media (max-width: 700px) {
+  .responsiveSearchHome {
+    width: 90%;
+  }
+  .aboutRating {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+}

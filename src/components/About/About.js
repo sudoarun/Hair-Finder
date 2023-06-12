@@ -40,8 +40,8 @@ const About = () => {
               />
             </div>
           </div>
-          <div className="container px-5">
-            <div className="d-flex justify-content-between text-center">
+          <div className="container ">
+            <div className="d-flex justify-content-between text-center aboutRating">
               <div>
                 <span className="text-primary fw-bold fs-1">2K+</span>
                 <p>Customers</p>

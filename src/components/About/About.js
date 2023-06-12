@@ -10,8 +10,8 @@ const About = () => {
               Who We Are
             </span>
           </h3>
-          <div className="d-flex align-items-center mt-2">
-            <div>
+          <div className="row align-items-center mt-2">
+            <div className="col-12 col-sm-6 order-1 order-sm-0">
               <p>
                 Welcome to <strong className="text-primary">HairFinder</strong>,
                 your one-stop-shop for finding the perfect hair salon near you!
@@ -32,11 +32,11 @@ const About = () => {
               </p>
             </div>
 
-            <div className="w-50">
+            <div className="col-12 col-sm-6 order-0 order-sm-1">
               <img
                 src="https://img.freepik.com/free-vector/barber-concept-illustration_114360-1872.jpg?w=740&t=st=1685893273~exp=1685893873~hmac=7bd13055e19a9431d2ae316b1846b1f22943640ce382f91136230238423be00a"
                 alt="saloon"
-                width={500}
+                className="w-100"
               />
             </div>
           </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SearchHome = () => {
   return (
@@ -12,16 +13,19 @@ const SearchHome = () => {
         </h4>
       </div>
       <div className="d-flex justify-content-center mt-5">
-        <div className="align-items-center d-flex border w-50 bg-white">
+        <div className="align-items-center d-flex border w-sm-50 bg-white">
           <input
             placeholder="Search Your Service..."
             type="search"
             id="HomeSearch"
             className="text- w-100 border-0 ms-2 py-3"
           />
-          <span className="material-icons bg-black text-white py-3 px-3">
+          <Link
+            to={"search"}
+            className="material-icons bg-black text-white py-3 px-3"
+          >
             search
-          </span>
+          </Link>
         </div>
       </div>
     </div>

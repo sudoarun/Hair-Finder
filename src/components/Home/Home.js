@@ -11,7 +11,6 @@ const Home = () => {
       <Carousel />
       <ShopCard />
       <SearchHome />
-
       <About />
     </div>
   );

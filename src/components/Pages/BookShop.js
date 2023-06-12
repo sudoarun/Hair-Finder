@@ -19,7 +19,7 @@ const BookShop = () => {
   return (
     <div className="">
       <div className="container">
-        <BreadCrumb path={"Booking"} link={"Shop"} />
+        <BreadCrumb path={"Booking"} link={"Shop"} text="white" />
       </div>
       <h4 className="text-white text-center ">
         <span className="border pe-4 py-2">

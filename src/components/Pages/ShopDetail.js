@@ -17,7 +17,7 @@ const ShopDetail = () => {
   return (
     <div className="container">
       <div className="mt-3">
-        <Breadcrumb path="Shop Details" />
+        <Breadcrumb path="Shop Details" text="white" />
       </div>
       <h3 className="text-white text-center">
         <span className=" border  py-2 ps-4">

@@ -4,9 +4,11 @@ import logo from "../../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faGoogle, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import { useNavigate } from "react-router-dom";
 
-function LoginPage({ name }) {
+function LoginPage({ name, setIsLoggedIn }) {
   const [isSignUpMode, setIsSignUpMode] = useState(false);
+  const navigate = useNavigate();
   const [signUser, setSignUser] = useState({
     username: "",
     email: "",
@@ -37,6 +39,9 @@ function LoginPage({ name }) {
   const handlesignIn = (e) => {
     e.preventDefault();
     console.log(user);
+    setIsLoggedIn(true);
+    alert("logged in");
+    navigate("/");
     setUser({
       username: "",
       password: "",
@@ -149,8 +154,6 @@ function LoginPage({ name }) {
             <div className="input-field">
               <FontAwesomeIcon icon={faEnvelope} className="my-auto mx-auto" />
 
-              
-
               <input
                 className="LoginInput"
                 type="phone"
@@ -159,7 +162,6 @@ function LoginPage({ name }) {
                 onChange={onloadSignUp}
                 placeholder="Phone number"
               />
-
             </div>
             <div className="input-field">
               <FontAwesomeIcon icon={faLock} className="my-auto mx-auto" />

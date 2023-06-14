@@ -44,7 +44,10 @@ function App() {
         />
         <Route path="/professional-register" element={<BarberRegister />} />
         <Route path="/help" element={<Help />} />
-        <Route path="/Login" element={<Loginpage />} />
+        <Route
+          path="/Login"
+          element={<Loginpage setIsLoggedIn={setIsLoggedIn} />}
+        />
         <Route path="/search" element={<SearchShop />} />
         <Route path="/schedule" element={<Schedule />} />
       </Routes>

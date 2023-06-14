@@ -1,9 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 import logo from "../../assets/logo.png";
 
-const Header = () => {
+const Header = ({ isLoggedIn, setIsLoggedIn }) => {
+  console.log(isLoggedIn, setIsLoggedIn);
+  const navigate = useNavigate();
+
+  const logInHandle = () => {
+    setIsLoggedIn(true);
+    navigate("/");
+    alert("logged in");
+  };
+  const logOutHandle = () => {
+    setIsLoggedIn(false);
+    alert("Logged Out");
+  };
   return (
     <div>
       <div>
@@ -52,7 +64,7 @@ const Header = () => {
                 <img
                   src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
                   className="rounded-circle"
-                  height="25"
+                  height="30"
                   alt="Black and White Portrait of a Man"
                   loading="lazy"
                 />
@@ -71,11 +83,19 @@ const Header = () => {
                     Booking
                   </Link>
                 </li>
-                <li>
-                  <a className="dropdown-item" href="#!">
-                    Logout
-                  </a>
-                </li>
+                {isLoggedIn ? (
+                  <li>
+                    <button className="dropdown-item" onClick={logOutHandle}>
+                      Logout
+                    </button>
+                  </li>
+                ) : (
+                  <li>
+                    <button className="dropdown-item" onClick={logInHandle}>
+                      Login
+                    </button>
+                  </li>
+                )}
               </ul>
             </div>
           </div>

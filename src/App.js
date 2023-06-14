@@ -19,8 +19,6 @@ import SearchShop from "./components/Search/SearchShop";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-  
-
   function PrivateRoute({ isLoggedIn, children }) {
     if (!isLoggedIn) {
       return <Navigate to="/login" />;
@@ -31,7 +29,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<ShopDetail />} />

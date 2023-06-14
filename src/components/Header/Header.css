@@ -8,11 +8,11 @@
 #checkbox {
   display: none;
 }
-#hamburgerBtn {
+#userBtn {
   display: none;
 }
 @media (max-width: 700px) {
-  #hamburgerBtn {
+  #userBtn {
     display: block;
   }
   #mainMenu {

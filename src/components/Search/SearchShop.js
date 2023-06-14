@@ -15,7 +15,7 @@ const SearchShop = () => {
               placeholder="Search Your Favorite Shop and Service here.."
               type="search"
               id="HomeSearch"
-              className="text- bg-white w-75 border border-end-0 border-dark ps-3 py-3"
+              className="text- bg-white w-75 border border-end-0 border-dark ps-3 pe-3 py-3"
             />
             <span className="material-icons py-3 px-3 bg-black text-white border-dark border border-start-0">
               search

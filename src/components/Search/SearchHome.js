@@ -18,7 +18,7 @@ const SearchHome = () => {
             placeholder="Search Your Service..."
             type="search"
             id="HomeSearch"
-            className="text- w-100 border-0 ms-2 py-3"
+            className="text- w-100 border-0 ms-2 me-2 py-3"
           />
           <Link
             to={"search"}

@@ -29,7 +29,7 @@ const User = () => {
          <p>Age : 25</p>
          <p>Location : India </p>
         </div> 
-          </div>
+        </div>
         </div>
         
       </div>

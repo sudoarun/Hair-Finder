@@ -25,15 +25,15 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
             <Link to={"/"}>
               <img src={logo} width={50} alt="profile" />
             </Link>
-            <div className="d-sm-block">
-              <button
+            <div className="d-sm-inline text-center">
+              <h6
                 to={"/professional-register"}
-                className="me-5 text-decoration-underline border-0 bg-black text-warning"
+                className="text-decoration-underline border-0 bg-black text-warning"
                 data-mdb-toggle="modal"
                 data-mdb-target="#exampleModal"
               >
                 Register as Professional
-              </button>
+              </h6>
             </div>
             <div className="d-flex">
               <div id="mainMenu">

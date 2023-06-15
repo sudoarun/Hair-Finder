@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 import logo from "../../assets/logo.png";
+import BarberRegister from "../Pages/BarberRegister";
 
 const Header = ({ isLoggedIn, setIsLoggedIn }) => {
   console.log(isLoggedIn, setIsLoggedIn);
@@ -24,16 +25,27 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
             <Link to={"/"}>
               <img src={logo} width={50} alt="profile" />
             </Link>
-
+            <div className="d-sm-block">
+              <button
+                to={"/professional-register"}
+                className="me-5 text-decoration-underline border-0 bg-black text-warning"
+                data-mdb-toggle="modal"
+                data-mdb-target="#exampleModal"
+              >
+                Register as Professional
+              </button>
+            </div>
             <div className="d-flex">
               <div id="mainMenu">
                 <div className="d-flex list-unstyled fw-bold ">
-                  <Link
+                  <button
                     to={"/professional-register"}
-                    className="me-5 text-decoration-underline text-warning"
+                    className="me-5 text-decoration-underline border-0 bg-black text-warning"
+                    data-mdb-toggle="modal"
+                    data-mdb-target="#exampleModal"
                   >
                     Register as Professional
-                  </Link>
+                  </button>
                   <Link to={"/schedule"} className="me-5 text-white">
                     My Booking
                   </Link>
@@ -103,6 +115,8 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
           </div>
         </div>
       </div>
+      {/* Professional Registration Modal */}
+      <BarberRegister />
     </div>
   );
 };

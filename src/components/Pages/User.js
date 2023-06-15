@@ -15,24 +15,26 @@ const User = () => {
   }
   return (
     <div>
-    <div className="container">
-      <div class="profile-page">
-        <div className="row">
-          <div className="col">
-            <img src="https://img.freepik.com/premium-vector/realistic-sunbed-illustration_23-2149443982.jpg?size=626&ext=jpg" alt="" className="w-50"/>
-          </div>
-          <div className="col">
-            <div class="text-white">
-         <h1>Name : Arun </h1>
-         <p>Mobile : 9993335555</p>
-         <p>Email : yourmail@gmail.com</p>
-         <p>Age : 25</p>
-         <p>Location : India </p>
+      <div className="container">
+        <div class="profile-page">
+
+           <div className="row">
+             <div className="col">
+              <img src="https://img.freepik.com/premium-vector/realistic-sunbed-illustration_23-2149443982.jpg?size=626&ext=jpg" alt="" className="w-50"/>
+           </div>
+
+           <div className="col">
+             <div class="text-white">
+                <h1>Name : Arun </h1>
+                <p>Mobile : 9993335555</p>
+                <p>Email : yourmail@gmail.com</p>
+                <p>Age : 25</p>
+                <p>Location : India </p>
+             </div> 
+           </div>
+
         </div> 
-        </div>
-        </div>
-        
-      </div>
+     </div>
       
     </div>
     <div className="bg-white">
@@ -44,15 +46,15 @@ const User = () => {
             
         
          </Slider>
-        </div>
+      </div>
       
         <div class="review-info">
           <h3></h3>
           <p></p>
           <p></p>
         </div>
-    </div>
-    
+
+      </div>
     </div>
       
     

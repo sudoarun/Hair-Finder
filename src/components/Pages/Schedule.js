@@ -8,9 +8,9 @@ export default function Schedule() {
         <span className="py-2 ps-3 border">
           Your <span className="py-2 pe-3 text-black bg-white">Bookings</span>
         </span>
-      </h5>{" "}
-      <br></br>
-      <div className="hero">
+      </h5>
+
+      <div className="hero mt-5">
         <div className="outerbox">
           <img
             src="https://img.freepik.com/premium-vector/vintage-logo-barber-shop-vector-illustration_831416-112.jpg?size=626&ext=jpg&ga=GA1.1.1107865039.1686587964&semt=sph"

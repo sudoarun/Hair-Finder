@@ -20,10 +20,14 @@
   }
 }
 
-.nav-link > .active {
+.nav-item > .nav-link {
   background: none !important;
   border: 1px solid white !important;
   color: white !important;
+}
+.nav-item > .active {
+  background: white !important;
+  color: black !important;
   font-weight: 600 !important;
 }
 

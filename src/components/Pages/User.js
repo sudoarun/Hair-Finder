@@ -38,10 +38,24 @@ const User = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white">
+      <div className="bg-black">
         <div class=" container">
           <h2 className="">Recently Visited Saloons</h2>
-          <Slider {...Slide}></Slider>
+          <Slider {...Slide}>
+          
+          <img
+            src="https://img.freepik.com/premium-vector/vintage-logo-barber-shop-vector-illustration_831416-112.jpg?size=626&ext=jpg&ga=GA1.1.1107865039.1686587964&semt=sph"
+            alt=""
+          ></img>
+
+          <img
+            src="https://img.freepik.com/premium-vector/vintage-logo-barber-shop-vector-illustration_831416-112.jpg?size=626&ext=jpg&ga=GA1.1.1107865039.1686587964&semt=sph"
+            alt=""
+          ></img>
+          
+        
+
+          </Slider>
         </div>
 
         <div class="review-info">

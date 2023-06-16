@@ -25,7 +25,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
             <Link to={"/"}>
               <img src={logo} width={50} alt="profile" />
             </Link>
-            <div className="d-sm-inline text-center">
+            <div className="d-sm-none text-center">
               <h6
                 to={"/professional-register"}
                 className="text-decoration-underline border-0 bg-black text-warning"

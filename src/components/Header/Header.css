@@ -20,6 +20,13 @@
   }
 }
 
+.nav-link .active {
+  background: none;
+  border: 1px solid white;
+  color: white !important;
+  font-weight: 600;
+}
+
 .toggle {
   position: relative;
   width: 40px;

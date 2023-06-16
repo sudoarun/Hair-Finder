@@ -3,7 +3,7 @@ import "./User.css";
 import Slider from "react-slick";
 
 const User = () => {
-  const Slide={
+  const Slide = {
     dots: true,
     infinite: true,
     // eslint-disable-next-line no-dupe-keys
@@ -12,54 +12,45 @@ const User = () => {
     useTransform: true,
     slidesToShow: 3,
     slidesToScroll: 2,
-  }
+  };
   return (
     <div>
       <div className="container">
         <div class="profile-page">
+          <div className="row">
+            <div className="col">
+              <img
+                src="https://img.freepik.com/premium-vector/realistic-sunbed-illustration_23-2149443982.jpg?size=626&ext=jpg"
+                alt=""
+                className="w-50"
+              />
+            </div>
 
-           <div className="row">
-             <div className="col">
-              <img src="https://img.freepik.com/premium-vector/realistic-sunbed-illustration_23-2149443982.jpg?size=626&ext=jpg" alt="" className="w-50"/>
-           </div>
-
-           <div className="col">
-             <div class="text-white">
+            <div className="col">
+              <div class="text-white">
                 <h1>Name : Arun </h1>
                 <p>Mobile : 9993335555</p>
                 <p>Email : yourmail@gmail.com</p>
                 <p>Age : 25</p>
                 <p>Location : India </p>
-             </div> 
-           </div>
-
-        </div> 
-     </div>
-      
-    </div>
-    <div className="bg-white">
-      <div class=" container">
-          <h2 className="">Recently Visited Saloons</h2>
-         <Slider {...Slide}>
-         
-            
-            
-        
-         </Slider>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      
+      <div className="bg-white">
+        <div class=" container">
+          <h2 className="">Recently Visited Saloons</h2>
+          <Slider {...Slide}></Slider>
+        </div>
+
         <div class="review-info">
-          <h3></h3>
+          <h3>""</h3>
           <p></p>
           <p></p>
         </div>
-
       </div>
     </div>
-      
-    
-    
-      
   );
 };
 

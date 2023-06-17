@@ -19,7 +19,7 @@ const User = () => {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 3.2,
           infinite: true,
           dots: true,
         },
@@ -28,14 +28,14 @@ const User = () => {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 2.5,
           initialSlide: 2,
         },
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 2.1,
+          slidesToShow: 2.3,
           arrows: false,
           slidesToScroll: 1,
         },

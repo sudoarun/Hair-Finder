@@ -46,9 +46,14 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
                   >
                     Register as Professional
                   </button>
-                  <Link to={"/schedule"} className="me-5 text-white">
-                    My Booking
-                  </Link>
+                  {isLoggedIn ? (
+                    <Link to={"/schedule"} className="me-5 text-white">
+                      My Booking
+                    </Link>
+                  ) : (
+                    ""
+                  )}
+
                   <Link to={"/help"} className="me-5 text-white">
                     Help
                   </Link>
@@ -57,52 +62,66 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
                 </Link> */}
                 </div>
               </div>
-              <div className="dropdown">
-                <a
-                  className="dropdown-toggle d-flex align-items-center hidden-arrow"
-                  href="#!"
-                  id="navbarDropdownMenuAvatar"
-                  role="button"
-                  data-mdb-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <img
-                    src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg&ga=GA1.2.1543915203.1685795707&semt=ais"
-                    className="rounded"
-                    height="30"
-                    alt="Black and White Portrait of a Man"
-                    loading="lazy"
-                  />
-                </a>
-                <ul
-                  className="dropdown-menu dropdown-menu-end"
-                  aria-labelledby="navbarDropdownMenuAvatar"
-                >
-                  <li>
-                    <Link to={"/user"} className="dropdown-item">
-                      My profile
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to={"/schedule"} className="dropdown-item" href="#">
-                      Booking
-                    </Link>
-                  </li>
-                  {isLoggedIn ? (
+              {isLoggedIn ? (
+                <div className="dropdown">
+                  <a
+                    className="dropdown-toggle d-flex align-items-center hidden-arrow"
+                    href="#!"
+                    id="navbarDropdownMenuAvatar"
+                    role="button"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <img
+                      src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg&ga=GA1.2.1543915203.1685795707&semt=ais"
+                      className="rounded"
+                      height="30"
+                      alt="Black and White Portrait of a Man"
+                      loading="lazy"
+                    />
+                  </a>
+                  <ul
+                    className="dropdown-menu dropdown-menu-end"
+                    aria-labelledby="navbarDropdownMenuAvatar"
+                  >
                     <li>
-                      <button className="dropdown-item" onClick={logOutHandle}>
-                        Logout
-                      </button>
+                      <Link to={"/user"} className="dropdown-item">
+                        My profile
+                      </Link>
                     </li>
-                  ) : (
                     <li>
-                      <button className="dropdown-item" onClick={logInHandle}>
-                        Login
-                      </button>
+                      <Link to={"/schedule"} className="dropdown-item" href="#">
+                        Booking
+                      </Link>
                     </li>
-                  )}
-                </ul>
-              </div>
+                    {isLoggedIn ? (
+                      <li>
+                        <button
+                          className="dropdown-item"
+                          onClick={logOutHandle}
+                        >
+                          Logout
+                        </button>
+                      </li>
+                    ) : (
+                      <li>
+                        <button className="dropdown-item" onClick={logInHandle}>
+                          Login
+                        </button>
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              ) : (
+                <div>
+                  <button
+                    className="fw-bold border-0 bg-black text-white"
+                    onClick={() => setIsLoggedIn(true)}
+                  >
+                    Login
+                  </button>
+                </div>
+              )}
             </div>
             {/* <div id="hamburgerBtn">
               <input type="checkbox" id="checkbox" />

@@ -17,7 +17,7 @@ import Schedule from "./components/Pages/Schedule";
 import SearchShop from "./components/Search/SearchShop";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   function PrivateRoute({ isLoggedIn, children }) {
     if (!isLoggedIn) {
@@ -33,7 +33,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<ShopDetail />} />
-        <Route path="/booking" element={<BookShop />} />
+        <Route
+          path="/booking"
+          element={
+            <PrivateRoute isLoggedIn={isLoggedIn}>
+              <BookShop />
+            </PrivateRoute>
+          }
+        />
         <Route
           path="/user"
           element={

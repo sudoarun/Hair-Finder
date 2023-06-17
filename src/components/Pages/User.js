@@ -36,6 +36,7 @@ const User = () => {
         breakpoint: 480,
         settings: {
           slidesToShow: 2.1,
+          arrows: true,
           slidesToScroll: 1,
         },
       },
@@ -79,6 +80,30 @@ const User = () => {
           </h4>
           <div className="">
             <Slider {...Slide}>
+              <div className="">
+                <img
+                  src="https://img.freepik.com/premium-vector/vintage-logo-barber-shop-vector-illustration_831416-112.jpg?size=626&ext=jpg&ga=GA1.1.1107865039.1686587964&semt=sph"
+                  alt=""
+                  className="w-75"
+                ></img>
+                <div className="">
+                  <div className="">
+                    <Rate tooltips={desc} onChange={setValue} value={value} />
+                  </div>
+                </div>
+              </div>
+              <div className="">
+                <img
+                  src="https://img.freepik.com/premium-vector/vintage-logo-barber-shop-vector-illustration_831416-112.jpg?size=626&ext=jpg&ga=GA1.1.1107865039.1686587964&semt=sph"
+                  alt=""
+                  className="w-75"
+                ></img>
+                <div className="">
+                  <div className="">
+                    <Rate tooltips={desc} onChange={setValue} value={value} />
+                  </div>
+                </div>
+              </div>
               <div className="">
                 <img
                   src="https://img.freepik.com/premium-vector/vintage-logo-barber-shop-vector-illustration_831416-112.jpg?size=626&ext=jpg&ga=GA1.1.1107865039.1686587964&semt=sph"

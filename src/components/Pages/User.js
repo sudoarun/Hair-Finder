@@ -36,7 +36,7 @@ const User = () => {
         breakpoint: 480,
         settings: {
           slidesToShow: 2.1,
-          arrows: true,
+          arrows: false,
           slidesToScroll: 1,
         },
       },
@@ -80,7 +80,7 @@ const User = () => {
               <span className="text-decoration-underline">Visited Before</span>
             </span>
           </h4>
-          <div className="container-fluid">
+          <div className="">
             <Slider {...Slide}>
               <div className="">
                 <img

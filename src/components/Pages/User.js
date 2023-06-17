@@ -75,8 +75,10 @@ const User = () => {
       <div className="bg-black mb-4">
         <div class=" container">
           <h4 className="text-center text-white mt-4 mb-5">
-            <span className="py-2 px-2 bg-white text-black">Shops</span> You{" "}
-            <span className="text-decoration-underline">Visited Before</span>
+            <span className="border py-2 pe-2">
+              <span className="py-2 px-2 bg-white text-black">Shops</span> You{" "}
+              <span className="text-decoration-underline">Visited Before</span>
+            </span>
           </h4>
           <div className="">
             <Slider {...Slide}>

@@ -80,7 +80,7 @@ const User = () => {
               <span className="text-decoration-underline">Visited Before</span>
             </span>
           </h4>
-          <div className="">
+          <div className="container-fluid">
             <Slider {...Slide}>
               <div className="">
                 <img

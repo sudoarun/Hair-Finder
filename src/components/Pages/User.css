@@ -32,6 +32,13 @@
   margin-bottom: 5px;
 }
 /* 
+@media (min-width: 700px) {
+  .w-sm-50 {
+    width: 50% !important;
+  }
+} */
+
+/* 
 .container img{
     height: 250px;
     border: 1px solid black;

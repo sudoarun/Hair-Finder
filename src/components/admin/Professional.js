@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css";
 
 const Professional = () => {
   return (
@@ -14,17 +15,30 @@ const Professional = () => {
       <section className="mt-5">
         <div className="container">
           <div>
-            <h6 className="text-white">Your Schedules</h6>
-            <div id="main" className="mt-5 border py-2 px-3">
+            <div id="main" className="mt-5 border py-2 px-3 position-relative">
+              <h6 className="text-white position-absolute start-2 top-0">
+                Your Schedules
+              </h6>
               <div
                 id="schedule"
                 className="text-white d-flex justify-content-between align-items-center"
               >
-                <h6>Client Name</h6>
-                <span>Service Name</span>
-                <span>Slot Time</span>
-                <button className="btn btn-success">Call</button>
-                <button className="btn btn-danger">Cancel</button>
+                <div>
+                  <h6>Client Name</h6>
+                </div>
+
+                <div>
+                  <span className="me-4">Service Name</span>
+                  <span>Slot Time</span>
+                </div>
+                <div id="clientActions">
+                  <span class="material-icons-outlined bg-success rounded-circle px-2 py-2 me-3">
+                    call
+                  </span>
+                  <span class="material-icons-outlined bg-danger rounded px-2 py-2">
+                    close
+                  </span>
+                </div>
               </div>
             </div>
           </div>

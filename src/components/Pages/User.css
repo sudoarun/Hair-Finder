@@ -1,10 +1,7 @@
 .profile-page {
-  /* max-width: 900px; */
-
   margin: 0 auto;
   padding: 20px;
   font-family: Arial, sans-serif;
-  /* background-color: #343a40; */
   border-radius: 8px;
 }
 
@@ -31,24 +28,3 @@
   text-align: center;
   margin-bottom: 5px;
 }
-/* 
-@media (min-width: 700px) {
-  .w-sm-50 {
-    width: 50% !important;
-  }
-} */
-
-/* 
-.container img{
-    height: 250px;
-    border: 1px solid black;
-    border-radius: 2px;
-  }
-
-  .container h2{
-    text-align: center;
-  }
-
-  .col {
-    text-align: center;
-  } */

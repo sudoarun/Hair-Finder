@@ -90,8 +90,14 @@ const ShopDetail = () => {
           Free Offers are you{" "}
           <span className="text-decoration-underline">eligible</span> ?
         </h4>
-        <div>
-          <div className=""></div>
+        <div className="mt-4 mb-3">
+          <div className="">
+            <h6 className="text-white text-center">
+              No Offers{" "}
+              <span className="text-decoration-underline">Currently</span> !!!
+              <span className="text-warning fw-bold fs-2">☺</span>
+            </h6>
+          </div>
         </div>
       </div>
     </div>

@@ -15,12 +15,24 @@ import Help from "./components/Pages/Help";
 import BarberRegister from "./components/Pages/BarberRegister";
 import Schedule from "./components/Pages/Schedule";
 import SearchShop from "./components/Search/SearchShop";
+import Professional from "./components/admin/Professional";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); //user Route
+  const [isProfessional, setProfessional] = useState(true); //Professional Route
 
+  //user Private Route
   function PrivateRoute({ isLoggedIn, children }) {
     if (!isLoggedIn) {
+      return <Navigate to="/login" />;
+    } else {
+      return children;
+    }
+  }
+
+  //Professional Private Route
+  function ProfessionalRoute({ isProfessional, children }) {
+    if (!isProfessional) {
       return <Navigate to="/login" />;
     } else {
       return children;
@@ -57,6 +69,17 @@ function App() {
         />
         <Route path="/search" element={<SearchShop />} />
         <Route path="/schedule" element={<Schedule />} />
+
+        {/* Professional Route */}
+
+        <Route
+          path="/professional"
+          element={
+            <ProfessionalRoute isProfessional={isProfessional}>
+              <Professional setProfessional={setProfessional} />
+            </ProfessionalRoute>
+          }
+        />
       </Routes>
     </>
   );

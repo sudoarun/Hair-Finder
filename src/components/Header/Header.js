@@ -28,7 +28,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
             <div className="d-sm-none text-center">
               <h6
                 to={"/professional-register"}
-                className="text-decoration-underline border-0 bg-black text-warning"
+                className="text-decoration-underline border-0 bg-black fw-bold text-warning"
                 data-mdb-toggle="modal"
                 data-mdb-target="#exampleModal"
               >
@@ -40,7 +40,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
                 <div className="d-flex list-unstyled fw-bold ">
                   <button
                     to={"/professional-register"}
-                    className="me-5 text-decoration-underline border-0 bg-black text-warning"
+                    className="me-5 text-decoration-underline border-0 fw-bold bg-black text-warning"
                     data-mdb-toggle="modal"
                     data-mdb-target="#exampleModal"
                   >

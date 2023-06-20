@@ -19,7 +19,7 @@ import Professional from "./components/admin/Professional";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); //user Route
-  const [isProfessional, setProfessional] = useState(true); //Professional Route
+  const [isProfessional, setProfessional] = useState(false); //Professional Route
 
   //user Private Route
   function PrivateRoute({ isLoggedIn, children }) {

@@ -1,9 +1,13 @@
 import React from "react";
 import "./style.css";
+import Breadcrumb from "../BreadCrumbs/Breadcrumb.js";
 
 const Professional = () => {
   return (
     <div>
+      <div className="container">
+        <Breadcrumb activePage={"Professional"} text={"white"} />
+      </div>
       <h5 className="text-white text-center">
         <span className="py-2 ps-2 border">
           Professional{" "}
@@ -16,22 +20,98 @@ const Professional = () => {
         <div className="container">
           <div>
             <div id="main" className="mt-5 border py-2 px-3 position-relative">
-              <h6 className="text-white position-absolute start-2 top-0">
-                Your Schedules
+              <h6 className="text-white position-absolute start-2">
+                <span className="bg-white text-black px-2 py-2">
+                  Your
+                  <span className="text-decoration-underline ms-1">
+                    Schedules
+                  </span>
+                </span>
               </h6>
               <div
                 id="schedule"
-                className="text-white d-flex justify-content-between align-items-center"
+                className="text-white row mt-5 align-items-center border-bottom pb-2"
               >
-                <div>
-                  <h6>Client Name</h6>
+                <div className="col-6 col-sm-2">
+                  <h6>Vinod Kumar</h6>
                 </div>
 
-                <div>
-                  <span className="me-4">Service Name</span>
-                  <span>Slot Time</span>
+                <div className="col-0 col-sm-4">
+                  <span className="me-4">Shaving</span>
                 </div>
-                <div id="clientActions">
+                <div className="col-8 col-sm-4">
+                  <span>12:00pm - 23 april</span>
+                </div>
+                <div id="clientActions" className="col-4 col-sm-2">
+                  <span class="material-icons-outlined bg-success rounded-circle px-2 py-2 me-3">
+                    call
+                  </span>
+                  <span class="material-icons-outlined bg-danger rounded px-2 py-2">
+                    close
+                  </span>
+                </div>
+              </div>
+              <div
+                id="schedule"
+                className="text-white row mt-5 align-items-center border-bottom pb-2"
+              >
+                <div className="col-6 col-sm-2">
+                  <h6>Vinod Kumar</h6>
+                </div>
+
+                <div className="col-0 col-sm-4">
+                  <span className="me-4">Shaving</span>
+                </div>
+                <div className="col-8 col-sm-4">
+                  <span>12:00pm - 23 april</span>
+                </div>
+                <div id="clientActions" className="col-4 col-sm-2">
+                  <span class="material-icons-outlined bg-success rounded-circle px-2 py-2 me-3">
+                    call
+                  </span>
+                  <span class="material-icons-outlined bg-danger rounded px-2 py-2">
+                    close
+                  </span>
+                </div>
+              </div>
+              <div
+                id="schedule"
+                className="text-white row mt-5 align-items-center border-bottom pb-2"
+              >
+                <div className="col-6 col-sm-2">
+                  <h6>Vinod Kumar</h6>
+                </div>
+
+                <div className="col-0 col-sm-4">
+                  <span className="me-4">Shaving</span>
+                </div>
+                <div className="col-8 col-sm-4">
+                  <span>12:00pm - 23 april</span>
+                </div>
+                <div id="clientActions" className="col-4 col-sm-2">
+                  <span class="material-icons-outlined bg-success rounded-circle px-2 py-2 me-3">
+                    call
+                  </span>
+                  <span class="material-icons-outlined bg-danger rounded px-2 py-2">
+                    close
+                  </span>
+                </div>
+              </div>
+              <div
+                id="schedule"
+                className="text-white row mt-5 align-items-center border-bottom pb-2"
+              >
+                <div className="col-6 col-sm-2">
+                  <h6>Vinod Kumar</h6>
+                </div>
+
+                <div className="col-0 col-sm-4">
+                  <span className="me-4">Shaving</span>
+                </div>
+                <div className="col-8 col-sm-4">
+                  <span>12:00pm - 23 april</span>
+                </div>
+                <div id="clientActions" className="col-4 col-sm-2">
                   <span class="material-icons-outlined bg-success rounded-circle px-2 py-2 me-3">
                     call
                   </span>

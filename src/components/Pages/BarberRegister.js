@@ -94,14 +94,14 @@ const BarberRegister = () => {
                       class="form-control text-white bg-black mt-4"
                     />
                     <div class="row mb-4">
-                      <div class="col-md-6 mt-2 d-flex justify-content-center">
+                      <div class="col-md-12 mt-2 d-flex justify-content-center">
                         <a href="#!">Forgot password?</a>
                       </div>
                     </div>
 
                     <button
                       type="submit"
-                      class="btn btn-primary btn-block mb-4"
+                      class="btn btn-warning btn-block mb-4"
                     >
                       Sign in
                     </button>
@@ -157,7 +157,7 @@ const BarberRegister = () => {
                     </div>
                     <button
                       type="submit"
-                      class="btn btn-primary btn-block mb-3"
+                      class="btn btn-warning btn-block mb-3"
                     >
                       Sign in
                     </button>

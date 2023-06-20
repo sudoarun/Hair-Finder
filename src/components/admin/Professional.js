@@ -32,14 +32,14 @@ const Professional = () => {
                 id="schedule"
                 className="text-white row mt-5 align-items-center border-bottom pb-2"
               >
-                <div className="col-6 col-sm-2">
+                <div className="col-6  col-sm-2">
                   <h6>Vinod Kumar</h6>
                 </div>
 
                 <div className="col-0 col-sm-4">
                   <span className="me-4">Shaving</span>
                 </div>
-                <div className="col-8 col-sm-4">
+                <div className="col-8  col-sm-4">
                   <span>12:00pm - 23 april</span>
                 </div>
                 <div id="clientActions" className="col-4 col-sm-2 px-0">

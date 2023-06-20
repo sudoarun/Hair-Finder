@@ -11,16 +11,8 @@ export default function Schedule() {
       </h5>
 
       <div className="container">
-        <div className="border p-3">
-          <div className="overflow-auto" style={{ height: "75vh" }}>
-            <SearchContent btn={"cancel"} />
-            <SearchContent btn={"cancel"} />
-            <SearchContent btn={"cancel"} />
-            <SearchContent btn={"cancel"} />
-            <SearchContent btn={"cancel"} />
-            <SearchContent btn={"cancel"} />
-            <SearchContent btn={"cancel"} />
-            <SearchContent btn={"cancel"} />
+        <div className="p-3">
+          <div className="">
             <SearchContent btn={"cancel"} />
           </div>
         </div>

@@ -1,7 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 // import LoginPage from "../Loginpage/Loginpage";
 
 const BarberRegister = ({ setProfessional }) => {
+  const [value, setValue] = useState({
+    email: "",
+    password: "",
+  });
+  const [regValue, setRegValue] = useState({
+    username: "",
+    number: "",
+    email: "",
+    password: "",
+  });
+  const onChangeRegister = (e) => {
+    const name = e.target.name; //Function for Register Section
+    const value = e.target.value;
+    setRegValue((data) => ({ ...data, [name]: value }));
+  };
+  const onChangeSigin = (e) => {
+    const name = e.target.name; //Function for Sigin Section
+    const value = e.target.value;
+    setValue((data) => {
+      return { ...data, [name]: value };
+    });
+  };
+  // const OnSubmit()=>{
+  // }
+  console.log(value);
+  console.log(regValue);
   return (
     <div>
       {/* <button
@@ -83,6 +109,9 @@ const BarberRegister = ({ setProfessional }) => {
                     <input
                       type="email"
                       id="loginName"
+                      required
+                      onChange={onChangeSigin}
+                      name="email"
                       placeholder="Enter Email"
                       class="form-control bg-black text-white"
                     />
@@ -91,6 +120,9 @@ const BarberRegister = ({ setProfessional }) => {
                       type="password"
                       placeholder="Enter Password"
                       id="loginPassword"
+                      onChange={onChangeSigin}
+                      name="password"
+                      required
                       class="form-control text-white bg-black mt-4"
                     />
                     <div class="row mb-4">
@@ -121,6 +153,8 @@ const BarberRegister = ({ setProfessional }) => {
                     <input
                       type="text"
                       id="registerName"
+                      name="username"
+                      onChange={onChangeRegister}
                       placeholder="Enter Name"
                       class="form-control border bg-black mt-3 text-white"
                     />
@@ -128,6 +162,8 @@ const BarberRegister = ({ setProfessional }) => {
                     <input
                       placeholder="Enter Number"
                       type="number"
+                      name="number"
+                      onChange={onChangeRegister}
                       id="registerUsername"
                       class="form-control border bg-black mt-3 text-white"
                     />
@@ -135,12 +171,16 @@ const BarberRegister = ({ setProfessional }) => {
                     <input
                       type="email"
                       placeholder="Enter Email"
+                      name="email"
+                      onChange={onChangeRegister}
                       id="registerEmail"
                       class="form-control border bg-black mt-3 text-white"
                     />
 
                     <input
                       type="password"
+                      name="password"
+                      onChange={onChangeRegister}
                       placeholder="Enter Password"
                       id="registerPassword"
                       class="form-control border bg-black mt-3 text-white"

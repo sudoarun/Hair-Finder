@@ -41,7 +41,12 @@ function App() {
 
   return (
     <>
-      <Header setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
+      <Header
+        setIsLoggedIn={setIsLoggedIn}
+        isLoggedIn={isLoggedIn}
+        isProfessional={isProfessional}
+        setProfessional={setProfessional}
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<ShopDetail />} />

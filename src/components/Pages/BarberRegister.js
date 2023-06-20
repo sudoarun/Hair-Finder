@@ -1,7 +1,7 @@
 import React from "react";
 // import LoginPage from "../Loginpage/Loginpage";
 
-const BarberRegister = () => {
+const BarberRegister = ({ setProfessional }) => {
   return (
     <div>
       {/* <button
@@ -100,8 +100,12 @@ const BarberRegister = () => {
                     </div>
 
                     <button
-                      type="submit"
+                      type="button"
                       class="btn btn-warning btn-block mb-4"
+                      onClick={() =>
+                        setProfessional(true) ||
+                        alert("Logged in as Professional")
+                      }
                     >
                       Sign in
                     </button>

@@ -1,18 +1,24 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 import logo from "../../assets/logo.png";
 import BarberRegister from "../Pages/BarberRegister";
 
-const Header = ({ isLoggedIn, setIsLoggedIn }) => {
+const Header = ({
+  isLoggedIn,
+  setIsLoggedIn,
+  isProfessional,
+  setProfessional,
+}) => {
   console.log(isLoggedIn, setIsLoggedIn);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const logInHandle = () => {
-    // setIsLoggedIn(true);
-    navigate("/login");
-    // alert("logged in");
-  };
+  // const logInHandle = () => {
+  //   // setIsLoggedIn(true);
+  //   navigate("/login");
+  //   // alert("logged in");
+  // };
+
   const logOutHandle = () => {
     setIsLoggedIn(false);
     alert("Logged Out");
@@ -25,30 +31,44 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
             <Link to={"/"}>
               <img src={logo} width={50} alt="profile" />
             </Link>
-            <div className="d-sm-none text-center">
-              <h6
-                to={"/professional-register"}
-                className="text-decoration-underline border-0 bg-black fw-bold text-warning"
-                data-mdb-toggle="modal"
-                data-mdb-target="#exampleModal"
-              >
-                Register as Professional
-              </h6>
-            </div>
+            {isProfessional ? (
+              ""
+            ) : (
+              <div className="d-sm-none text-center">
+                <h6
+                  to={"/professional-register"}
+                  className="text-decoration-underline border-0 bg-black fw-bold text-warning"
+                  data-mdb-toggle="modal"
+                  data-mdb-target="#exampleModal"
+                >
+                  Register as Professional
+                </h6>
+              </div>
+            )}
+
             <div className="d-flex">
               <div id="mainMenu">
                 <div className="d-flex list-unstyled fw-bold ">
-                  <button
-                    to={"/professional-register"}
-                    className="me-5 text-decoration-underline border-0 fw-bold bg-black text-warning"
-                    data-mdb-toggle="modal"
-                    data-mdb-target="#exampleModal"
-                  >
-                    Register as Professional
-                  </button>
+                  {isProfessional ? (
+                    ""
+                  ) : (
+                    <button
+                      to={"/professional-register"}
+                      className="me-5 text-decoration-underline border-0 fw-bold bg-black text-warning"
+                      data-mdb-toggle="modal"
+                      data-mdb-target="#exampleModal"
+                    >
+                      Register as Professional
+                    </button>
+                  )}
+
                   {isLoggedIn ? (
                     <Link to={"/schedule"} className="me-5 text-white">
                       My Booking
+                    </Link>
+                  ) : isProfessional ? (
+                    <Link to={"/professional"} className="me-5 text-white">
+                      Dashboard
                     </Link>
                   ) : (
                     ""
@@ -62,7 +82,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
                 </Link> */}
                 </div>
               </div>
-              {isLoggedIn ? (
+              {isLoggedIn || isProfessional ? (
                 <div className="dropdown">
                   <a
                     className="dropdown-toggle d-flex align-items-center hidden-arrow"
@@ -90,9 +110,25 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
                       </Link>
                     </li>
                     <li>
-                      <Link to={"/schedule"} className="dropdown-item" href="#">
-                        Booking
-                      </Link>
+                      {isLoggedIn ? (
+                        <Link
+                          to={"/schedule"}
+                          className="dropdown-item"
+                          href="#"
+                        >
+                          Booking
+                        </Link>
+                      ) : isProfessional ? (
+                        <Link
+                          to={"/professional"}
+                          className="dropdown-item"
+                          href="#"
+                        >
+                          Dashboard
+                        </Link>
+                      ) : (
+                        ""
+                      )}
                     </li>
                     {isLoggedIn ? (
                       <li>
@@ -103,23 +139,36 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
                           Logout
                         </button>
                       </li>
+                    ) : isProfessional ? (
+                      <li>
+                        <button
+                          className="dropdown-item"
+                          onClick={() =>
+                            setProfessional(false) ||
+                            alert("Professional Logout !!!")
+                          }
+                        >
+                          Logout
+                        </button>
+                      </li>
                     ) : (
                       <li>
-                        <button className="dropdown-item" onClick={logInHandle}>
+                        <NavLink to={"/login"} className="dropdown-item">
                           Login
-                        </button>
+                        </NavLink>
                       </li>
                     )}
                   </ul>
                 </div>
               ) : (
                 <div>
-                  <button
+                  <NavLink
+                    to={"/login"}
                     className="fw-bold border-0 bg-black text-white"
-                    onClick={() => setIsLoggedIn(true)}
+                    //onClick={() => setIsLoggedIn(true)}
                   >
                     Login
-                  </button>
+                  </NavLink>
                 </div>
               )}
             </div>
@@ -135,7 +184,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
         </div>
       </div>
       {/* Professional Registration Modal */}
-      <BarberRegister />
+      <BarberRegister setProfessional={setProfessional} />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Breadcrumb = ({ path, link, text }) => {
+const Breadcrumb = ({ prevPage, link, text, activePage }) => {
   console.log(link);
   return (
     <div>
@@ -13,14 +13,13 @@ const Breadcrumb = ({ path, link, text }) => {
             </Link>
           </li>
           {link ? (
-            <li
-              className="breadcrumb-item active text-secondary"
+            <Link
+              to={`${link}`}
+              className={`text-${text} breadcrumb-item active text-secondary`}
               aria-current="page"
             >
-              <Link to={`${link}`} className={`text-${text}`}>
-                {path}
-              </Link>
-            </li>
+              {prevPage}
+            </Link>
           ) : (
             <></>
           )}
@@ -29,7 +28,7 @@ const Breadcrumb = ({ path, link, text }) => {
             className="breadcrumb-item active text-secondary text-decoration-underline"
             aria-current="page"
           >
-            {path}
+            {activePage}
           </li>
         </ol>
       </nav>

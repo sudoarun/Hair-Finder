@@ -19,7 +19,12 @@ const BookShop = () => {
   return (
     <div className="">
       <div className="container">
-        <BreadCrumb path="Booking" link="Shop" text="white" />
+        <BreadCrumb
+          prevPage={"Shop"}
+          link={"/shop"}
+          activePage={"Booking"}
+          text="white"
+        />
       </div>
       <h4 className="text-white text-center ">
         <span className="border pe-4 py-2">

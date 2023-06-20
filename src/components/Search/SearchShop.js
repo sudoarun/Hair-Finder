@@ -9,7 +9,7 @@ const SearchShop = () => {
     <div className="mb-3">
       <div className="bg-white ">
         <div className="container pt-3 pb-5">
-          <BreadCrumbs text="black" path={"Search Page"} link={"search"} />
+          <BreadCrumbs text="black" activePage={"Search"} />
           <div className="d-flex justify-content-center pt-3">
             <input
               placeholder="Search Your Favorite Shop and Service here.."

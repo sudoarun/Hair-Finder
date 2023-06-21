@@ -19,7 +19,7 @@ const BookShop = () => {
   return (
     <div className="">
       <div className="container">
-        <BreadCrumb
+        <BreadCrumb       //BreadCrumbs component
           prevPage={"Shop"}
           link={"/shop"}
           activePage={"Booking"}

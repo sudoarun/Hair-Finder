@@ -67,8 +67,9 @@ const BookShop = () => {
                     />
                   </div>
                 </div>
+                {/* Menu for Desktop mode */}
                 <div className="h-100 responsiveTimeSchedule">
-                  <h6 className="fw-bold">Pick Your Time</h6>
+                  <h6 className="fw-bold">Pick Your Time</h6>   
                   <div className="text-white scheduleTime h-100 mt-5">
                     <div className="overflow-auto h-75">
                       <li className="py-2 my-1 px-5">10:00 AM</li>
@@ -98,6 +99,7 @@ const BookShop = () => {
                   </div>
                 </div>
               </div>
+              {/* Menu for mobile mode */}
               <div className="container mt-4" id="mobileSchedlueMenu">
                 <h6 className="fw-bold text-center mb-3">Pick Your Time</h6>
                 <Slider {...settings} className="liStyle">

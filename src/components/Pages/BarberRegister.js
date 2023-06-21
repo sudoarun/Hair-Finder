@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import LoginPage from "../Loginpage/Loginpage";
 
 const BarberRegister = ({ setProfessional }) => {
-  const [value, setValue] = useState({
+  const [value, setValue] = useState({     //State for login
     email: "",
     password: "",
   });

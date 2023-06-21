@@ -6,7 +6,7 @@ const BarberRegister = ({ setProfessional }) => {
     email: "",
     password: "",
   });
-  const [regValue, setRegValue] = useState({
+  const [regValue, setRegValue] = useState({  //State for Registration
     username: "",
     number: "",
     email: "",

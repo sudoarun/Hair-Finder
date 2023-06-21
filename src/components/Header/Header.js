@@ -31,9 +31,9 @@ const Header = ({
             <Link to={"/"}>
               <img src={logo} width={50} alt="profile" />
             </Link>
-            {isProfessional ? (
+            {isProfessional ? ( //condition when Professional log in
               ""
-            ) : (
+            ) : (   //condition when user log in
               <div className="d-sm-none text-center">
                 <h6
                   to={"/professional-register"}

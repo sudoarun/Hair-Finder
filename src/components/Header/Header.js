@@ -67,7 +67,7 @@ const Header = ({
                       My Booking
                     </Link>
                   ) : isProfessional ? (
-                    <Link to={"/professional"} className="me-5 text-white">
+                    <Link to={"/dashboard"} className="me-5 text-white">
                       Dashboard
                     </Link>
                   ) : (
@@ -120,7 +120,7 @@ const Header = ({
                         </Link>
                       ) : isProfessional ? (
                         <Link
-                          to={"/professional"}
+                          to={"/dashboard"}
                           className="dropdown-item"
                           href="#"
                         >

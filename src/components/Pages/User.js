@@ -43,8 +43,8 @@ const User = () => {
     ],
   };
   return (
-    <div>
-      <div className="container">
+    <div className="">
+      <div className="container mb-5">
         <h3 className="text-center text-white mt-3 mb-3">
           <span className="border py-2 ps-3">
             Profile <span className="py-2 pe-3 bg-white text-black">Page</span>
@@ -72,7 +72,7 @@ const User = () => {
           </div>
         </div>
       </div>
-      <div className="bg-black mb-4">
+      <div className="bg-black mb-4 mt-5">
         <div class=" container">
           <h4 className="text-center text-white mt-4 mb-5">
             <span className="border py-2 pe-2">

@@ -15,7 +15,6 @@ import Help from "./components/Pages/Help";
 import BarberRegister from "./components/Pages/BarberRegister";
 import Schedule from "./components/Pages/Schedule";
 import SearchShop from "./components/Search/SearchShop";
-// import Professional from "./components/admin/Professional";
 import DashBoard from "./components/admin/DashBoard";
 
 function App() {

@@ -9,7 +9,6 @@ import "mdb-ui-kit/js/mdb.min";
 import "material-icons/iconfont/material-icons.css";
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
-//import "antd/dist/antd.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

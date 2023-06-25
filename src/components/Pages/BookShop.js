@@ -2,37 +2,15 @@ import React, { useState } from "react";
 import { DayPicker } from "react-day-picker";
 import BreadCrumb from "../BreadCrumbs/Breadcrumb";
 import "react-day-picker/dist/style.css";
-import Slider from "react-slick";
-import Time from "../../bookingTime/bookingTime";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import List from "./List";
 
 const BookShop = () => {
   const [selected, setSelected] = useState(Date);
-  const [active, setActive] = useState(null);
-  // const [visible, setVisible] = useState(false);
-  // const width = window.innerWidth;
-  // if (width <= 480) {
-  //   setVisible(true);
-  // }
   const isSmallDevice = useMediaQuery("(max-width : 748px)");
   const isMediumDevice = useMediaQuery("(min-width : 769px)");
-
-  // const [select, setSelect] = useState(0);
-  // const handleClick = (liNum) => () => {
-  //   setSelected(liNum);
-  // };
-  // const activeColor = "bg-warning";
-  // const inactive = {};
   let today = new Date();
   let year = today.getFullYear();
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-  };
 
   return (
     <div className="">
@@ -103,12 +81,9 @@ const BookShop = () => {
               {isSmallDevice ? (
                 <div className="container mt-4">
                   <h6 className="fw-bold text-center mb-3">Pick Your Time</h6>
-                  {/* <Slider {...settings} className="liStyle"> */}
                   <div className="w-100 overflow-auto">
                     <List name="d-flex" />
                   </div>
-
-                  {/* </Slider> */}
                 </div>
               ) : (
                 ""

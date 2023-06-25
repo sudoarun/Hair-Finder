@@ -194,7 +194,7 @@ const BarberRegister = ({ setProfessional }) => {
                         type="checkbox"
                         value=""
                         id="registerCheck"
-                        checked
+                        defaultChecked
                         aria-describedby="registerCheckHelpText"
                       />
                       <label

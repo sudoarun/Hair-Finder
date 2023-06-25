@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Breadcrumb = ({ prevPage, link, text, activePage }) => {
-  console.log(link);
   return (
     <div>
       <nav aria-label="breadcrumb">

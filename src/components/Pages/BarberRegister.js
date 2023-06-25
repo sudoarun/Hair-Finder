@@ -197,7 +197,10 @@ const BarberRegister = ({ setProfessional }) => {
                         checked
                         aria-describedby="registerCheckHelpText"
                       />
-                      <label className="form-check-label" for="registerCheck">
+                      <label
+                        className="form-check-label"
+                        htmlFor="registerCheck"
+                      >
                         I have read and agree to the terms
                       </label>
                     </div>

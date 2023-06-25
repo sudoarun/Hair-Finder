@@ -175,7 +175,7 @@ const Header = ({
             </div>
             {/* <div id="hamburgerBtn">
               <input type="checkbox" id="checkbox" />
-              <label htmlFor="checkbox" className="toggle">
+              <label htmlhtmlFor="checkbox" className="toggle">
                 <div className="bars" id="bar1"></div>
                 <div className="bars" id="bar2"></div>
                 <div className="bars" id="bar3"></div>

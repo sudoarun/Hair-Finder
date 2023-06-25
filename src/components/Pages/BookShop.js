@@ -122,7 +122,7 @@ const BookShop = () => {
                   value=""
                   id="flexCheckDefault"
                 />
-                <label className="form-check-label" for="flexCheckDefault">
+                <label className="form-check-label" htmlFor="flexCheckDefault">
                   Shampoo (80rs)
                 </label>
               </div>
@@ -133,7 +133,7 @@ const BookShop = () => {
                   value=""
                   id="flexCheckDefault"
                 />
-                <label className="form-check-label" for="flexCheckDefault">
+                <label className="form-check-label" htmlFor="flexCheckDefault">
                   Head Massage (50rs)
                 </label>
               </div>
@@ -144,7 +144,7 @@ const BookShop = () => {
                   value=""
                   id="flexCheckDefault"
                 />
-                <label className="form-check-label" for="flexCheckDefault">
+                <label className="form-check-label" htmlFor="flexCheckDefault">
                   Face Mask (80rs)
                 </label>
               </div>

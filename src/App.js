@@ -18,8 +18,8 @@ import SearchShop from "./components/Search/SearchShop";
 import DashBoard from "./components/admin/DashBoard";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); //user Route
-  const [isProfessional, setProfessional] = useState(true); //Professional Route
+  const [isLoggedIn, setIsLoggedIn] = useState(true); //user Route
+  const [isProfessional, setProfessional] = useState(false); //Professional Route
 
   //user Private Route
   function PrivateRoute({ isLoggedIn, children }) {

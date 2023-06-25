@@ -4,15 +4,25 @@ import BreadCrumb from "../BreadCrumbs/Breadcrumb";
 import "react-day-picker/dist/style.css";
 import Slider from "react-slick";
 import Time from "../../bookingTime/bookingTime";
+import { useMediaQuery } from "@uidotdev/usehooks";
+import List from "./List";
 
 const BookShop = () => {
   const [selected, setSelected] = useState(Date);
   const [active, setActive] = useState(null);
+  // const [visible, setVisible] = useState(false);
+  // const width = window.innerWidth;
+  // if (width <= 480) {
+  //   setVisible(true);
+  // }
+  const isSmallDevice = useMediaQuery("(max-width : 748px)");
+  const isMediumDevice = useMediaQuery("(min-width : 769px)");
+
   // const [select, setSelect] = useState(0);
   // const handleClick = (liNum) => () => {
   //   setSelected(liNum);
   // };
-  const activeColor = "bg-warning";
+  // const activeColor = "bg-warning";
   // const inactive = {};
   let today = new Date();
   let year = today.getFullYear();
@@ -76,58 +86,33 @@ const BookShop = () => {
                   </div>
                 </div>
                 {/* Menu for Desktop mode */}
-                <div className="h-100 responsiveTimeSchedule">
-                  <h6 className="fw-bold">Pick Your Time</h6>
-                  <div className="text-white scheduleTime h-100 mt-5">
-                    <div className="overflow-auto h-75">
-                      {Time.map((data, i) => (
-                        <li
-                          className={`py-2 my-1 px-5 ${
-                            active === data && activeColor
-                          }`}
-                          key={i}
-                          onClick={() => setActive(data)}
-                        >
-                          {data}
-                        </li>
-                      ))}
+                {isMediumDevice ? (
+                  <div className="h-100 ">
+                    <h6 className="fw-bold">Pick Your Time</h6>
+                    <div className="text-white scheduleTime h-100 mt-5">
+                      <div className="overflow-auto h-75">
+                        <List />
+                      </div>
                     </div>
                   </div>
-                </div>
+                ) : (
+                  ""
+                )}
               </div>
               {/* Menu for mobile mode */}
-              <div className="container mt-4" id="mobileSchedlueMenu">
-                <h6 className="fw-bold text-center mb-3">Pick Your Time</h6>
-                <Slider {...settings} className="liStyle">
-                  {/* <li className="py-2 my-1 px-5 ">10:00&nbsp;AM</li>
-                  <li className="py-2 my-1 px-5 active">10:30&nbsp;AM</li>
-                  <li className="py-2 my-1 px-5">11:00&nbsp;AM</li>
-                  <li className="py-2 my-1 px-5">11:30&nbsp;AM</li>
-                  <li className="py-2 my-1 px-5">12:00&nbsp;PM</li>
-                  <li className="py-2 my-1 px-5">12:30&nbsp;PM</li>
-                  <li className="py-2 my-1 px-5">01:00&nbsp;PM</li>
-                  <li className="py-2 my-1 px-5">01:30&nbsp;PM</li>
-                  <li className="py-2 my-1 px-5">02:00&nbsp;PM</li>
-                  <li className="py-2 my-1 px-5">02:30&nbsp;PM</li>
-                  <li className="py-2 my-1 px-5">03:00&nbsp;PM</li>
-                  <li className="py-2 my-1 px-5">03:30&nbsp;PM</li>
-                  <li className="py-2 my-1 px-5">04:00&nbsp;PM</li>
-                  <li className="py-2 my-1 px-5">04:30&nbsp;PM</li>
-                  <li className="py-2 my-1 px-5">05:00&nbsp;PM</li>
-                  <li className="py-2 my-1 px-5">05:30&nbsp;PM</li>
-                  <li className="py-2 my-1 px-5">06:00&nbsp;PM</li>
-                  <li className="py-2 my-1 px-5">06:30&nbsp;PM</li>
-                  <li className="py-2 my-1 px-5">07:00&nbsp;PM</li>
-                  <li className="py-2 my-1 px-5">07:30&nbsp;PM</li>
-                  <li className="py-2 my-1 px-5">08:00&nbsp;PM</li>
-                  <li className="py-2 my-1 px-5">08:30&nbsp;PM</li> */}
-                  {Time.map((data) => (
-                    <>
-                      <li className="py-2 my-1 px-3">{data}</li>
-                    </>
-                  ))}
-                </Slider>
-              </div>
+              {isSmallDevice ? (
+                <div className="container mt-4">
+                  <h6 className="fw-bold text-center mb-3">Pick Your Time</h6>
+                  {/* <Slider {...settings} className="liStyle"> */}
+                  <div className="w-100 overflow-auto">
+                    <List name="d-flex" />
+                  </div>
+
+                  {/* </Slider> */}
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>

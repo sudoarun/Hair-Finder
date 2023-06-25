@@ -2,11 +2,13 @@ import React, { useState } from "react";
 // import LoginPage from "../Loginpage/Loginpage";
 
 const BarberRegister = ({ setProfessional }) => {
-  const [value, setValue] = useState({     //State for login
+  const [value, setValue] = useState({
+    //State for login
     email: "",
     password: "",
   });
-  const [regValue, setRegValue] = useState({  //State for Registration
+  const [regValue, setRegValue] = useState({
+    //State for Registration
     username: "",
     number: "",
     email: "",
@@ -24,10 +26,13 @@ const BarberRegister = ({ setProfessional }) => {
       return { ...data, [name]: value };
     });
   };
-  // const OnSubmit()=>{
-  // }
-  console.log(value);
-  console.log(regValue);
+  const OnSubmit = () => {
+    setProfessional(true);
+    alert("Logged in as Professional");
+    console.log(value);
+    console.log(regValue);
+  };
+
   return (
     <div>
       {/* <button
@@ -134,10 +139,7 @@ const BarberRegister = ({ setProfessional }) => {
                     <button
                       type="button"
                       class="btn btn-warning btn-block mb-4"
-                      onClick={() =>
-                        setProfessional(true) ||
-                        alert("Logged in as Professional")
-                      }
+                      onClick={() => OnSubmit}
                     >
                       Sign in
                     </button>

@@ -10,7 +10,7 @@ const Header = ({
   isProfessional,
   setProfessional,
 }) => {
-  console.log(isLoggedIn, setIsLoggedIn);
+  // console.log(isLoggedIn, setIsLoggedIn);
   // const navigate = useNavigate();
 
   // const logInHandle = () => {
@@ -33,7 +33,8 @@ const Header = ({
             </Link>
             {isProfessional ? ( //condition when Professional log in
               ""
-            ) : (   //condition when user log in
+            ) : (
+              //condition when user log in
               <div className="d-sm-none text-center">
                 <h6
                   to={"/professional-register"}

@@ -2,6 +2,7 @@ import React from "react";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faUser, faLock, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import "./DashBoard.css";
+import Sidebar from "./Sidebar";
 // import logo from "../../assets/logo.png";
 
 const DashBoard = () => {
@@ -34,6 +35,7 @@ const DashBoard = () => {
           </li>
         </ul>
       </nav>
+      <Sidebar />
     </div>
   );
 };

@@ -3,9 +3,16 @@ import { DayPicker } from "react-day-picker";
 import BreadCrumb from "../BreadCrumbs/Breadcrumb";
 import "react-day-picker/dist/style.css";
 import Slider from "react-slick";
+import Time from "../../bookingTime/bookingTime";
 
 const BookShop = () => {
   const [selected, setSelected] = useState(Date);
+  // const [select, setSelect] = useState(0);
+  // const handleClick = (liNum) => () => {
+  //   setSelected(liNum);
+  // };
+  // const active = { color: "yellow" };
+  // const inactive = {};
   let today = new Date();
   let year = today.getFullYear();
   const settings = {
@@ -19,7 +26,7 @@ const BookShop = () => {
   return (
     <div className="">
       <div className="container">
-        <BreadCrumb       //BreadCrumbs component
+        <BreadCrumb //BreadCrumbs component
           prevPage={"Shop"}
           link={"/shop"}
           activePage={"Booking"}
@@ -69,10 +76,10 @@ const BookShop = () => {
                 </div>
                 {/* Menu for Desktop mode */}
                 <div className="h-100 responsiveTimeSchedule">
-                  <h6 className="fw-bold">Pick Your Time</h6>   
+                  <h6 className="fw-bold">Pick Your Time</h6>
                   <div className="text-white scheduleTime h-100 mt-5">
                     <div className="overflow-auto h-75">
-                      <li className="py-2 my-1 px-5">10:00 AM</li>
+                      {/* <li className="py-2 my-1 px-5">10:00 AM</li>
                       <li className="py-2 my-1 px-5">10:30 AM</li>
                       <li className="py-2 my-1 px-5">11:00 AM</li>
                       <li className="py-2 my-1 px-5">11:30 AM</li>
@@ -94,7 +101,12 @@ const BookShop = () => {
                       <li className="py-2 my-1 px-5">07:30 PM</li>
                       <li className="py-2 my-1 px-5">08:00 PM</li>
                       <li className="py-2 my-1 px-5">08:30 PM</li>
-                      <li className="py-2 my-1 px-5">09:00 PM</li>
+                      <li className="py-2 my-1 px-5">09:00 PM</li> */}
+                      {Time.map((data) => (
+                        <>
+                          <li className="py-2 my-1 px-5">{data}</li>
+                        </>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -103,8 +115,8 @@ const BookShop = () => {
               <div className="container mt-4" id="mobileSchedlueMenu">
                 <h6 className="fw-bold text-center mb-3">Pick Your Time</h6>
                 <Slider {...settings} className="liStyle">
-                  <li className="py-2 my-1 px-5">10:00&nbsp;AM</li>
-                  <li className="py-2 my-1 px-5">10:30&nbsp;AM</li>
+                  {/* <li className="py-2 my-1 px-5 ">10:00&nbsp;AM</li>
+                  <li className="py-2 my-1 px-5 active">10:30&nbsp;AM</li>
                   <li className="py-2 my-1 px-5">11:00&nbsp;AM</li>
                   <li className="py-2 my-1 px-5">11:30&nbsp;AM</li>
                   <li className="py-2 my-1 px-5">12:00&nbsp;PM</li>
@@ -124,7 +136,12 @@ const BookShop = () => {
                   <li className="py-2 my-1 px-5">07:00&nbsp;PM</li>
                   <li className="py-2 my-1 px-5">07:30&nbsp;PM</li>
                   <li className="py-2 my-1 px-5">08:00&nbsp;PM</li>
-                  <li className="py-2 my-1 px-5">08:30&nbsp;PM</li>
+                  <li className="py-2 my-1 px-5">08:30&nbsp;PM</li> */}
+                  {Time.map((data) => (
+                    <>
+                      <li className="py-2 my-1 px-3">{data}</li>
+                    </>
+                  ))}
                 </Slider>
               </div>
             </div>

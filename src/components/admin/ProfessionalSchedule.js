@@ -43,10 +43,10 @@ const Professional = () => {
                   <span>12:00pm - 23 april</span>
                 </div>
                 <div id="clientActions" className="col-4 col-sm-2 px-0">
-                  <span class="material-icons-outlined bg-success rounded-circle px-2 py-2 me-3">
+                  <span className="material-icons-outlined bg-success rounded-circle px-2 py-2 me-3">
                     call
                   </span>
-                  <span class="material-icons-outlined bg-danger rounded px-2 py-2">
+                  <span className="material-icons-outlined bg-danger rounded px-2 py-2">
                     close
                   </span>
                 </div>
@@ -66,10 +66,10 @@ const Professional = () => {
                   <span>12:00pm - 23 april</span>
                 </div>
                 <div id="clientActions" className="col-4 col-sm-2 px-0">
-                  <span class="material-icons-outlined bg-success rounded-circle px-2 py-2 me-3">
+                  <span className="material-icons-outlined bg-success rounded-circle px-2 py-2 me-3">
                     call
                   </span>
-                  <span class="material-icons-outlined bg-danger rounded px-2 py-2">
+                  <span className="material-icons-outlined bg-danger rounded px-2 py-2">
                     close
                   </span>
                 </div>
@@ -89,10 +89,10 @@ const Professional = () => {
                   <span>12:00pm - 23 april</span>
                 </div>
                 <div id="clientActions" className="col-4 col-sm-2 px-0">
-                  <span class="material-icons-outlined bg-success rounded-circle px-2 py-2 me-3">
+                  <span className="material-icons-outlined bg-success rounded-circle px-2 py-2 me-3">
                     call
                   </span>
-                  <span class="material-icons-outlined bg-danger rounded px-2 py-2">
+                  <span className="material-icons-outlined bg-danger rounded px-2 py-2">
                     close
                   </span>
                 </div>
@@ -112,10 +112,10 @@ const Professional = () => {
                   <span>12:00pm - 23 april</span>
                 </div>
                 <div id="clientActions" className="col-4 col-sm-2 px-0">
-                  <span class="material-icons-outlined bg-success rounded-circle px-2 py-2 me-3">
+                  <span className="material-icons-outlined bg-success rounded-circle px-2 py-2 me-3">
                     call
                   </span>
-                  <span class="material-icons-outlined bg-danger rounded px-2 py-2">
+                  <span className="material-icons-outlined bg-danger rounded px-2 py-2">
                     close
                   </span>
                 </div>

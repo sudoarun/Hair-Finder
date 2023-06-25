@@ -50,7 +50,7 @@ const User = () => {
             Profile <span className="py-2 pe-3 bg-white text-black">Page</span>
           </span>
         </h3>
-        <div class="profile-page">
+        <div className="profile-page">
           <div className="row">
             <div className="col-4 col-sm-3">
               <img
@@ -61,7 +61,7 @@ const User = () => {
             </div>
 
             <div className="col-8 col-sm-9">
-              <div class="text-white">
+              <div className="text-white">
                 <h3>Name : User name </h3>
                 <p>Mobile : 9993335555</p>
                 <p>Email : yourmail@gmail.com</p>
@@ -73,7 +73,7 @@ const User = () => {
         </div>
       </div>
       <div className="bg-black mb-4 mt-5">
-        <div class=" container">
+        <div className=" container">
           <h4 className="text-center text-white mt-4 mb-5">
             <span className="border py-2 pe-2">
               <span className="py-2 px-2 bg-white text-black">Shops</span> You{" "}

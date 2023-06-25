@@ -28,7 +28,7 @@ const SearchShop = () => {
           <div className="d-flex justify-content-between text-white mb-3 align-items-center">
             <h6>Search Results ...</h6>
             <div className="d-flex align-items-center">
-              <span class="material-icons-outlined">tune</span>
+              <span className="material-icons-outlined">tune</span>
               <span className="ms-2">Filter</span>
             </div>
           </div>

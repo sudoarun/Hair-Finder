@@ -66,18 +66,18 @@ const BarberRegister = ({ setProfessional }) => {
                 data-mdb-dismiss="modal"
                 aria-label="Close"
               >
-                <span class="material-icons-outlined">close</span>
+                <span className="material-icons-outlined">close</span>
               </button>
             </div>
             <div className="modal-body">
               <ul
-                class="nav nav-pills nav-justified mb-3"
+                className="nav nav-pills nav-justified mb-3"
                 id="ex1"
                 role="tablist"
               >
-                <li class="nav-item" role="presentation">
+                <li className="nav-item" role="presentation">
                   <a
-                    class="nav-link rounded-0 text-black"
+                    className="nav-link rounded-0 text-black"
                     id="tab-login"
                     data-mdb-toggle="pill"
                     href="#pills-login"
@@ -88,9 +88,9 @@ const BarberRegister = ({ setProfessional }) => {
                     Login
                   </a>
                 </li>
-                <li class="nav-item" role="presentation">
+                <li className="nav-item" role="presentation">
                   <a
-                    class="nav-link active rounded-0 text-black"
+                    className="nav-link active rounded-0 text-black"
                     id="tab-register"
                     data-mdb-toggle="pill"
                     href="#pills-register"
@@ -103,9 +103,9 @@ const BarberRegister = ({ setProfessional }) => {
                 </li>
               </ul>
 
-              <div class="tab-content">
+              <div className="tab-content">
                 <div
-                  class="tab-pane fade "
+                  className="tab-pane fade "
                   id="pills-login"
                   role="tabpanel"
                   aria-labelledby="tab-login"
@@ -118,7 +118,7 @@ const BarberRegister = ({ setProfessional }) => {
                       onChange={onChangeSigin}
                       name="email"
                       placeholder="Enter Email"
-                      class="form-control bg-black text-white"
+                      className="form-control bg-black text-white"
                     />
 
                     <input
@@ -128,17 +128,17 @@ const BarberRegister = ({ setProfessional }) => {
                       onChange={onChangeSigin}
                       name="password"
                       required
-                      class="form-control text-white bg-black mt-4"
+                      className="form-control text-white bg-black mt-4"
                     />
-                    <div class="row mb-4">
-                      <div class="col-md-12 mt-2 d-flex justify-content-center">
+                    <div className="row mb-4">
+                      <div className="col-md-12 mt-2 d-flex justify-content-center">
                         <a href="#!">Forgot password?</a>
                       </div>
                     </div>
 
                     <button
                       type="button"
-                      class="btn btn-warning btn-block mb-4"
+                      className="btn btn-warning btn-block mb-4"
                       onClick={() => OnSubmit}
                     >
                       Sign in
@@ -146,7 +146,7 @@ const BarberRegister = ({ setProfessional }) => {
                   </form>
                 </div>
                 <div
-                  class="tab-pane fade show active"
+                  className="tab-pane fade show active"
                   id="pills-register"
                   role="tabpanel"
                   aria-labelledby="tab-register"
@@ -158,7 +158,7 @@ const BarberRegister = ({ setProfessional }) => {
                       name="username"
                       onChange={onChangeRegister}
                       placeholder="Enter Name"
-                      class="form-control border bg-black mt-3 text-white"
+                      className="form-control border bg-black mt-3 text-white"
                     />
 
                     <input
@@ -167,7 +167,7 @@ const BarberRegister = ({ setProfessional }) => {
                       name="number"
                       onChange={onChangeRegister}
                       id="registerUsername"
-                      class="form-control border bg-black mt-3 text-white"
+                      className="form-control border bg-black mt-3 text-white"
                     />
 
                     <input
@@ -176,7 +176,7 @@ const BarberRegister = ({ setProfessional }) => {
                       name="email"
                       onChange={onChangeRegister}
                       id="registerEmail"
-                      class="form-control border bg-black mt-3 text-white"
+                      className="form-control border bg-black mt-3 text-white"
                     />
 
                     <input
@@ -185,25 +185,25 @@ const BarberRegister = ({ setProfessional }) => {
                       onChange={onChangeRegister}
                       placeholder="Enter Password"
                       id="registerPassword"
-                      class="form-control border bg-black mt-3 text-white"
+                      className="form-control border bg-black mt-3 text-white"
                     />
 
-                    <div class="form-check d-flex justify-content-center mb-4 mt-2">
+                    <div className="form-check d-flex justify-content-center mb-4 mt-2">
                       <input
-                        class="form-check-input me-2"
+                        className="form-check-input me-2"
                         type="checkbox"
                         value=""
                         id="registerCheck"
                         checked
                         aria-describedby="registerCheckHelpText"
                       />
-                      <label class="form-check-label" for="registerCheck">
+                      <label className="form-check-label" for="registerCheck">
                         I have read and agree to the terms
                       </label>
                     </div>
                     <button
                       type="submit"
-                      class="btn btn-warning btn-block mb-3"
+                      className="btn btn-warning btn-block mb-3"
                     >
                       Sign in
                     </button>

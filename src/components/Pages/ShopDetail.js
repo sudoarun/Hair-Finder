@@ -1,19 +1,8 @@
 import React from "react";
 import StyleCard from "./StyleCard";
 import Breadcrumb from "../BreadCrumbs/Breadcrumb";
-// import Slider from "react-slick/lib/slider";
 
 const ShopDetail = () => {
-  // const settings = {
-  //   dots: true,
-  //   infinite: true,
-  //   // eslint-disable-next-line no-dupe-keys
-  //   dots: false,
-  //   speed: 500,
-  //   useTransform: true,
-  //   slidesToShow: 3,
-  //   slidesToScroll: 2,
-  // };
   return (
     <div className="container">
       <div className="mt-3">
@@ -42,20 +31,6 @@ const ShopDetail = () => {
             </div>
           </div>
         </div>
-        {/* <Slider {...settings}>
-          <div className="px-2">
-            <StyleCard />
-          </div>
-          <div className="px-2">
-            <StyleCard />
-          </div>
-          <div className="px-2">
-            <StyleCard />
-          </div>
-          <div className="px-2">
-            <StyleCard />
-          </div>
-        </Slider> */}
         <div className="mt-5">
           <h3 className="text-white mb-3">
             Services by{" "}

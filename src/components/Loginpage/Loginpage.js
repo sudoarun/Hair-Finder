@@ -88,11 +88,6 @@ function LoginPage({ name, setIsLoggedIn }) {
               />
             </div>
 
-            {/* <div className="input-field">
-              <FontAwesomeIcon icon={faEnvelope} className="my-auto mx-auto" />
-              <input className="LoginInput" type="email" placeholder="Email" />
-            </div> */}
-
             <div className="input-field">
               <FontAwesomeIcon icon={faLock} className="my-auto mx-auto" />
               <input

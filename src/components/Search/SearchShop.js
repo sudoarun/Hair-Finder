@@ -1,9 +1,6 @@
 import React from "react";
 import BreadCrumbs from "../BreadCrumbs/Breadcrumb";
-// import { Link } from "react-router-dom";
 import SearchContent from "./SearchContent";
-
-// import { Link } from "react-router-dom";
 const SearchShop = () => {
   return (
     <div className="mb-3">

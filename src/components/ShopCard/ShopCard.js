@@ -2,12 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./ShopCard.css";
 import Slider from "react-slick/lib/slider";
-// import { Rate } from "antd";
-// import { useState } from "react";
 
 const ShopCard = () => {
-  // const desc = ["terrible", "bad", "normal", "good", "wonderful"];
-  // const [value, setValue] = useState(5);
   const settings = {
     dots: true,
     infinite: true,
@@ -72,16 +68,6 @@ const ShopCard = () => {
                     <div>
                       <h6>Shop 1</h6>
                       <p>Rating</p>
-                      {/* <div>
-                        <span>
-                          Ratings :
-                          <Rate
-                            tooltips={desc}
-                            onChange={setValue}
-                            value={value}
-                          />
-                        </span>
-                      </div> */}
                     </div>
                   </div>
                 </div>

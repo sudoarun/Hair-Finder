@@ -36,8 +36,8 @@ const ShopDetail = () => {
           <div className="w-50 ms-3">
             <div className="text-white">
               <span className="d-block">Shop Name</span>
-              <span className="d-block">Shop Timing</span>
-              <span className="d-block">Shop Number</span>
+              <span className="d-block">Timing: 10am - 9pm</span>
+              <span className="d-block">Owner contact Number</span>
               <span className="d-block">Shop Rating</span>
             </div>
           </div>

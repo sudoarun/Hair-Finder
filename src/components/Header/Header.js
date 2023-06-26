@@ -10,15 +10,6 @@ const Header = ({
   isProfessional,
   setProfessional,
 }) => {
-  // console.log(isLoggedIn, setIsLoggedIn);
-  // const navigate = useNavigate();
-
-  // const logInHandle = () => {
-  //   // setIsLoggedIn(true);
-  //   navigate("/login");
-  //   // alert("logged in");
-  // };
-
   const logOutHandle = () => {
     setIsLoggedIn(false);
     alert("Logged Out");
@@ -166,21 +157,12 @@ const Header = ({
                   <NavLink
                     to={"/login"}
                     className="fw-bold border-0 bg-black text-white"
-                    //onClick={() => setIsLoggedIn(true)}
                   >
                     Login
                   </NavLink>
                 </div>
               )}
             </div>
-            {/* <div id="hamburgerBtn">
-              <input type="checkbox" id="checkbox" />
-              <label htmlhtmlFor="checkbox" className="toggle">
-                <div className="bars" id="bar1"></div>
-                <div className="bars" id="bar2"></div>
-                <div className="bars" id="bar3"></div>
-              </label>
-            </div> */}
           </div>
         </div>
       </div>

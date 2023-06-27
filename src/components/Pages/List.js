@@ -11,7 +11,8 @@ const List = ({ name }) => {
           key={i}
           onClick={() => setMark(data)}
         >
-          {data}
+          {data.time}
+          <span>&nbsp;{data.shift}</span>
         </li>
       ))}
     </div>

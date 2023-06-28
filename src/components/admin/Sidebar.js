@@ -4,7 +4,7 @@ const Sidebar = () => {
   return (
     <div
       id="sideDiv"
-      className="text-white w-25 d-flex justify-content-between flex-column vh-85 "
+      className="text-white w-25 d-flex justify-content-between flex-column vh-85 border px-2 pb-2"
     >
       <div id="main" className="">
         <div className="py-2 my-4 ps-2 bg-warning d-flex align-items-center">

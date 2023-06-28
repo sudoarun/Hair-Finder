@@ -68,3 +68,7 @@ li {
 .rdp-tfoot {
   color: orange !important;
 }
+
+.vh-85 {
+  height: 85vh;
+}

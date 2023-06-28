@@ -2,20 +2,29 @@ import React from "react";
 
 const Sidebar = () => {
   return (
-    <div id="sideDiv" className="text-white">
-      <div id="main">
-        <div>
+    <div
+      id="sideDiv"
+      className="text-white w-25 d-flex justify-content-between flex-column vh-85 "
+    >
+      <div id="main" className="">
+        <div className="py-2 my-4 ps-2 bg-warning d-flex align-items-center">
+          <span class="material-icons-outlined me-2">person</span>
           <span>Profile Page</span>
         </div>
-        <div>
+        <div className="py-2 my-4 ps-2 bg-warning d-flex align-items-center">
+          <span class="material-icons-outlined me-2">design_services</span>
           <span>Add Services</span>
         </div>
-        <div>
+        <div className="py-2 my-4 ps-2 bg-warning d-flex align-items-center">
+          <span class="material-icons-outlined me-2">calendar_month</span>
           <span>Schedules</span>
         </div>
       </div>
       <div id="footer">
-        <div>Logout</div>
+        <div className="bg-warning ps-2 py-2 d-flex align-items-center">
+          <span class="material-icons-outlined me-2">logout</span>
+          <span>Logout</span>
+        </div>
       </div>
     </div>
   );

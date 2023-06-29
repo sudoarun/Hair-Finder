@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import Professional from "./ProfessionalSchedule";
 import ProfessionalProfile from "./Profile";
+import AddShopDetails from "./AddShopDetails";
 
 const DashBoard = () => {
   const [Profile, setProfile] = useState(false);
@@ -17,11 +18,11 @@ const DashBoard = () => {
         service={service}
         setService={setService}
       />
+
       <div>
-        <ProfessionalProfile />
-      </div>
-      <div>
-        <Professional />
+        {Profile ? <ProfessionalProfile /> : ""}
+        {Schedule ? <Professional /> : ""}
+        {service ? <AddShopDetails /> : ""}
       </div>
     </div>
   );

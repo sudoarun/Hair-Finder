@@ -1,7 +1,7 @@
 import React from "react";
 const url =
   "https://img.freepik.com/premium-vector/fist-with-lbtbi-wristband_24908-77160.jpg?size=626&ext=jpg";
-const Profile = () => {
+const ProfessionalProfile = () => {
   return (
     <div className="w-85 bg-white p-3 d-flex">
       <div>
@@ -49,4 +49,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default ProfessionalProfile;

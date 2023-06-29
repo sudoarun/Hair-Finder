@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 const AddShopDetails = () => {
-    return (
-        <div>
-            <h1>Add SHop Details</h1>
-        </div>
-    );
-}
+  return (
+    <div>
+      <h1>Add SHop Details</h1>
+    </div>
+  );
+};
 
 export default AddShopDetails;

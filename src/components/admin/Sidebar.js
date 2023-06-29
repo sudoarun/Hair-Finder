@@ -10,15 +10,21 @@ const Sidebar = ({
 }) => {
   const ProfilePage = () => {
     Profile ? setProfile(false) : setProfile(true);
-    console.log(Profile);
+    // console.log(Profile);
+    setService(false);
+    setSchedule(false);
   };
   const AddService = () => {
     service ? setService(false) : setService(true);
-    console.log(service);
+    // console.log(service);
+    setProfile(false);
+    setSchedule(false);
   };
   const Schedules = () => {
     Schedule ? setSchedule(false) : setSchedule(true);
-    console.log(Schedule);
+    // console.log(Schedule);
+    setProfile(false);
+    setService(false);
   };
   return (
     <div

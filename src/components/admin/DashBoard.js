@@ -5,7 +5,7 @@ import ProfessionalProfile from "./Profile";
 import AddShopDetails from "./AddShopDetails";
 
 const DashBoard = () => {
-  const [Profile, setProfile] = useState(false);
+  const [Profile, setProfile] = useState(true);
   const [Schedule, setSchedule] = useState(false);
   const [service, setService] = useState(false);
   return (

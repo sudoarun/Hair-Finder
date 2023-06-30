@@ -26,10 +26,12 @@ const Sidebar = ({
     setProfile(false);
     setService(false);
   };
+  const HandleSign = () => {};
   return (
     <div
       id="sideDiv"
       className="text-white w-25 d-flex justify-content-between flex-column vh-85 border px-2 pb-2"
+      style={{ background: "#001C30" }}
     >
       <div id="main" className="">
         <div
@@ -55,7 +57,10 @@ const Sidebar = ({
         </div>
       </div>
       <div id="footer">
-        <div className="bg-warning ps-2 py-2 d-flex align-items-center">
+        <div
+          className="bg-warning ps-2 py-2 d-flex align-items-center"
+          onChange={HandleSign}
+        >
           <span className="material-icons-outlined me-2">logout</span>
           <span>Logout</span>
         </div>

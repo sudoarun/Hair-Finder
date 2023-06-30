@@ -4,18 +4,7 @@ import "./style.css";
 
 const Professional = () => {
   return (
-    <div className="w-100  ">
-      {/* <div className="container">
-        <Breadcrumb activePage={"Professional"} text={"white"} />
-      </div> */}
-      {/* <h5 className="text-white text-center">
-        <span className="py-2 ps-2 border">
-          Your{" "}
-          <span className="py-2 pe-2 bg-white text-black text-decoration-underline ps-1">
-            Schedules
-          </span>
-        </span>
-      </h5> */}
+    <div className="w-100">
       <section className="">
         <div className="container">
           <div>

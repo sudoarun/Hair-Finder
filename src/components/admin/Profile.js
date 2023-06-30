@@ -3,7 +3,7 @@ const url =
   "https://img.freepik.com/premium-vector/fist-with-lbtbi-wristband_24908-77160.jpg?size=626&ext=jpg";
 const ProfessionalProfile = () => {
   return (
-    <div className="w-85 bg-white p-3 d-flex">
+    <div className="w-100 bg-white p-3 d-flex">
       <div>
         <img alt="#" src={url} width="200" />
       </div>

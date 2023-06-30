@@ -19,7 +19,7 @@ const DashBoard = () => {
         setService={setService}
       />
 
-      <div>
+      <div className="w-100">
         {Profile ? <ProfessionalProfile /> : ""}
         {Schedule ? <Professional /> : ""}
         {service ? <AddShopDetails /> : ""}

@@ -7,7 +7,6 @@ import { BrowserRouter } from "react-router-dom";
 import "mdb-ui-kit/css/mdb.min.css";
 import "mdb-ui-kit/js/mdb.min";
 import "material-icons/iconfont/material-icons.css";
-import "dotenv/config";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

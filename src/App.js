@@ -3,9 +3,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import { useState } from "react";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
-
 import Loginpage from "./components/Loginpage/Loginpage";
-
 import ShopDetail from "./components/Pages/ShopDetail";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -16,6 +14,7 @@ import BarberRegister from "./components/Pages/BarberRegister";
 import Schedule from "./components/Pages/Schedule";
 import SearchShop from "./components/Search/SearchShop";
 import DashBoard from "./components/admin/DashBoard";
+// import "dotenv";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); //user Route
@@ -38,7 +37,7 @@ function App() {
       return children;
     }
   }
-
+  console.log(process.env.REACT_APP_APIKEY);
   return (
     <>
       <Header

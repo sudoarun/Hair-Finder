@@ -37,7 +37,6 @@ function App() {
       return children;
     }
   }
-  console.log(process.env.REACT_APP_APIKEY);
   return (
     <>
       <Header

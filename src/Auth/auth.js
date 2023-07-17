@@ -47,14 +47,15 @@ const ProfessionalSignUp = async (state) => {
   //   })
   //   .catch((err) => console.log("Add Doc : ", err));
 };
-const ProfessionalSignIn = (state, setProfessional) => {
+const ProfessionalSignIn = (state, setProfessional, setSignInData) => {
   // console.log(setProfessional);
   signInWithEmailAndPassword(auth, state.email, state.password)
     .then((data) => {
       alert("Logged In");
       setProfessional(true);
       const user = data.user;
-      console.log(user);
+      setSignInData(user);
+      // console.log(user);
     })
     .catch((err) => console.log("Sign in Error :", err.message));
 };

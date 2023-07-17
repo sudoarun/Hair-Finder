@@ -18,6 +18,7 @@ import DashBoard from "./components/admin/DashBoard";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); //user Route
   const [isProfessional, setProfessional] = useState(false); //Professional Route
+  const [signInData, setSignInData] = useState("");
 
   //user Private Route
   function PrivateRoute({ isLoggedIn, children }) {
@@ -43,6 +44,7 @@ function App() {
         isLoggedIn={isLoggedIn}
         isProfessional={isProfessional}
         setProfessional={setProfessional}
+        setSignInData={setSignInData}
       />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -78,7 +80,10 @@ function App() {
           path="/dashboard"
           element={
             <ProfessionalRoute isProfessional={isProfessional}>
-              <DashBoard setProfessional={setProfessional} />
+              <DashBoard
+                setProfessional={setProfessional}
+                signInData={signInData}
+              />
             </ProfessionalRoute>
           }
         />

@@ -4,10 +4,11 @@ import Professional from "./ProfessionalSchedule";
 import ProfessionalProfile from "./Profile";
 import AddShopDetails from "./AddShopDetails";
 
-const DashBoard = () => {
+const DashBoard = ({ signInData }) => {
   const [Profile, setProfile] = useState(true);
   const [Schedule, setSchedule] = useState(false);
   const [service, setService] = useState(false);
+  console.log(signInData);
   return (
     <div className="d-flex gap-4">
       <Sidebar

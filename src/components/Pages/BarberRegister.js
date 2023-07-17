@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { ProfessionalSignIn, ProfessionalSignUp } from "../../Auth/auth";
+import { useNavigate } from "react-router-dom";
 // import LoginPage from "../Loginpage/Loginpage";
 
-const BarberRegister = ({ setProfessional }) => {
+const BarberRegister = ({ setProfessional, setSignInData }) => {
   const [value, setValue] = useState({
     //State for login
     email: "",
@@ -15,6 +16,7 @@ const BarberRegister = ({ setProfessional }) => {
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const onChangeRegister = (e) => {
     const name = e.target.name; //Function for Register Section
@@ -36,7 +38,14 @@ const BarberRegister = ({ setProfessional }) => {
       alert("Enter SignUp Details");
       return;
     }
-    ProfessionalSignUp(regValue, setProfessional);
+    ProfessionalSignUp(regValue, setProfessional, setSignInData);
+    navigate("/");
+    setRegValue({
+      username: "",
+      email: "",
+      number: "",
+      password: "",
+    });
   };
   const OnSubmitLogin = (e) => {
     e.preventDefault();
@@ -44,7 +53,12 @@ const BarberRegister = ({ setProfessional }) => {
       alert("Enter Login Details");
       return;
     }
-    ProfessionalSignIn(value, setProfessional);
+    ProfessionalSignIn(value, setProfessional, setSignInData);
+    navigate("/");
+    setValue({
+      email: "",
+      password: "",
+    });
   };
 
   return (
@@ -120,6 +134,7 @@ const BarberRegister = ({ setProfessional }) => {
                       type="email"
                       id="loginName"
                       required
+                      value={value.email}
                       onChange={onChangeSigin}
                       name="email"
                       placeholder="Enter Email"
@@ -128,6 +143,7 @@ const BarberRegister = ({ setProfessional }) => {
 
                     <input
                       type="password"
+                      value={value.password}
                       placeholder="Enter Password"
                       id="loginPassword"
                       onChange={onChangeSigin}
@@ -144,6 +160,7 @@ const BarberRegister = ({ setProfessional }) => {
                     <button
                       type="submit"
                       className="btn btn-warning btn-block mb-4"
+                      data-mdb-dismiss="modal"
                     >
                       Sign in
                     </button>
@@ -160,6 +177,7 @@ const BarberRegister = ({ setProfessional }) => {
                       type="text"
                       id="registerName"
                       name="username"
+                      value={regValue.username}
                       onChange={onChangeRegister}
                       placeholder="Enter Name"
                       className="form-control border bg-black mt-3 text-white"
@@ -167,6 +185,7 @@ const BarberRegister = ({ setProfessional }) => {
 
                     <input
                       placeholder="Enter Number"
+                      value={regValue.number}
                       type="number"
                       name="number"
                       onChange={onChangeRegister}
@@ -177,6 +196,7 @@ const BarberRegister = ({ setProfessional }) => {
                     <input
                       type="email"
                       placeholder="Enter Email"
+                      value={regValue.email}
                       name="email"
                       onChange={onChangeRegister}
                       id="registerEmail"
@@ -186,6 +206,7 @@ const BarberRegister = ({ setProfessional }) => {
                     <input
                       type="password"
                       name="password"
+                      value={regValue.password}
                       onChange={onChangeRegister}
                       placeholder="Enter Password"
                       id="registerPassword"
@@ -211,6 +232,7 @@ const BarberRegister = ({ setProfessional }) => {
                     <button
                       type="submit"
                       className="btn btn-warning btn-block mb-3"
+                      data-mdb-dismiss="modal"
                     >
                       Sign in
                     </button>

@@ -3,12 +3,14 @@ import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 import logo from "../../assets/logo.png";
 import BarberRegister from "../Pages/BarberRegister";
+import { useState } from "react";
 
 const Header = ({
   isLoggedIn,
   setIsLoggedIn,
   isProfessional,
   setProfessional,
+  setSignInData,
 }) => {
   const logOutHandle = () => {
     setIsLoggedIn(false);
@@ -167,7 +169,10 @@ const Header = ({
         </div>
       </div>
       {/* Professional Registration Modal */}
-      <BarberRegister setProfessional={setProfessional} />
+      <BarberRegister
+        setProfessional={setProfessional}
+        setSignInData={setSignInData}
+      />
     </div>
   );
 };

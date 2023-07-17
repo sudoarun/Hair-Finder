@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ProfessionalSignIn, ProfessionalSignUp } from "../../Auth/auth";
 // import LoginPage from "../Loginpage/Loginpage";
 
 const BarberRegister = ({ setProfessional }) => {
@@ -14,10 +15,12 @@ const BarberRegister = ({ setProfessional }) => {
     email: "",
     password: "",
   });
+
   const onChangeRegister = (e) => {
     const name = e.target.name; //Function for Register Section
     const value = e.target.value;
     setRegValue((data) => ({ ...data, [name]: value }));
+    // console.log(regValue);
   };
   const onChangeSigin = (e) => {
     const name = e.target.name; //Function for Sigin Section
@@ -26,11 +29,21 @@ const BarberRegister = ({ setProfessional }) => {
       return { ...data, [name]: value };
     });
   };
-  const OnSubmit = () => {
-    setProfessional(true);
-    alert("Logged in as Professional");
-    console.log(value);
-    console.log(regValue);
+
+  const onSubmitRegister = (e) => {
+    e.preventDefault();
+    if (regValue === "") {
+      alert("Enter values");
+      return;
+    }
+    ProfessionalSignUp(regValue);
+  };
+  const OnSubmitLogin = (e) => {
+    e.preventDefault();
+    // setProfessional(true);
+    ProfessionalSignIn(value);
+    // alert("Logged in as Professional");
+    // console.log(value);
   };
 
   return (
@@ -101,7 +114,7 @@ const BarberRegister = ({ setProfessional }) => {
                   role="tabpanel"
                   aria-labelledby="tab-login"
                 >
-                  <form>
+                  <form onSubmit={OnSubmitLogin}>
                     <input
                       type="email"
                       id="loginName"
@@ -128,9 +141,8 @@ const BarberRegister = ({ setProfessional }) => {
                     </div>
 
                     <button
-                      type="button"
+                      type="submit"
                       className="btn btn-warning btn-block mb-4"
-                      onClick={() => OnSubmit}
                     >
                       Sign in
                     </button>
@@ -142,7 +154,7 @@ const BarberRegister = ({ setProfessional }) => {
                   role="tabpanel"
                   aria-labelledby="tab-register"
                 >
-                  <form>
+                  <form onSubmit={onSubmitRegister}>
                     <input
                       type="text"
                       id="registerName"

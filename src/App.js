@@ -14,11 +14,10 @@ import BarberRegister from "./components/Pages/BarberRegister";
 import Schedule from "./components/Pages/Schedule";
 import SearchShop from "./components/Search/SearchShop";
 import DashBoard from "./components/admin/DashBoard";
-// import "dotenv";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); //user Route
-  const [isProfessional, setProfessional] = useState(true); //Professional Route
+  const [isProfessional, setProfessional] = useState(false); //Professional Route
 
   //user Private Route
   function PrivateRoute({ isLoggedIn, children }) {

@@ -36,12 +36,12 @@ const BarberRegister = ({ setProfessional }) => {
       alert("Enter values");
       return;
     }
-    ProfessionalSignUp(regValue);
+    ProfessionalSignUp(regValue, setProfessional);
   };
   const OnSubmitLogin = (e) => {
     e.preventDefault();
     // setProfessional(true);
-    ProfessionalSignIn(value);
+    ProfessionalSignIn(value, setProfessional);
     // alert("Logged in as Professional");
     // console.log(value);
   };

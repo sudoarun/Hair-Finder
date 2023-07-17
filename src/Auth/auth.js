@@ -19,7 +19,7 @@ const ProfessionalSignUp = async (state) => {
           try {
             updateProfile(user, {
               displayName: state.username,
-              phoneNumber: state.number,
+              phoneNumber: 234567,
             }).then(alert("Thug life"));
           } catch (error) {
             console.log(error);
@@ -29,16 +29,16 @@ const ProfessionalSignUp = async (state) => {
     })
     .catch((err) => console.log("Add Doc : ", err));
 };
-const ProfessionalSignIn = (state) => {
-  //   console.log(state);
+const ProfessionalSignIn = (state, setProfessional) => {
+  // console.log(setProfessional);
   signInWithEmailAndPassword(auth, state.email, state.password)
     .then((data) => {
       alert("Logged In");
-      //   console.log(data);
+      setProfessional(true);
       const user = data.user;
       console.log(user);
     })
-    .catch((err) => console.log("Sign in Error :", err));
+    .catch((err) => console.log("Sign in Error :", err.message));
 };
 
 export { ProfessionalSignUp, ProfessionalSignIn };

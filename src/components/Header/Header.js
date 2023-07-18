@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 import logo from "../../assets/logo.png";
 import BarberRegister from "../Pages/BarberRegister";
-import { useState } from "react";
+// import { useState } from "react";
 
 const Header = ({
   isLoggedIn,

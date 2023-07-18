@@ -6,10 +6,11 @@ import {
 } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../Firebase/firebase";
+// import { message } from "antd";
 
 const auth = getAuth();
 
-const ProfessionalSignUp = async (state) => {
+const ProfessionalSignUp = async (state, setSignInData) => {
   await createUserWithEmailAndPassword(auth, state.email, state.password)
     .then((res) => {
       const user = res.user;
@@ -18,17 +19,14 @@ const ProfessionalSignUp = async (state) => {
           displayName: state.username,
         }).then(() => {
           setDoc(doc(db, "proLogin", `${user.uid}`), state).then(() =>
-            alert("Saved!!!")
+            setSignInData(user)
           );
-          // const ProLoginRef = collection(db, "proLogin/", `${user.uid}`);
-          // addDoc(ProLoginRef, state).then(() => alert("data Saved !!!"));
         });
       } catch (error) {
         console.log(error);
       }
     })
     .catch((err) => console.log("Auth Create :", err));
-
   // await addDoc(ProLoginRef, state)
   //   .then(() => {
   //     createUserWithEmailAndPassword(auth, state.email, state.password)
@@ -47,12 +45,10 @@ const ProfessionalSignUp = async (state) => {
   //   })
   //   .catch((err) => console.log("Add Doc : ", err));
 };
-const ProfessionalSignIn = (state, setProfessional, setSignInData) => {
+const ProfessionalSignIn = async (state, setProfessional, setSignInData) => {
   // console.log(setProfessional);
-  signInWithEmailAndPassword(auth, state.email, state.password)
+  await signInWithEmailAndPassword(auth, state.email, state.password)
     .then((data) => {
-      alert("Logged In");
-      setProfessional(true);
       const user = data.user;
       setSignInData(user);
       // console.log(user);

@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import { ProfessionalSignIn, ProfessionalSignUp } from "../../Auth/auth";
 import { useNavigate } from "react-router-dom";
+import { message } from "antd";
 // import LoginPage from "../Loginpage/Loginpage";
 
 const BarberRegister = ({ setProfessional, setSignInData }) => {
+  const [messageApi, contextHolder] = message.useMessage();
+  const success = (messageText, varient) => {
+    messageApi.open({
+      type: varient,
+      content: messageText,
+    });
+  };
   const [value, setValue] = useState({
     //State for login
     email: "",
@@ -38,7 +46,15 @@ const BarberRegister = ({ setProfessional, setSignInData }) => {
       alert("Enter SignUp Details");
       return;
     }
-    ProfessionalSignUp(regValue, setProfessional, setSignInData);
+
+    ProfessionalSignUp(regValue, setSignInData)
+      .then(() => {
+        let messageText = "hello";
+        let varient = "success";
+        success(messageText, varient);
+        setProfessional(true);
+      })
+      .catch((err) => console.log(err));
     navigate("/");
     setRegValue({
       username: "",
@@ -53,7 +69,12 @@ const BarberRegister = ({ setProfessional, setSignInData }) => {
       alert("Enter Login Details");
       return;
     }
-    ProfessionalSignIn(value, setProfessional, setSignInData);
+    ProfessionalSignIn(value, setProfessional, setSignInData).then(() => {
+      let messageText = "Logged in Successfully !!!";
+      let varient = "success";
+      success(messageText, varient);
+      setProfessional(true);
+    });
     navigate("/");
     setValue({
       email: "",
@@ -63,6 +84,7 @@ const BarberRegister = ({ setProfessional, setSignInData }) => {
 
   return (
     <div>
+      {contextHolder}
       <div
         className="modal fade"
         id="exampleModal"

@@ -14,8 +14,9 @@ const BarberRegister = ({ setProfessional, setSignInData }) => {
   };
   const [value, setValue] = useState({
     //State for login
-    email: "",
-    password: "",
+
+    email: "arun@gmail.com",
+    password: "arun@gmail.com",
   });
   const [regValue, setRegValue] = useState({
     //State for Registration

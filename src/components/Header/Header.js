@@ -71,9 +71,6 @@ const Header = ({
                   <Link to={"/help"} className="me-5 text-white">
                     Help
                   </Link>
-                  {/* <Link to={"/user"} className="text-white">
-                  User
-                </Link> */}
                 </div>
               </div>
               {isLoggedIn || isProfessional ? (
@@ -98,21 +95,25 @@ const Header = ({
                     className="dropdown-menu dropdown-menu-end"
                     aria-labelledby="navbarDropdownMenuAvatar"
                   >
-                    <li>
-                      <Link to={"/user"} className="dropdown-item">
-                        My profile
-                      </Link>
-                    </li>
-                    <li>
-                      {isLoggedIn ? (
-                        <Link
-                          to={"/schedule"}
-                          className="dropdown-item"
-                          href="#"
-                        >
-                          Booking
-                        </Link>
-                      ) : isProfessional ? (
+                    {isLoggedIn ? (
+                      <span>
+                        <li>
+                          <Link to={"/user"} className="dropdown-item">
+                            My profile
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to={"/schedule"}
+                            className="dropdown-item"
+                            href="#"
+                          >
+                            Booking
+                          </Link>
+                        </li>
+                      </span>
+                    ) : isProfessional ? (
+                      <li>
                         <Link
                           to={"/dashboard"}
                           className="dropdown-item"
@@ -120,10 +121,10 @@ const Header = ({
                         >
                           Dashboard
                         </Link>
-                      ) : (
-                        ""
-                      )}
-                    </li>
+                      </li>
+                    ) : (
+                      ""
+                    )}
                     {isLoggedIn ? (
                       <li>
                         <button

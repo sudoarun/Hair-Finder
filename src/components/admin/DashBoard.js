@@ -18,10 +18,10 @@ const DashBoard = ({ signInData }) => {
   // }, []);
   // console.log(signInData);
   return (
-    <div className="d-flex gap-4">
+    <div className="d-flex gap-4 vh-100 pt-1 pb-1">
       <Sidebar />
 
-      <div className="w-100">
+      <div className="w-100 vh-100">
         <Outlet />
       </div>
     </div>

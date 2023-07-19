@@ -7,10 +7,10 @@ const ProfessionalSchedule = () => {
     <div className="w-100">
       <section className="">
         <div className="container">
-          <div>
+          <div className="">
             <div
               id="main"
-              className=" border py-2 px-3 position-relative vh-85 overflow-auto"
+              className=" border py-2 px-3 position-relative vh-100 overflow-auto"
             >
               <h6 className="text-white position-absolute start-2">
                 <span className="bg-white text-black px-2 py-2">

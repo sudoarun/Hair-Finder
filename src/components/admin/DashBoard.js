@@ -1,16 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Sidebar from "./Sidebar";
-import Professional from "./ProfessionalSchedule";
-import ProfessionalProfile from "./Profile";
-import AddShopDetails from "./AddShopDetails";
+import { Outlet } from "react-router-dom";
 // import { doc, setDoc } from "firebase/firestore";
 // import { db } from "../../Firebase/firebase";
 // import { useEffect } from "react";
 
 const DashBoard = ({ signInData }) => {
-  const [Profile, setProfile] = useState(true);
-  const [Schedule, setSchedule] = useState(false);
-  const [service, setService] = useState(false);
   // const [data, setData] = useState([]);
   // const docRef = doc(db, "ProfessionalDB", `${signInData.uid}`);
   // const saveProfessionalData = async () => {
@@ -24,19 +19,10 @@ const DashBoard = ({ signInData }) => {
   // console.log(signInData);
   return (
     <div className="d-flex gap-4">
-      <Sidebar
-        Profile={Profile}
-        setProfile={setProfile}
-        Schedule={Schedule}
-        setSchedule={setSchedule}
-        service={service}
-        setService={setService}
-      />
+      <Sidebar />
 
       <div className="w-100">
-        {Profile ? <ProfessionalProfile /> : ""}
-        {Schedule ? <Professional /> : ""}
-        {service ? <AddShopDetails /> : ""}
+        <Outlet />
       </div>
     </div>
   );

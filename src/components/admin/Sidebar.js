@@ -1,31 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Sidebar = ({
-  Profile,
-  setProfile,
-  Schedule,
-  setSchedule,
-  service,
-  setService,
-}) => {
-  const ProfilePage = () => {
-    Profile ? setProfile(false) : setProfile(true);
-    // console.log(Profile);
-    setService(false);
-    setSchedule(false);
-  };
-  const AddService = () => {
-    service ? setService(false) : setService(true);
-    // console.log(service);
-    setProfile(false);
-    setSchedule(false);
-  };
-  const Schedules = () => {
-    Schedule ? setSchedule(false) : setSchedule(true);
-    // console.log(Schedule);
-    setProfile(false);
-    setService(false);
-  };
+const Sidebar = () => {
   const HandleSign = () => {};
   return (
     <div
@@ -34,27 +10,27 @@ const Sidebar = ({
       style={{ background: "#001C30" }}
     >
       <div id="main" className="">
-        <div
+        <Link
+          to={"/dashboard"}
           className="py-2 my-4 ps-2 bg-warning d-flex align-items-center"
-          onClick={ProfilePage}
         >
           <span className="material-icons-outlined me-2">person</span>
           <span>Profile Page</span>
-        </div>
-        <div
+        </Link>
+        <Link
+          to={"add-services"}
           className="py-2 my-4 ps-2 bg-warning d-flex align-items-center"
-          onClick={AddService}
         >
           <span className="material-icons-outlined me-2">design_services</span>
           <span>Add Services</span>
-        </div>
-        <div
+        </Link>
+        <Link
+          to={"schedules-professional"}
           className="py-2 my-4 ps-2 bg-warning d-flex align-items-center"
-          onClick={Schedules}
         >
           <span className="material-icons-outlined me-2">calendar_month</span>
           <span>Schedules</span>
-        </div>
+        </Link>
       </div>
       <div id="footer">
         <div

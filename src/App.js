@@ -14,10 +14,13 @@ import BarberRegister from "./components/Pages/BarberRegister";
 import Schedule from "./components/Pages/Schedule";
 import SearchShop from "./components/Search/SearchShop";
 import DashBoard from "./components/admin/DashBoard";
+import ProfessionalProfile from "./components/admin/nestedRoutes/Profile";
+import AddShopDetails from "./components/admin/nestedRoutes/AddShopDetails";
+import ProfessionalSchedule from "./components/admin/nestedRoutes/ProfessionalSchedule";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); //user Route
-  const [isProfessional, setProfessional] = useState(false); //Professional Route
+  const [isProfessional, setProfessional] = useState(true); //Professional Route
   const [signInData, setSignInData] = useState("");
 
   //user Private Route
@@ -86,7 +89,14 @@ function App() {
               />
             </ProfessionalRoute>
           }
-        />
+        >
+          <Route index element={<ProfessionalProfile />} />
+          <Route path="add-services" element={<AddShopDetails />} />
+          <Route
+            path="schedules-professional"
+            element={<ProfessionalSchedule />}
+          />
+        </Route>
       </Routes>
     </>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 // import Breadcrumb from "../BreadCrumbs/Breadcrumb.js";
 
-const Professional = () => {
+const ProfessionalSchedule = () => {
   return (
     <div className="w-100">
       <section className="">
@@ -189,4 +189,4 @@ const Professional = () => {
   );
 };
 
-export default Professional;
+export default ProfessionalSchedule;

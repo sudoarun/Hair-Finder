@@ -22,6 +22,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); //user Route
   const [isProfessional, setProfessional] = useState(true); //Professional Route
   const [signInData, setSignInData] = useState("");
+  const [HeaderShow, setHeaderShow] = useState(true);
 
   //user Private Route
   function PrivateRoute({ isLoggedIn, children }) {
@@ -42,13 +43,17 @@ function App() {
   }
   return (
     <>
-      <Header
-        setIsLoggedIn={setIsLoggedIn}
-        isLoggedIn={isLoggedIn}
-        isProfessional={isProfessional}
-        setProfessional={setProfessional}
-        setSignInData={setSignInData}
-      />
+      {HeaderShow ? (
+        <Header
+          setIsLoggedIn={setIsLoggedIn}
+          isLoggedIn={isLoggedIn}
+          isProfessional={isProfessional}
+          setProfessional={setProfessional}
+          setHeaderShow={setHeaderShow}
+          setSignInData={setSignInData}
+        />
+      ) : null}
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<ShopDetail />} />
@@ -84,6 +89,7 @@ function App() {
           element={
             <ProfessionalRoute isProfessional={isProfessional}>
               <DashBoard
+                setHeaderShow={setHeaderShow}
                 setProfessional={setProfessional}
                 signInData={signInData}
               />

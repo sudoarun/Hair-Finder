@@ -12,15 +12,15 @@ const MobileMenu = () => {
           </Link>
 
           <Link to={"add-services"}>
-            <span class="material-icons-outlined">home</span>
+            <span class="material-icons-outlined">rule</span>
             <span id="menutext">Services</span>
           </Link>
           <Link to={"schedules-professional"}>
-            <span class="material-icons-outlined">home</span>
+            <span class="material-icons-outlined">published_with_changes</span>
             <span id="menutext">Schedules</span>
           </Link>
           <Link to={"/dashboard"} className="">
-            <span class="material-icons-outlined">home</span>
+            <span class="material-icons-outlined">person</span>
             <span id="menutext">Profile</span>
           </Link>
         </div>

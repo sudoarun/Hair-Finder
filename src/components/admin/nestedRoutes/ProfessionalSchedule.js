@@ -6,7 +6,7 @@ const ProfessionalSchedule = () => {
   return (
     <div className="w-100">
       <section className="">
-        <div className="container">
+        <div className="">
           <div className="">
             <div
               id="main"

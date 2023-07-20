@@ -97,3 +97,7 @@ li {
 #sidebarMenuName {
   display: inline;
 }
+#imgUpdate:hover {
+  cursor: pointer;
+  color: orange;
+}

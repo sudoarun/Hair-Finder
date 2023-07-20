@@ -12,8 +12,14 @@ const ProfessionalProfile = () => {
   }, []);
   return (
     <div className="w-100 bg-white p-3 h-100">
-      <div className="d-flex justify-content-center mb-2">
+      <div className="d-flex justify-content-center mb-2 position-relative">
         <img alt="#" src={url} className="rounded-circle" width={200} />
+        <span
+          id="imgUpdate"
+          class="material-icons-outlined position-absolute bg-white p-2 rounded-circle shadow bottom-0 start-50"
+        >
+          add_a_photo
+        </span>
       </div>
       <div className="row">
         <div className="col-12 col-sm-6 mt-2">

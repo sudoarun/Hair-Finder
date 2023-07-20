@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Time from "../../../bookingTime/bookingTime";
 const url =
   "https://img.freepik.com/premium-vector/fist-with-lbtbi-wristband_24908-77160.jpg?size=626&ext=jpg";
 const ProfessionalProfile = () => {
+  const FilterTime = () => {
+    const SortTime = Time.filter((data) => data.shift === "AM");
+    console.log(SortTime);
+  };
+  useEffect(() => {
+    FilterTime();
+  }, []);
   return (
     <div className="w-100 bg-white p-3 h-100">
       <div className="d-flex justify-content-center mb-2">
@@ -53,30 +61,32 @@ const ProfessionalProfile = () => {
         </div>
         <div className="col-12 col-sm-6 mt-2">
           <label>
-            Shop Timing<span className="text-danger">*</span>{" "}
-            <span className="fs-7 ms-2">
-              Note :-{" "}
-              <span className="text-secondary">
-                Default Time is 9:00AM - 9:00PM
-              </span>
-            </span>
+            Shop Timing<span className="text-danger">*</span>
           </label>
           <div className="d-flex">
-            <input
-              type="time"
-              placeholder=""
-              value={"09:00AM"}
-              className="form-control"
-            />
-            <input
-              type="time"
-              placeholder="shop Time"
-              className="form-control"
-            />
+            <select class="form-select" aria-label="Default select example">
+              {Time.filter((data) => data.shift === "AM").map((sortTime) => (
+                <option key={sortTime.time}>
+                  <span>{sortTime.time} </span>
+                  <span>{sortTime.shift}</span>
+                </option>
+              ))}
+            </select>
+            <select
+              class="form-select ms-2"
+              aria-label="Default select example"
+            >
+              {Time.filter((data) => data.shift === "PM").map((sortTime) => (
+                <option key={sortTime.time}>
+                  <span>{sortTime.time} </span>
+                  <span>{sortTime.shift}</span>
+                </option>
+              ))}
+            </select>
           </div>
         </div>
-        <div className="col-12 col-sm-6 mt-2 d-flex align-items-end">
-          <button className="bg-warning py-2 border-0 text-white rounded  w-100">
+        <div className="col-12 mt-4 d-flex justify-content-center align-items-end">
+          <button className="bg-warning py-2 border-0 text-white rounded  w-50">
             Submit Details
           </button>
         </div>

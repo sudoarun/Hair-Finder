@@ -12,7 +12,7 @@ const Time = [
     shift: "AM",
   },
   {
-    time: "10:30",
+    time: "11:30",
     shift: "AM",
   },
   {

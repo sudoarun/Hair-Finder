@@ -25,7 +25,7 @@ const DashBoard = ({ signInData }) => {
       <div className="w-100 position-relative">
         <Outlet />
       </div>
-      <div className="position-fixed w-100 bottom-0 mb-2 responsiveMenu">
+      <div className="position-fixed w-100 bottom-0 responsiveMenu">
         <MobileMenu />
       </div>
     </div>

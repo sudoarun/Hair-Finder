@@ -16,6 +16,13 @@ const Sidebar = () => {
           <img alt="" src={imgPath} className="rounded-circle w-50" />
         </div>
         <Link
+          to={"/"}
+          className="py-2 my-4 ps-2 bg-warning d-flex align-items-center text-white"
+        >
+          <span className="material-icons-outlined me-2">home</span>
+          <span id="sidebarMenuName">Home</span>
+        </Link>
+        <Link
           to={"/dashboard"}
           className="py-2 my-4 ps-2 bg-warning d-flex align-items-center text-white"
         >

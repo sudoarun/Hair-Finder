@@ -20,7 +20,7 @@ import ProfessionalSchedule from "./components/admin/nestedRoutes/ProfessionalSc
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); //user Route
-  const [isProfessional, setProfessional] = useState(true); //Professional Route
+  const [isProfessional, setProfessional] = useState(false); //Professional Route
   const [signInData, setSignInData] = useState("");
   const [HeaderShow, setHeaderShow] = useState(true);
 
@@ -41,6 +41,7 @@ function App() {
       return children;
     }
   }
+  console.log(signInData);
   return (
     <>
       {HeaderShow ? (
@@ -96,11 +97,17 @@ function App() {
             </ProfessionalRoute>
           }
         >
-          <Route index element={<ProfessionalProfile />} />
-          <Route path="add-services" element={<AddShopDetails />} />
+          <Route
+            index
+            element={<ProfessionalProfile signInData={signInData} />}
+          />
+          <Route
+            path="add-services"
+            element={<AddShopDetails signInData={signInData} />}
+          />
           <Route
             path="schedules-professional"
-            element={<ProfessionalSchedule />}
+            element={<ProfessionalSchedule signInData={signInData} />}
           />
         </Route>
       </Routes>

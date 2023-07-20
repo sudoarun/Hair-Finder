@@ -81,6 +81,7 @@ const BarberRegister = ({ setProfessional, setSignInData }) => {
       email: "",
       password: "",
     });
+    // console.log(signInData)
   };
 
   return (

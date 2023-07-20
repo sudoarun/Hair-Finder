@@ -31,6 +31,7 @@ const ProfessionalSignIn = async (state, setSignInData) => {
   await signInWithEmailAndPassword(auth, state.email, state.password)
     .then((data) => {
       const user = data.user;
+      // console.log(user);
       setSignInData(user);
     })
     .catch((err) => console.log("Sign in Error :", err.message));

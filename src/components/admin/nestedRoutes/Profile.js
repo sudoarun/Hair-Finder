@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Time from "../../../bookingTime/bookingTime";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../../Firebase/firebase";
 const url =
   "https://img.freepik.com/premium-vector/fist-with-lbtbi-wristband_24908-77160.jpg?size=626&ext=jpg";
-const ProfessionalProfile = () => {
+const ProfessionalProfile = ({ signInData }) => {
   const [profileIMG, setProfileIMG] = useState("");
   const [profile, setProfile] = useState({
     name: "",
@@ -13,6 +15,12 @@ const ProfessionalProfile = () => {
     shopOpen: "10:00AM",
     shopClose: "09:00PM",
   });
+  const docRef = doc(db, "ProfessionalDB", `${signInData.uid}`);
+  // const saveProfessionalData = async () => {
+  //   await setDoc(docRef, {
+  //     name: "Arun",
+  //   }).then(() => alert("data Added"));
+  // };
   const ProfileImgHandle = (e) => {
     if (setProfileIMG === "") {
       alert("Please Select Image");
@@ -25,11 +33,17 @@ const ProfessionalProfile = () => {
       return { ...data, [name]: value };
     });
   };
-  const ProfessionalFormSubmit = (e) => {
+  const ProfessionalFormSubmit = async (e) => {
     e.preventDefault();
-    console.log(profile);
+    await setDoc(docRef, profile).then(() => alert("Form Saved"));
+    setProfile({
+      name: "",
+      email: "",
+      number: "",
+      shopAddress: "",
+      shopName: "",
+    });
   };
-
   return (
     <div className="w-100 bg-white p-3 h-100">
       <div className="d-flex justify-content-center mb-2 position-relative">

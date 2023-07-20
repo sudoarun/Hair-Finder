@@ -16,3 +16,9 @@
 .m-menu a {
   color: white;
 }
+.m-menu a:hover {
+  color: lightsalmon;
+}
+.m-menu a:hover .material-icons-outlined {
+  transform: scale(1.2);
+}

@@ -56,6 +56,21 @@ body {
   #mobileSchedlueMenu {
     display: block;
   }
+  #sidebarMenuName {
+    display: none !important;
+  }
+  .responsiveMenu {
+    display: block !important;
+  }
+  #sideDiv {
+    display: none !important;
+  }
+}
+.responsiveMenu {
+  display: none;
+}
+#sideDiv {
+  display: block;
 }
 
 li {
@@ -79,3 +94,6 @@ li {
 /* a span:last-child {
   display: none;
 } */
+#sidebarMenuName {
+  display: inline;
+}

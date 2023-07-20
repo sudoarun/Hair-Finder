@@ -1,0 +1,18 @@
+.m-menu {
+  width: 90%;
+  background-color: blueviolet;
+  border-radius: 20px;
+}
+
+#menutext {
+  font-size: 12px;
+  display: block;
+}
+.m-menu .material-icons-outlined {
+  display: flex;
+  justify-content: center;
+}
+
+.m-menu a {
+  color: white;
+}

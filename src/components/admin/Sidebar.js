@@ -20,21 +20,21 @@ const Sidebar = () => {
           className="py-2 my-4 ps-2 bg-warning d-flex align-items-center text-white"
         >
           <span className="material-icons-outlined me-2">person</span>
-          <span>Profile Page</span>
+          <span id="sidebarMenuName">Profile Page</span>
         </Link>
         <Link
           to={"add-services"}
           className="py-2 my-4 ps-2 bg-warning d-flex align-items-center text-white"
         >
           <span className="material-icons-outlined me-2">design_services</span>
-          <span>Add Services</span>
+          <span id="sidebarMenuName">Add Services</span>
         </Link>
         <Link
           to={"schedules-professional"}
           className="py-2 my-4 ps-2 bg-warning d-flex align-items-center text-white"
         >
           <span className="material-icons-outlined me-2">calendar_month</span>
-          <span>Schedules</span>
+          <span id="sidebarMenuName">Schedules</span>
         </Link>
       </div>
       <div id="footer">
@@ -43,7 +43,7 @@ const Sidebar = () => {
           onChange={HandleSign}
         >
           <span className="material-icons-outlined me-2">logout</span>
-          <span>Logout</span>
+          <span id="sidebarMenuName">Logout</span>
         </div>
       </div>
     </div>

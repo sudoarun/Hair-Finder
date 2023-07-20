@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Time from "../../../bookingTime/bookingTime";
 const url =
   "https://img.freepik.com/premium-vector/fist-with-lbtbi-wristband_24908-77160.jpg?size=626&ext=jpg";
@@ -7,19 +7,39 @@ const ProfessionalProfile = () => {
     const SortTime = Time.filter((data) => data.shift === "AM");
     console.log(SortTime);
   };
+  const [profileIMG, setProfileIMG] = useState("");
+  const ProfileImgHandle = (e) => {
+    if (setProfileIMG === "") {
+      alert("Please Select Image");
+    }
+    return setProfileIMG(URL.createObjectURL(e.target.files[0]));
+  };
   useEffect(() => {
     FilterTime();
   }, []);
   return (
     <div className="w-100 bg-white p-3 h-100">
       <div className="d-flex justify-content-center mb-2 position-relative">
-        <img alt="#" src={url} className="rounded-circle" width={200} />
-        <span
+        <img
+          alt="#"
+          src={profileIMG || url}
+          className="rounded-circle"
+          width={150}
+          height={150}
+        />
+        <label
+          htmlFor="img"
           id="imgUpdate"
-          class="material-icons-outlined position-absolute bg-white p-2 rounded-circle shadow bottom-0 start-50"
+          className="material-icons-outlined position-absolute bg-white p-2 rounded-circle shadow bottom-0 start-50"
         >
           add_a_photo
-        </span>
+        </label>
+        <input
+          type="file"
+          className="d-none"
+          onChange={ProfileImgHandle}
+          id="img"
+        />
       </div>
       <div className="row">
         <div className="col-12 col-sm-6 mt-2">
@@ -70,7 +90,7 @@ const ProfessionalProfile = () => {
             Shop Timing<span className="text-danger">*</span>
           </label>
           <div className="d-flex">
-            <select class="form-select" aria-label="Default select example">
+            <select className="form-select" aria-label="Default select example">
               {Time.filter((data) => data.shift === "AM").map((sortTime) => (
                 <option key={sortTime.time}>
                   <span>{sortTime.time} </span>
@@ -79,7 +99,7 @@ const ProfessionalProfile = () => {
               ))}
             </select>
             <select
-              class="form-select ms-2"
+              className="form-select ms-2"
               aria-label="Default select example"
             >
               {Time.filter((data) => data.shift === "PM").map((sortTime) => (

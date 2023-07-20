@@ -1,22 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Time from "../../../bookingTime/bookingTime";
 const url =
   "https://img.freepik.com/premium-vector/fist-with-lbtbi-wristband_24908-77160.jpg?size=626&ext=jpg";
 const ProfessionalProfile = () => {
-  const FilterTime = () => {
-    const SortTime = Time.filter((data) => data.shift === "AM");
-    console.log(SortTime);
-  };
   const [profileIMG, setProfileIMG] = useState("");
+  const [profile, setProfile] = useState({
+    name: "",
+    number: "",
+    email: "",
+    shopName: "",
+    shopAddress: "",
+    shopOpen: "10:00AM",
+    shopClose: "09:00PM",
+  });
   const ProfileImgHandle = (e) => {
     if (setProfileIMG === "") {
       alert("Please Select Image");
     }
     return setProfileIMG(URL.createObjectURL(e.target.files[0]));
   };
-  useEffect(() => {
-    FilterTime();
-  }, []);
+  const FormOnChangeHandler = (e) => {
+    const { name, value } = e.target;
+    setProfile((data) => {
+      return { ...data, [name]: value };
+    });
+  };
+  const ProfessionalFormSubmit = (e) => {
+    e.preventDefault();
+    console.log(profile);
+  };
+
   return (
     <div className="w-100 bg-white p-3 h-100">
       <div className="d-flex justify-content-center mb-2 position-relative">
@@ -41,82 +54,119 @@ const ProfessionalProfile = () => {
           id="img"
         />
       </div>
-      <div className="row">
-        <div className="col-12 col-sm-6 mt-2">
-          <label>
-            Professional Name<span className="text-danger">*</span>
-          </label>
-          <input
-            type="text"
-            placeholder="Enter name"
-            className="form-control"
-          />
-        </div>
-        <div className="col-12 col-sm-6 mt-2">
-          <label>
-            Mobile Number<span className="text-danger">*</span>
-          </label>
-          <input
-            type="number"
-            maxLength={10}
-            placeholder="+91"
-            className="form-control"
-          />
-        </div>
-        <div className="col-12 col-sm-6 mt-2">
-          <label>
-            Email ID<span className="text-danger">*</span>
-          </label>
-          <input type="email" placeholder="email id" className="form-control" />
-        </div>
-        <div className="col-12 col-sm-6 mt-2">
-          <label>
-            Shop Name<span className="text-danger">*</span>
-          </label>
-          <input type="text" placeholder="shop name" className="form-control" />
-        </div>
-        <div className="col-12 col-sm-6 mt-2">
-          <label>
-            Shop Address<span className="text-danger">*</span>
-          </label>
-          <input
-            type="text"
-            placeholder="shop address"
-            className="form-control"
-          />
-        </div>
-        <div className="col-12 col-sm-6 mt-2">
-          <label>
-            Shop Timing<span className="text-danger">*</span>
-          </label>
-          <div className="d-flex">
-            <select className="form-select" aria-label="Default select example">
-              {Time.filter((data) => data.shift === "AM").map((sortTime) => (
-                <option key={sortTime.time}>
-                  <span>{sortTime.time} </span>
-                  <span>{sortTime.shift}</span>
-                </option>
-              ))}
-            </select>
-            <select
-              className="form-select ms-2"
-              aria-label="Default select example"
-            >
-              {Time.filter((data) => data.shift === "PM").map((sortTime) => (
-                <option key={sortTime.time}>
-                  <span>{sortTime.time} </span>
-                  <span>{sortTime.shift}</span>
-                </option>
-              ))}
-            </select>
+      <form onSubmit={ProfessionalFormSubmit}>
+        <div className="row">
+          <div className="col-12 col-sm-6 mt-2">
+            <label>
+              Professional Name<span className="text-danger">*</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Enter name"
+              value={profile.name}
+              name="name"
+              onChange={FormOnChangeHandler}
+              className="form-control"
+            />
+          </div>
+          <div className="col-12 col-sm-6 mt-2">
+            <label>
+              Mobile Number<span className="text-danger">*</span>
+            </label>
+            <input
+              type="number"
+              maxLength={10}
+              value={profile.number}
+              name="number"
+              placeholder="+91"
+              onChange={FormOnChangeHandler}
+              className="form-control"
+            />
+          </div>
+          <div className="col-12 col-sm-6 mt-2">
+            <label>
+              Email ID<span className="text-danger">*</span>
+            </label>
+            <input
+              type="email"
+              placeholder="email id"
+              value={profile.email}
+              name="email"
+              onChange={FormOnChangeHandler}
+              className="form-control"
+            />
+          </div>
+          <div className="col-12 col-sm-6 mt-2">
+            <label>
+              Shop Name<span className="text-danger">*</span>
+            </label>
+            <input
+              type="text"
+              placeholder="shop name"
+              value={profile.shopName}
+              name="shopName"
+              onChange={FormOnChangeHandler}
+              className="form-control"
+            />
+          </div>
+          <div className="col-12 col-sm-6 mt-2">
+            <label>
+              Shop Address<span className="text-danger">*</span>
+            </label>
+            <input
+              type="text"
+              value={profile.shopAddress}
+              name="shopAddress"
+              onChange={FormOnChangeHandler}
+              placeholder="shop address"
+              className="form-control"
+            />
+          </div>
+          <div className="col-12 col-sm-6 mt-2">
+            <label>
+              Shop Timing<span className="text-danger">*</span>
+            </label>
+            <div className="d-flex">
+              <select
+                className="form-select"
+                aria-label="Default select example"
+                value={profile.shopOpen}
+                name="shopOpen"
+                onChange={FormOnChangeHandler}
+              >
+                {Time.filter((data) => data.shift === "AM").map(
+                  (sortTime, i) => (
+                    <option key={i + 1} value={sortTime.time + sortTime.shift}>
+                      {sortTime.time + sortTime.shift}
+                    </option>
+                  )
+                )}
+              </select>
+              <select
+                className="form-select ms-2"
+                name="shopClose"
+                onChange={FormOnChangeHandler}
+                aria-label="Default select example"
+                value={profile.shopClose}
+              >
+                {Time.filter((data) => data.shift === "PM").map((sortTime) => (
+                  <option
+                    key={sortTime.time}
+                    value={sortTime.time + sortTime.shift}
+                  >
+                    {sortTime.time + sortTime.shift}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div className="col-12 mt-4 d-flex justify-content-center align-items-end">
+            <button className="bg-warning py-2 border-0 shadow ripple text-white rounded  w-50">
+              Submit Details
+            </button>
           </div>
         </div>
-        <div className="col-12 mt-4 d-flex justify-content-center align-items-end">
-          <button className="bg-warning py-2 border-0 text-white rounded  w-50">
-            Submit Details
-          </button>
-        </div>
-      </div>
+      </form>
     </div>
   );
 };

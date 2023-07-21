@@ -7,7 +7,7 @@ const AddShopDetails = () => {
     return setState(URL.createObjectURL(e.target.files[0]));
     // console.log(file);
   };
-  console.log(state);
+  // console.log(state);
   return (
     <div>
       <h1 className="text-white">Add SHop Details</h1>

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Time from "../../../bookingTime/bookingTime";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../../Firebase/firebase";
 const url =
   "https://img.freepik.com/premium-vector/fist-with-lbtbi-wristband_24908-77160.jpg?size=626&ext=jpg";
@@ -15,14 +15,24 @@ const ProfessionalProfile = ({ signInData }) => {
     shopOpen: "10:00AM",
     shopClose: "09:00PM",
   });
-  const docRef = doc(db, "ProfessionalDB", `${signInData.uid}`);
-  // const saveProfessionalData = async () => {
-  //   await setDoc(docRef, {
-  //     name: "Arun",
-  //   }).then(() => alert("data Added"));
-  // };
+  // console.log("Profile :", signInData);
+
+  const getData = async () => {
+    const docRef = doc(db, "ProfessionalDB", `${signInData}`);
+    await getDoc(docRef).then((res) => {
+      setProfile(res.data());
+    });
+  };
+  useEffect(() => {
+    if (signInData === "") {
+      alert("Sorry Login again");
+      return;
+    }
+    getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const ProfileImgHandle = (e) => {
-    if (setProfileIMG === "") {
+    if (setProfileIMG.length === "") {
       alert("Please Select Image");
     }
     return setProfileIMG(URL.createObjectURL(e.target.files[0]));
@@ -35,6 +45,11 @@ const ProfessionalProfile = ({ signInData }) => {
   };
   const ProfessionalFormSubmit = async (e) => {
     e.preventDefault();
+    if (signInData === "") {
+      alert("Log in Again");
+      return;
+    }
+    const docRef = doc(db, "ProfessionalDB", `${signInData}`);
     await setDoc(docRef, profile).then(() => alert("Form Saved"));
     setProfile({
       name: "",

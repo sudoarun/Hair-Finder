@@ -6,6 +6,8 @@ import { message } from "antd";
 
 const BarberRegister = ({ setProfessional, setSignInData }) => {
   const [messageApi, contextHolder] = message.useMessage();
+  const [auth, setAuth] = useState();
+
   const success = (messageText, varient) => {
     messageApi.open({
       type: varient,
@@ -70,18 +72,19 @@ const BarberRegister = ({ setProfessional, setSignInData }) => {
       alert("Enter Login Details");
       return;
     }
-    ProfessionalSignIn(value, setProfessional, setSignInData).then(() => {
+    ProfessionalSignIn(value, setProfessional, setAuth).then(() => {
       let messageText = "Logged in Successfully !!!";
       let varient = "success";
       success(messageText, varient);
       setProfessional(true);
+      // setSignInData(auth);
     });
-    navigate("/");
+    // navigate("/");
     setValue({
       email: "",
       password: "",
     });
-    // console.log(signInData)
+    console.log(auth);
   };
 
   return (

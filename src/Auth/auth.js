@@ -27,12 +27,14 @@ const ProfessionalSignUp = async (state, setSignInData) => {
     })
     .catch((err) => console.log("Auth Create :", err));
 };
-const ProfessionalSignIn = async (state, setSignInData) => {
+const ProfessionalSignIn = async (state, setAuth) => {
   await signInWithEmailAndPassword(auth, state.email, state.password)
     .then((data) => {
-      const user = data.user;
-      // console.log(user);
-      setSignInData(user);
+      // setTimeout(() => {
+      //   alert("Hello");
+      // }, 2000);
+      const check = data.user;
+      setAuth(check);
     })
     .catch((err) => console.log("Sign in Error :", err.message));
 };

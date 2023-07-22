@@ -2,9 +2,13 @@ import React, { useEffect, useState } from "react";
 import Time from "../../../bookingTime/bookingTime";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../../Firebase/firebase";
+import { useDispatch } from "react-redux";
+import { addAuth, getAuthSlice } from "../../../Redux/Slices/AuthSlice";
+import { useSelector } from "react-redux";
 const url =
   "https://img.freepik.com/premium-vector/fist-with-lbtbi-wristband_24908-77160.jpg?size=626&ext=jpg";
-const ProfessionalProfile = ({ signInData }) => {
+
+const ProfessionalProfile = () => {
   const [profileIMG, setProfileIMG] = useState("");
   const [profile, setProfile] = useState({
     name: "",
@@ -16,19 +20,23 @@ const ProfessionalProfile = ({ signInData }) => {
     shopClose: "09:00PM",
   });
   // console.log("Profile :", signInData);
-
+  const authID = useSelector(getAuthSlice);
+  // console.log("redux Auth state :", authID[0].id);
+  const id = authID[0].id;
+  const dispatch = useDispatch();
   const getData = async () => {
-    const docRef = doc(db, "ProfessionalDB", `${signInData}`);
+    const docRef = doc(db, "ProfessionalDB", `${id}`);
     await getDoc(docRef).then((res) => {
       setProfile(res.data());
     });
   };
   useEffect(() => {
-    if (signInData === "") {
-      alert("Sorry Login again");
+    if (id === "") {
+      alert("Error Kindly Contact Admin !!!");
       return;
     }
     getData();
+    dispatch(addAuth.addState({ name: "redux" }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const ProfileImgHandle = (e) => {
@@ -45,11 +53,11 @@ const ProfessionalProfile = ({ signInData }) => {
   };
   const ProfessionalFormSubmit = async (e) => {
     e.preventDefault();
-    if (signInData === "") {
+    if (id === "") {
       alert("Log in Again");
       return;
     }
-    const docRef = doc(db, "ProfessionalDB", `${signInData}`);
+    const docRef = doc(db, "ProfessionalDB", `${id}`);
     await setDoc(docRef, profile).then(() => alert("Form Saved"));
     setProfile({
       name: "",

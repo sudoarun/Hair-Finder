@@ -6,6 +6,8 @@ import {
 } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../Firebase/firebase";
+import { addAuth } from "../Redux/Slices/AuthSlice";
+import store from "../Redux/reduxStore";
 
 const auth = getAuth();
 
@@ -30,11 +32,19 @@ const ProfessionalSignUp = async (state, setSignInData) => {
 const ProfessionalSignIn = async (state, setAuth) => {
   await signInWithEmailAndPassword(auth, state.email, state.password)
     .then((data) => {
-      // setTimeout(() => {
-      //   alert("Hello");
-      // }, 2000);
       const check = data.user;
-      setAuth(check);
+      const { displayName, uid } = check;
+      store.dispatch(
+        addAuth.addState({
+          name: displayName,
+          id: uid,
+        })
+      );
+      // dispatch(
+      //   addAuth.addState({
+      //     db: check,
+      //   })
+      // );
     })
     .catch((err) => console.log("Sign in Error :", err.message));
 };

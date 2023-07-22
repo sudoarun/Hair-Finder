@@ -4,9 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { message } from "antd";
 // import LoginPage from "../Loginpage/Loginpage";
 
-const BarberRegister = ({ setProfessional, setSignInData }) => {
+const BarberRegister = ({ setProfessional }) => {
   const [messageApi, contextHolder] = message.useMessage();
-  const [auth, setAuth] = useState();
 
   const success = (messageText, varient) => {
     messageApi.open({
@@ -50,7 +49,7 @@ const BarberRegister = ({ setProfessional, setSignInData }) => {
       return;
     }
 
-    ProfessionalSignUp(regValue, setSignInData)
+    ProfessionalSignUp(regValue)
       .then(() => {
         let messageText = "hello";
         let varient = "success";
@@ -72,19 +71,16 @@ const BarberRegister = ({ setProfessional, setSignInData }) => {
       alert("Enter Login Details");
       return;
     }
-    ProfessionalSignIn(value, setProfessional, setAuth).then(() => {
+    ProfessionalSignIn(value, setProfessional).then(() => {
       let messageText = "Logged in Successfully !!!";
       let varient = "success";
       success(messageText, varient);
       setProfessional(true);
-      // setSignInData(auth);
     });
-    // navigate("/");
     setValue({
       email: "",
       password: "",
     });
-    console.log(auth);
   };
 
   return (

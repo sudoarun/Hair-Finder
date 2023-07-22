@@ -11,7 +11,7 @@ import store from "../Redux/reduxStore";
 
 const auth = getAuth();
 
-const ProfessionalSignUp = async (state, setSignInData) => {
+const ProfessionalSignUp = async (state) => {
   await createUserWithEmailAndPassword(auth, state.email, state.password)
     .then((res) => {
       const user = res.user;
@@ -20,7 +20,9 @@ const ProfessionalSignUp = async (state, setSignInData) => {
           displayName: state.username,
         }).then(() => {
           setDoc(doc(db, "proLogin", `${user.uid}`), state).then(() =>
-            setSignInData(user)
+            store.dispatch(
+              addAuth.addState({ name: user.displayName, id: user.uid })
+            )
           );
         });
       } catch (error) {
@@ -29,7 +31,7 @@ const ProfessionalSignUp = async (state, setSignInData) => {
     })
     .catch((err) => console.log("Auth Create :", err));
 };
-const ProfessionalSignIn = async (state, setAuth) => {
+const ProfessionalSignIn = async (state) => {
   await signInWithEmailAndPassword(auth, state.email, state.password)
     .then((data) => {
       const check = data.user;
@@ -40,11 +42,6 @@ const ProfessionalSignIn = async (state, setAuth) => {
           id: uid,
         })
       );
-      // dispatch(
-      //   addAuth.addState({
-      //     db: check,
-      //   })
-      // );
     })
     .catch((err) => console.log("Sign in Error :", err.message));
 };

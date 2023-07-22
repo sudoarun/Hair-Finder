@@ -10,7 +10,6 @@ const Header = ({
   setIsLoggedIn,
   isProfessional,
   setProfessional,
-  setSignInData,
 }) => {
   const logOutHandle = () => {
     setIsLoggedIn(false);
@@ -180,10 +179,7 @@ const Header = ({
         </div>
       </div>
       {/* Professional Registration Modal */}
-      <BarberRegister
-        setProfessional={setProfessional}
-        setSignInData={setSignInData}
-      />
+      <BarberRegister setProfessional={setProfessional} />
     </div>
   );
 };

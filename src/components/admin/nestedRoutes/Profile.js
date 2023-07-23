@@ -5,6 +5,7 @@ import { db } from "../../../Firebase/firebase";
 import { useDispatch } from "react-redux";
 import { addAuth, getAuthSlice } from "../../../Redux/Slices/AuthSlice";
 import { useSelector } from "react-redux";
+import Loader from "../../Loader/loader";
 const url =
   "https://img.freepik.com/premium-vector/fist-with-lbtbi-wristband_24908-77160.jpg?size=626&ext=jpg";
 
@@ -67,7 +68,10 @@ const ProfessionalProfile = () => {
       shopName: "",
     });
   };
-  return (
+  // console.log(profile);
+  return profile.name === "" ? (
+    <Loader />
+  ) : (
     <div className="w-100 bg-white p-3 h-100">
       <div className="d-flex justify-content-center mb-2 position-relative">
         <img

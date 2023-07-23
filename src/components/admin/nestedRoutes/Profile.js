@@ -77,7 +77,7 @@ const ProfessionalProfile = () => {
         <img
           alt="#"
           src={profileIMG || url}
-          className="rounded-circle"
+          className="rounded-circle ripple"
           width={150}
           height={150}
         />

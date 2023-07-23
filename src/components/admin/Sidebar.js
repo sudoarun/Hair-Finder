@@ -1,10 +1,22 @@
+import { getAuth, signOut } from "firebase/auth";
 import React from "react";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const imgPath =
     "https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg?size=626&ext=jpg&ga=GA1.1.1357742209.1688643562&semt=sph";
-  const HandleSign = () => {};
+  const auth = getAuth();
+  const HandleSignOut = () => {
+    signOut(auth)
+      .then((res) => {
+        alert("Signout");
+        console.log("Signout success :", res);
+      })
+      .catch((err) => {
+        console.log("Signout error :", err);
+      });
+  };
+
   return (
     <div
       id="sideDiv"
@@ -47,7 +59,7 @@ const Sidebar = () => {
       <div id="footer">
         <div
           className="bg-warning ps-2 py-2 d-flex align-items-center"
-          onChange={HandleSign}
+          onClick={HandleSignOut}
         >
           <span className="material-icons-outlined me-2">logout</span>
           <span id="sidebarMenuName">Logout</span>

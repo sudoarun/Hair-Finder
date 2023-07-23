@@ -6,6 +6,9 @@ const authSlice = createSlice({
     addState: (state, action) => {
       state.push(action.payload);
     },
+    loginState: (state, action) => {
+      state.push(action.payload);
+    },
   },
 });
 export const getAuthSlice = createSelector(

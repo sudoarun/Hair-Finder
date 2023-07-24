@@ -53,6 +53,10 @@ body {
   .responsiveTimeSchedule {
     display: none;
   }
+  .responsiveImage {
+    width: 100% !important;
+    height: 200px !important;
+  }
   #mobileSchedlueMenu {
     display: block;
   }
@@ -107,4 +111,7 @@ li {
 
 .text-decoration-custom {
   text-decoration: 3px solid orange underline !important;
+}
+.responsiveImage {
+  width: 70%;
 }

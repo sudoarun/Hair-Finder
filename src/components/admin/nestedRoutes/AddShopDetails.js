@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-// import img from "../../../assets/noImage.png";
+import noImage from "../../../assets/noImage.jpg";
 const AddShopDetails = () => {
   const [state, setState] = useState("");
-  const noImage =
-    "https://img.freepik.com/premium-vector/fist-with-lbtbi-wristband_24908-77160.jpg?size=626&ext=jpg";
   const ImageHandler = (e) => {
     // const file = e.target.files;
     return setState(URL.createObjectURL(e.target.files[0]));
@@ -20,7 +18,7 @@ const AddShopDetails = () => {
           </span>
         </h2>
         <div className="row align-items-center">
-          <div className="col-12 col-sm-6 col-md-6 mb-3">
+          <div className="col-12 col-sm-6 col-md-5 mb-3">
             <div className="position-relative">
               <label
                 htmlFor="addServiceImg"
@@ -45,7 +43,7 @@ const AddShopDetails = () => {
               />
             </div>
           </div>
-          <div className="col-12 col-sm-6 col-md-6">
+          <div className="col-12 col-sm-6 col-md-7">
             <div>
               <input
                 placeholder="Enter Service Name"
@@ -75,7 +73,8 @@ const AddShopDetails = () => {
         )} */}
         <div className="mt-4">
           <h5>
-            Recently <span className="text-decoration-custom">added </span>
+            Recently{" "}
+            <span className="text-decoration-custom">added services</span>
           </h5>
         </div>
       </div>

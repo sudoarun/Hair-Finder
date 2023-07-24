@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import Time from "../../../bookingTime/bookingTime";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../../Firebase/firebase";
-import { useDispatch } from "react-redux";
-import { addAuth, getAuthSlice } from "../../../Redux/Slices/AuthSlice";
+import { getAuthSlice } from "../../../Redux/Slices/AuthSlice";
 import { useSelector } from "react-redux";
 import Loader from "../../Loader/loader";
 const url =
@@ -24,7 +23,6 @@ const ProfessionalProfile = () => {
   const authID = useSelector(getAuthSlice);
   // console.log("redux Auth state :", authID[0].id);
   const id = authID[0].id;
-  const dispatch = useDispatch();
   const getData = async () => {
     const docRef = doc(db, "ProfessionalDB", `${id}`);
     await getDoc(docRef).then((res) => {
@@ -37,7 +35,6 @@ const ProfessionalProfile = () => {
       return;
     }
     getData();
-    dispatch(addAuth.addState({ name: "redux" }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const ProfileImgHandle = (e) => {

@@ -32,7 +32,7 @@ function App() {
   }
 
   //Professional Private Route
-  function ProfessionalRoute({ isProfessional, children }) {
+  function ProfessionalRoute({ children, isProfessional }) {
     if (!isProfessional) {
       return <Navigate to="/login" />;
     } else {

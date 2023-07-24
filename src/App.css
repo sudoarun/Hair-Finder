@@ -104,3 +104,7 @@ li {
 .card-body {
   padding: 10px !important;
 }
+
+.text-decoration-custom {
+  text-decoration: 3px solid orange underline !important;
+}

@@ -6,6 +6,7 @@ const Sidebar = () => {
   const imgPath =
     "https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg?size=626&ext=jpg&ga=GA1.1.1357742209.1688643562&semt=sph";
   const auth = getAuth();
+
   const HandleSignOut = () => {
     signOut(auth)
       .then((res) => {
@@ -36,7 +37,7 @@ const Sidebar = () => {
         </Link>
         <Link
           to={"/dashboard"}
-          className="py-2 my-4 ps-2 bg-warning d-flex align-items-center text-white"
+          className="py-2 my-4 ps-2 bg-warning d-flex align-items-center text-white active"
         >
           <span className="material-icons-outlined me-2">person</span>
           <span id="sidebarMenuName">Profile Page</span>

@@ -21,7 +21,7 @@ const Sidebar = () => {
   return (
     <div
       id="sideDiv"
-      className="text-white w-25 d-flex justify-content-between flex-column h-100 border px-2 pb-2"
+      className="text-white w-25 d-flex justify-content-between flex-column h-100 border px-2 pb-2 "
       style={{ background: "#001C30" }}
     >
       <div id="main" className="">

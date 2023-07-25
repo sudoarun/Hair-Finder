@@ -38,7 +38,9 @@ const ProfessionalProfile = () => {
   };
   useEffect(() => {
     if (id === "") {
-      alert("Error Kindly Contact Admin !!!");
+      let messageText = "Failed! Please contact Admin";
+      let varient = "error";
+      MessageBox(messageText, varient);
       return;
     }
     getData();
@@ -46,7 +48,9 @@ const ProfessionalProfile = () => {
   }, [id]);
   const ProfileImgHandle = (e) => {
     if (setProfileIMG.length === "") {
-      alert("Please Select Image");
+      let messageText = "Please Select Image if You want to !!";
+      let varient = "warning";
+      MessageBox(messageText, varient);
     }
     return setProfileIMG(URL.createObjectURL(e.target.files[0]));
   };

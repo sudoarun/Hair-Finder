@@ -3,6 +3,7 @@ import noImage from "../../../assets/noImage.jpg";
 import ServicesList from "./Service component/ServicesList";
 const AddShopDetails = () => {
   const [state, setState] = useState("");
+  const services = "s";
   const ImageHandler = (e) => {
     // const file = e.target.files;
     return setState(URL.createObjectURL(e.target.files[0]));
@@ -10,7 +11,7 @@ const AddShopDetails = () => {
   };
   // console.log(state);
   return (
-    <div className="bg-white p-3">
+    <div className="bg-white p-2 h-sm-100">
       <div className="pt-3 overflow-auto mb-3 pb-5">
         <h2 className="text-center pb-3">
           <span className="border border-dark ps-2 py-2">
@@ -65,24 +66,25 @@ const AddShopDetails = () => {
             </div>
           </div>
         </div>
-
-        {/* {state.length === 0 ? (
-          <h1 className="text-black">Nothing</h1>
-        ) : (
-          (console.log(state),
-          state.map((images, i) => <img src={images[0]} key={i + 1} alt="" />))
-        )} */}
         <div className="mt-4">
           <h5>
             Recently{" "}
             <span className="text-decoration-custom">added services</span>
           </h5>
-          <div className="mt-4 overflow-auto" style={{ height: "300px" }}>
-            <ServicesList noImage={noImage} />
-            <ServicesList noImage={noImage} />
-            <ServicesList noImage={noImage} />
-            <ServicesList noImage={noImage} />
-            <ServicesList noImage={noImage} />
+          <div className="mt-4 pb-3 overflow-auto" style={{ height: "200px" }}>
+            {services ? (
+              <div>
+                <ServicesList noImage={noImage} />
+                <ServicesList noImage={noImage} />
+                <ServicesList noImage={noImage} />
+                <ServicesList noImage={noImage} />
+                <ServicesList noImage={noImage} />
+              </div>
+            ) : (
+              <div>
+                <h5>No Services Added Yet</h5>
+              </div>
+            )}
           </div>
         </div>
       </div>

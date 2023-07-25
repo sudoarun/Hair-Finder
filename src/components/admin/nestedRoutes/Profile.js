@@ -69,7 +69,7 @@ const ProfessionalProfile = () => {
   return profile.name === "" ? (
     <Loader />
   ) : (
-    <div className="w-100 bg-white p-3 h-100">
+    <div className="w-100 bg-white p-3 h-100 overflow-auto pb-5">
       <div className="d-flex justify-content-center mb-2 position-relative">
         <img
           alt="#"
@@ -198,7 +198,7 @@ const ProfessionalProfile = () => {
               </select>
             </div>
           </div>
-          <div className="col-12 mt-4 d-flex justify-content-center align-items-end">
+          <div className="col-12 mt-4 d-flex justify-content-center align-items-end pb-5">
             <button className="bg-warning py-2 border-0 shadow ripple text-white rounded  w-50">
               Submit Details
             </button>

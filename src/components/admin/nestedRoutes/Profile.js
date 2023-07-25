@@ -27,6 +27,7 @@ const ProfessionalProfile = () => {
     const docRef = doc(db, "ProfessionalDB", `${id}`);
     await getDoc(docRef).then((res) => {
       setProfile(res.data());
+      localStorage.setItem("data", JSON.stringify(res.data()));
     });
   };
   useEffect(() => {
@@ -36,7 +37,7 @@ const ProfessionalProfile = () => {
     }
     getData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [id]);
   const ProfileImgHandle = (e) => {
     if (setProfileIMG.length === "") {
       alert("Please Select Image");
@@ -49,23 +50,21 @@ const ProfessionalProfile = () => {
       return { ...data, [name]: value };
     });
   };
+
   const ProfessionalFormSubmit = async (e) => {
     e.preventDefault();
-    if (id === "") {
-      alert("Log in Again");
+    const DB = localStorage.getItem("data");
+    const localDB = JSON.stringify(profile);
+    // console.log(DB);
+    if (localDB === DB) {
+      alert("same data");
       return;
     }
     const docRef = doc(db, "ProfessionalDB", `${id}`);
     await setDoc(docRef, profile).then(() => alert("Form Saved"));
-    setProfile({
-      name: "",
-      email: "",
-      number: "",
-      shopAddress: "",
-      shopName: "",
-    });
+    localStorage.clear("data");
   };
-  // console.log(profile);
+  // console.log(data);
   return profile.name === "" ? (
     <Loader />
   ) : (

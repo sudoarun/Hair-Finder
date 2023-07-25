@@ -127,3 +127,6 @@ li {
 .serviceImg {
   height: auto;
 }
+.servicebtn:hover {
+  cursor: pointer;
+}

@@ -2,14 +2,22 @@ import React, { useState } from "react";
 import noImage from "../../../assets/noImage.jpg";
 import ServicesList from "./Service component/ServicesList";
 const AddShopDetails = () => {
-  const [state, setState] = useState("");
+  const [state, setState] = useState({
+    serviceName: "",
+    price: "",
+    description: "",
+    serviceImage: "",
+  });
+  const onFormChange = (e) => {
+    const { name, value } = e.target;
+    setState((data) => {
+      return { ...data, [name]: value };
+    });
+  };
   const services = "s";
   const ImageHandler = (e) => {
-    // const file = e.target.files;
     return setState(URL.createObjectURL(e.target.files[0]));
-    // console.log(file);
   };
-  // console.log(state);
   return (
     <div className="bg-white p-2 h-sm-100">
       <div className="pt-3 overflow-auto mb-3 pb-5">
@@ -38,6 +46,7 @@ const AddShopDetails = () => {
               <input
                 id="addServiceImg"
                 type="file"
+                name="serviceImage"
                 alt=""
                 className="border d-none"
                 placeholder="Select image"
@@ -50,15 +59,24 @@ const AddShopDetails = () => {
               <input
                 placeholder="Enter Service Name"
                 className="form-control"
+                name="serviceName"
+                value={state.serviceName}
+                onChange={onFormChange}
               />
               <input
                 placeholder="Enter Price"
                 type="number"
+                name="price"
+                value={state.price}
+                onChange={onFormChange}
                 className="form-control mt-2"
               />
               <textarea
                 placeholder="Enter description"
                 className="form-control mt-2"
+                name="description"
+                value={state.description}
+                onChange={onFormChange}
               />
               <button className="py-2 bg-warning px-4 border-0 text-white rounded mt-2 shadow ripple">
                 Add Service

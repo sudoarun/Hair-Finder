@@ -1,11 +1,12 @@
 import { message } from "antd";
 
-const [messageApi, contextHolder] = message.useMessage(() => contextHolder);
-const MessageBox = () => {
+const [messageApi, contextHolder] = message.useMessage();
+const MessageBox = (messageText, varient) => {
   messageApi.open({
-    type: "success",
-    content: "This is a success message",
+    type: varient,
+    content: messageText,
   });
+  return { contextHolder };
 };
 
 export { MessageBox };

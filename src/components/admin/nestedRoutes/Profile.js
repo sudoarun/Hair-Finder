@@ -5,6 +5,7 @@ import { db } from "../../../Firebase/firebase";
 import { getAuthSlice } from "../../../Redux/Slices/AuthSlice";
 import { useSelector } from "react-redux";
 import Loader from "../../Loader/loader";
+import { message } from "antd";
 const url =
   "https://img.freepik.com/premium-vector/fist-with-lbtbi-wristband_24908-77160.jpg?size=626&ext=jpg";
 
@@ -19,9 +20,14 @@ const ProfessionalProfile = () => {
     shopOpen: "10:00AM",
     shopClose: "09:00PM",
   });
-  // console.log("Profile :", signInData);
+  const [messageApi, contextHolder] = message.useMessage();
+  const MessageBox = (messageText, varient) => {
+    messageApi.open({
+      type: varient,
+      content: messageText,
+    });
+  };
   const authID = useSelector(getAuthSlice);
-  // console.log("redux Auth state :", authID[0].id);
   const id = authID[0].id;
   const getData = async () => {
     const docRef = doc(db, "ProfessionalDB", `${id}`);
@@ -55,20 +61,25 @@ const ProfessionalProfile = () => {
     e.preventDefault();
     const DB = localStorage.getItem("data");
     const localDB = JSON.stringify(profile);
-    // console.log(DB);
     if (localDB === DB) {
-      alert("same data");
+      let messageText = "Failed! Please Make Some Changes before Submit";
+      let varient = "error";
+      MessageBox(messageText, varient);
       return;
     }
     const docRef = doc(db, "ProfessionalDB", `${id}`);
     await setDoc(docRef, profile).then(() => alert("Form Saved"));
     localStorage.clear("data");
+    let messageText = "Data Saved Successfully !!";
+    let varient = "success";
+    MessageBox(messageText, varient);
   };
   // console.log(data);
   return profile.name === "" ? (
     <Loader />
   ) : (
     <div className="w-100 bg-white p-3 h-100 overflow-auto pb-5">
+      {contextHolder}
       <div className="d-flex justify-content-center mb-2 position-relative">
         <img
           alt="#"

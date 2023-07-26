@@ -63,6 +63,7 @@ const AddShopDetails = () => {
       description: "",
       serviceImage: "",
     });
+    setImage("");
   };
 
   // console.log(image);
@@ -113,6 +114,7 @@ const AddShopDetails = () => {
                   className="form-control"
                   name="serviceName"
                   value={state.serviceName}
+                  required
                   onChange={onFormChange}
                 />
                 <input
@@ -120,6 +122,7 @@ const AddShopDetails = () => {
                   type="number"
                   name="price"
                   value={state.price}
+                  required
                   onChange={onFormChange}
                   className="form-control mt-2"
                 />

@@ -18,10 +18,10 @@ const ServicesList = ({ noImage }) => {
         </div>
       </div>
       <div className="col-2 col-sm-2">
-        <span class="material-icons-outlined py-1 px-1 bg-warning text-white ripple shadow rounded ms-2 servicebtn">
+        <span className="material-icons-outlined py-1 px-1 bg-warning text-white ripple shadow rounded ms-2 servicebtn">
           edit_note
         </span>
-        <span class="material-icons-outlined py-1 px-1 bg-danger text-white ripple shadow rounded ms-2 servicebtn">
+        <span className="material-icons-outlined py-1 px-1 bg-danger text-white ripple shadow rounded ms-2 servicebtn">
           delete
         </span>
       </div>

@@ -37,7 +37,10 @@ const AddShopDetails = () => {
   };
   const SubmitHandler = (e) => {
     e.preventDefault();
-    // console.log(state, image);
+    if (state.serviceName === "") {
+      alert("Enter Service Details Before Submit");
+      return;
+    }
     const metadata = {
       name: saveImage.name,
       contentType: "image",

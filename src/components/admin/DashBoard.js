@@ -3,10 +3,10 @@ import Sidebar from "./Sidebar";
 import { Outlet } from "react-router-dom";
 import MobileMenu from "./MobileMenu";
 
-const DashBoard = () => {
+const DashBoard = ({ setProfessional }) => {
   return (
     <div className="d-flex gap-2 me-1 vh-100 pt-1 pb-1">
-      <Sidebar />
+      <Sidebar setProfessional={setProfessional} />
 
       <div className="w-100 position-relative">
         <Outlet />

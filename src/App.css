@@ -130,3 +130,12 @@ li {
 .servicebtn:hover {
   cursor: pointer;
 }
+#SideBtn:hover {
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all ease 0.3s;
+  background-color: darkorange !important;
+}
+#SideBtn {
+  border-radius: 5px;
+}

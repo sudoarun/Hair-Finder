@@ -51,7 +51,7 @@ const AddShopDetails = () => {
   useEffect(() => {
     getServices();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [id]);
   // const services = "s";
   function ImageHandler(e) {
     setImage(URL.createObjectURL(e.target.files[0]));

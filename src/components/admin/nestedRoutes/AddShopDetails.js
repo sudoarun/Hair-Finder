@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { getAuthSlice } from "../../../Redux/Slices/AuthSlice";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../../Firebase/firebase";
+import { message } from "antd";
 const AddShopDetails = () => {
   const [image, setImage] = useState("");
   const [saveImage, setSaveImage] = useState("");
@@ -15,6 +16,10 @@ const AddShopDetails = () => {
     description: "",
     serviceImage: "",
   });
+  const [messageAPI, context] = message.useMessage("");
+  const notification = (message, varient) => {
+    messageAPI.open({ type: varient, content: message });
+  };
   const authID = useSelector(getAuthSlice);
   const id = authID[0].id;
   const storage = getStorage();
@@ -31,20 +36,22 @@ const AddShopDetails = () => {
     });
   };
   const services = "s";
-  const ImageHandler = (e) => {
+  function ImageHandler(e) {
     setImage(URL.createObjectURL(e.target.files[0]));
     setSaveImage(e.target.files[0]);
-  };
+  }
   const SubmitHandler = (e) => {
     e.preventDefault();
-    if (state.serviceName === "") {
-      alert("Enter Service Details Before Submit");
+    if (image === "") {
+      let varient = "error";
+      let message = "Please add image Before Proceed !!";
+      notification(message, varient);
       return;
     }
     const metadata = {
-      name: saveImage.name,
       contentType: "image",
     };
+
     uploadBytes(storageRef, saveImage, metadata)
       .then(() =>
         getDownloadURL(storageRef).then((imageURL) =>
@@ -56,7 +63,11 @@ const AddShopDetails = () => {
           })
         )
       )
-      .then(() => alert("Data Saved !!"));
+      .then(() => {
+        let varient = "success";
+        let message = "Services Added Successfully !!!";
+        notification(message, varient);
+      });
     setState({
       serviceName: "",
       price: "",
@@ -66,9 +77,10 @@ const AddShopDetails = () => {
     setImage("");
   };
 
-  // console.log(image);
+  console.log(noImage);
   return (
     <div className="bg-white p-2 h-sm-100">
+      {context}
       <div className="pt-3 overflow-auto mb-3 pb-5">
         <h2 className="text-center pb-3">
           <span className="border border-dark ps-2 py-2">

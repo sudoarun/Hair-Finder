@@ -1,20 +1,21 @@
 import React from "react";
 
-const ServicesList = ({ noImage }) => {
+const ServicesList = ({ data }) => {
+  const { ServiceImage, ServiceName, Price, Description } = data;
   return (
     <div className="row border-bottom pb-2 mt-2">
       <div className="col-3 col-sm-2">
         <img
           alt=""
-          src={noImage}
+          src={ServiceImage}
           className="rounded shadow ripple w-100 serviceImg"
         />
       </div>
       <div className="col-7 col-sm-8 d-flex">
         <div>
-          <li className="fw-semibold">Hair Cut name</li>
-          <li>120 rs</li>
-          <li>Description</li>
+          <li className="fw-semibold">{ServiceName}</li>
+          <li>{Price}</li>
+          <li>{Description}</li>
         </div>
       </div>
       <div className="col-2 col-sm-2">

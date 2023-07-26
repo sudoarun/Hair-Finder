@@ -178,11 +178,9 @@ const AddShopDetails = () => {
           <div className="mt-4 pb-3 overflow-auto" style={{ height: "200px" }}>
             {services ? (
               <div>
-                <ServicesList noImage={noImage} />
-                <ServicesList noImage={noImage} />
-                <ServicesList noImage={noImage} />
-                <ServicesList noImage={noImage} />
-                <ServicesList noImage={noImage} />
+                {services.map((doc) => (
+                  <ServicesList data={doc} key={doc.id} />
+                ))}
               </div>
             ) : (
               <div>

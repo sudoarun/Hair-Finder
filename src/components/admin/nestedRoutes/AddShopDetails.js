@@ -8,6 +8,7 @@ import { addDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "../../../Firebase/firebase";
 import { message } from "antd";
 import { useEffect } from "react";
+import Loader from "../../Loader/loader";
 const AddShopDetails = () => {
   const [image, setImage] = useState("");
   const [saveImage, setSaveImage] = useState("");
@@ -92,7 +93,7 @@ const AddShopDetails = () => {
     });
     setImage("");
   };
-  // console.log(services);
+  // console.log(services[0].ServiceName);
   return (
     <div className="bg-white p-2 h-sm-100">
       {context}
@@ -176,15 +177,15 @@ const AddShopDetails = () => {
             <span className="text-decoration-custom">added services</span>
           </h5>
           <div className="mt-4 pb-3 overflow-auto" style={{ height: "200px" }}>
-            {services ? (
+            {services.length === 0 ? (
               <div>
-                {services.map((doc) => (
-                  <ServicesList data={doc} key={doc.id} />
-                ))}
+                <Loader />
               </div>
             ) : (
               <div>
-                <h5>No Services Added Yet</h5>
+                {services.map((doc) => (
+                  <ServicesList data={doc} noImage={noImage} key={doc.id} />
+                ))}
               </div>
             )}
           </div>

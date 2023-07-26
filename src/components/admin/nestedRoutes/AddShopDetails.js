@@ -1,14 +1,28 @@
 import React, { useState } from "react";
 import noImage from "../../../assets/noImage.jpg";
 import ServicesList from "./Service component/ServicesList";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import { useSelector } from "react-redux";
+import { getAuthSlice } from "../../../Redux/Slices/AuthSlice";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../../../Firebase/firebase";
 const AddShopDetails = () => {
   const [image, setImage] = useState("");
+  const [saveImage, setSaveImage] = useState("");
   const [state, setState] = useState({
     serviceName: "",
     price: "",
     description: "",
     serviceImage: "",
   });
+  const authID = useSelector(getAuthSlice);
+  const id = authID[0].id;
+  const storage = getStorage();
+  const storageRef = ref(
+    storage,
+    `Professional/${id}/Services/` + saveImage.name
+  );
+  const dbRef = collection(db, `ProfessionalDB/${id}/Services/`);
   const onFormChange = (e) => {
     const { name, value } = e.target;
 
@@ -18,12 +32,36 @@ const AddShopDetails = () => {
   };
   const services = "s";
   const ImageHandler = (e) => {
-    return setImage(URL.createObjectURL(e.target.files[0]));
+    setImage(URL.createObjectURL(e.target.files[0]));
+    setSaveImage(e.target.files[0]);
   };
   const SubmitHandler = (e) => {
     e.preventDefault();
-    console.log(state);
+    // console.log(state, image);
+    const metadata = {
+      name: saveImage.name,
+      contentType: "image",
+    };
+    uploadBytes(storageRef, saveImage, metadata)
+      .then(() =>
+        getDownloadURL(storageRef).then((imageURL) =>
+          addDoc(dbRef, {
+            ServiceName: state.serviceName,
+            Price: state.price,
+            Description: state.description,
+            ServiceImage: imageURL,
+          })
+        )
+      )
+      .then(() => alert("Data Saved !!"));
+    setState({
+      serviceName: "",
+      price: "",
+      description: "",
+      serviceImage: "",
+    });
   };
+
   // console.log(image);
   return (
     <div className="bg-white p-2 h-sm-100">

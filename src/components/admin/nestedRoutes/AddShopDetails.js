@@ -4,12 +4,14 @@ import ServicesList from "./Service component/ServicesList";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { useSelector } from "react-redux";
 import { getAuthSlice } from "../../../Redux/Slices/AuthSlice";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "../../../Firebase/firebase";
 import { message } from "antd";
+import { useEffect } from "react";
 const AddShopDetails = () => {
   const [image, setImage] = useState("");
   const [saveImage, setSaveImage] = useState("");
+  const [services, setServices] = useState([]);
   const [state, setState] = useState({
     serviceName: "",
     price: "",
@@ -35,12 +37,26 @@ const AddShopDetails = () => {
       return { ...data, [name]: value };
     });
   };
-  const services = "s";
+  const getServices = async () => {
+    const data = await getDocs(
+      collection(db, "ProfessionalDB", `${id}`, "Services")
+    );
+    const get = data.docs.map((res) => ({
+      ...res.data(),
+      id: res.id,
+    }));
+    setServices(get);
+  };
+  useEffect(() => {
+    getServices();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  // const services = "s";
   function ImageHandler(e) {
     setImage(URL.createObjectURL(e.target.files[0]));
     setSaveImage(e.target.files[0]);
   }
-  const SubmitHandler = (e) => {
+  const SubmitHandler = async (e) => {
     e.preventDefault();
     if (image === "") {
       let varient = "error";
@@ -52,7 +68,7 @@ const AddShopDetails = () => {
       contentType: "image",
     };
 
-    uploadBytes(storageRef, saveImage, metadata)
+    await uploadBytes(storageRef, saveImage, metadata)
       .then(() =>
         getDownloadURL(storageRef).then((imageURL) =>
           addDoc(dbRef, {
@@ -76,8 +92,7 @@ const AddShopDetails = () => {
     });
     setImage("");
   };
-
-  console.log(noImage);
+  // console.log(services);
   return (
     <div className="bg-white p-2 h-sm-100">
       {context}

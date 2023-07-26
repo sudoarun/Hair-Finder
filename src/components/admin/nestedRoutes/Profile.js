@@ -32,6 +32,10 @@ const ProfessionalProfile = () => {
   const getData = async () => {
     const docRef = doc(db, "ProfessionalDB", `${id}`);
     await getDoc(docRef).then((res) => {
+      if (res.data === "") {
+        setProfile("");
+        return;
+      }
       setProfile(res.data());
       localStorage.setItem("data", JSON.stringify(res.data()));
     });

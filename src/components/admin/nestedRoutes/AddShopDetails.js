@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import noImage from "../../../assets/noImage.jpg";
 import ServicesList from "./Service component/ServicesList";
 const AddShopDetails = () => {
+  const [image, setImage] = useState("");
   const [state, setState] = useState({
     serviceName: "",
     price: "",
@@ -10,14 +11,20 @@ const AddShopDetails = () => {
   });
   const onFormChange = (e) => {
     const { name, value } = e.target;
+
     setState((data) => {
       return { ...data, [name]: value };
     });
   };
   const services = "s";
   const ImageHandler = (e) => {
-    return setState(URL.createObjectURL(e.target.files[0]));
+    return setImage(URL.createObjectURL(e.target.files[0]));
   };
+  const SubmitHandler = (e) => {
+    e.preventDefault();
+    console.log(state);
+  };
+  // console.log(image);
   return (
     <div className="bg-white p-2 h-sm-100">
       <div className="pt-3 overflow-auto mb-3 pb-5">
@@ -27,63 +34,71 @@ const AddShopDetails = () => {
             <span className="text-white bg-black ps-1 pe-2 py-2">Services</span>
           </span>
         </h2>
-        <div className="row align-items-center">
-          <div className="col-12 col-sm-6 col-md-5 mb-3">
-            <div className="position-relative">
-              <label
-                htmlFor="addServiceImg"
-                id=""
-                className="material-icons-outlined position-absolute bg-white text-black p-2 rounded-circle shadow bottom-0"
-              >
-                add_a_photo
-              </label>
-              <img
-                src={state ? state : noImage}
-                alt=""
-                className="w-100 rounded shadow"
-                height={250}
-              />
-              <input
-                id="addServiceImg"
-                type="file"
-                name="serviceImage"
-                alt=""
-                className="border d-none"
-                placeholder="Select image"
-                onChange={ImageHandler}
-              />
+        <form onSubmit={SubmitHandler}>
+          <div className="row align-items-center">
+            <div className="col-12 col-sm-6 col-md-5 mb-3">
+              <div className="position-relative">
+                <label
+                  htmlFor="addServiceImg"
+                  id=""
+                  className="material-icons-outlined position-absolute bg-white text-black p-2 rounded-circle shadow bottom-0"
+                >
+                  add_a_photo
+                </label>
+                <img
+                  src={image ? image : noImage}
+                  value={image}
+                  alt=""
+                  className="w-100 rounded shadow"
+                  style={{ backgroundSize: "contain" }}
+                  height={250}
+                />
+                <input
+                  id="addServiceImg"
+                  type="file"
+                  name="serviceImage"
+                  value=""
+                  alt=""
+                  className="border d-none"
+                  placeholder="Select image"
+                  onChange={ImageHandler}
+                />
+              </div>
+            </div>
+            <div className="col-12 col-sm-6 col-md-7">
+              <div>
+                <input
+                  placeholder="Enter Service Name"
+                  className="form-control"
+                  name="serviceName"
+                  value={state.serviceName}
+                  onChange={onFormChange}
+                />
+                <input
+                  placeholder="Enter Price"
+                  type="number"
+                  name="price"
+                  value={state.price}
+                  onChange={onFormChange}
+                  className="form-control mt-2"
+                />
+                <textarea
+                  placeholder="Enter description"
+                  className="form-control mt-2"
+                  name="description"
+                  value={state.description}
+                  onChange={onFormChange}
+                />
+                <button
+                  type="submit"
+                  className="py-2 bg-warning px-4 border-0 text-white rounded mt-2 shadow ripple"
+                >
+                  Add Service
+                </button>
+              </div>
             </div>
           </div>
-          <div className="col-12 col-sm-6 col-md-7">
-            <div>
-              <input
-                placeholder="Enter Service Name"
-                className="form-control"
-                name="serviceName"
-                value={state.serviceName}
-                onChange={onFormChange}
-              />
-              <input
-                placeholder="Enter Price"
-                type="number"
-                name="price"
-                value={state.price}
-                onChange={onFormChange}
-                className="form-control mt-2"
-              />
-              <textarea
-                placeholder="Enter description"
-                className="form-control mt-2"
-                name="description"
-                value={state.description}
-                onChange={onFormChange}
-              />
-              <button className="py-2 bg-warning px-4 border-0 text-white rounded mt-2 shadow ripple">
-                Add Service
-              </button>
-            </div>
-          </div>
-        </div>
+        </form>
         <div className="mt-4">
           <h5>
             Recently{" "}

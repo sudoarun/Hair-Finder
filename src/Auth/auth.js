@@ -19,11 +19,22 @@ const ProfessionalSignUp = async (state) => {
         updateProfile(user, {
           displayName: state.username,
         }).then(() => {
-          setDoc(doc(db, "proLogin", `${user.uid}`), state).then(() =>
-            store.dispatch(
-              addAuth.addState({ name: user.displayName, id: user.uid })
+          setDoc(doc(db, "proLogin", `${user.uid}`), state)
+            .then(() =>
+              store.dispatch(
+                addAuth.addState({ name: user.displayName, id: user.uid })
+              )
             )
-          );
+            .then(async () => {
+              const docRef = doc(db, "ProfessionalDB", `${user.uid}`);
+              await setDoc(docRef, {
+                name: state.username,
+                email: state.email,
+                number: state.number,
+                shopName: "",
+                shopAddress: "",
+              }).then(() => alert("Form Saved"));
+            });
         });
       } catch (error) {
         console.log(error);

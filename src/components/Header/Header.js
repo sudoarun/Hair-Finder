@@ -3,6 +3,9 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import "./Header.css";
 import logo from "../../assets/logo.png";
 import BarberRegister from "../Pages/BarberRegister";
+import store from "../../Redux/reduxStore";
+import { addAuth } from "../../Redux/Slices/AuthSlice";
+import { addProfessionaDB } from "../../Redux/Slices/ProfessionalSlice";
 // import { useState } from "react";
 
 const Header = ({
@@ -14,6 +17,11 @@ const Header = ({
   const logOutHandle = () => {
     setIsLoggedIn(false);
     alert("Logged Out");
+  };
+  const ProfessionalLogOUt = () => {
+    setProfessional(false);
+    alert("Professional Logout !!!");
+    store.dispatch(addAuth.deleteState(null), addProfessionaDB.addState(null));
   };
   const location = useLocation();
   const hideHeaderOnPath = [
@@ -147,10 +155,7 @@ const Header = ({
                       <li>
                         <button
                           className="dropdown-item"
-                          onClick={() =>
-                            setProfessional(false) ||
-                            alert("Professional Logout !!!")
-                          }
+                          onClick={ProfessionalLogOUt}
                         >
                           Logout
                         </button>

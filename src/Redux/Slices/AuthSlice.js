@@ -6,6 +6,9 @@ const authSlice = createSlice({
     addState: (state, action) => {
       state.push(action.payload);
     },
+    deleteState: (state, action) => {
+      state.pop(action.payload);
+    },
     loginState: (state, action) => {
       state.push(action.payload);
     },

@@ -1,6 +1,9 @@
 import { getAuth, signOut } from "firebase/auth";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import store from "../../Redux/reduxStore";
+import { addAuth } from "../../Redux/Slices/AuthSlice";
+import { addProfessionaDB } from "../../Redux/Slices/ProfessionalSlice";
 
 const Sidebar = ({ setProfessional }) => {
   const imgPath =
@@ -18,6 +21,12 @@ const Sidebar = ({ setProfessional }) => {
       .catch((err) => {
         console.log("Signout error :", err);
       });
+    setTimeout(() => {
+      store.dispatch(
+        addAuth.deleteState(null),
+        addProfessionaDB.addState(null)
+      );
+    }, 2000);
   };
 
   return (

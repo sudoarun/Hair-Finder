@@ -6,6 +6,9 @@ const ProfessionalSlice = createSlice({
     addState: (state, action) => {
       state.push(action.payload);
     },
+    deleteState: (state, action) => {
+      state.pop(action.payload);
+    },
   },
 });
 export const addProfessionaDB = ProfessionalSlice.actions;

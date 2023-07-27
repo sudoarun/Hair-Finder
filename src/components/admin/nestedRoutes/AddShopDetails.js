@@ -93,7 +93,7 @@ const AddShopDetails = () => {
     });
     setImage("");
   };
-  // console.log(services[0].ServiceName);
+  // console.log(image);
   return (
     <div className="bg-white p-2 h-sm-100">
       {context}
@@ -184,7 +184,12 @@ const AddShopDetails = () => {
             ) : (
               <div>
                 {services.map((doc) => (
-                  <ServicesList data={doc} noImage={noImage} key={doc.id} />
+                  <ServicesList
+                    data={doc}
+                    noImage={noImage}
+                    setState={setState}
+                    key={doc.id}
+                  />
                 ))}
               </div>
             )}

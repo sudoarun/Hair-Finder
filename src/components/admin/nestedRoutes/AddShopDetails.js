@@ -48,10 +48,7 @@ const AddShopDetails = () => {
     }));
     setServices(get);
   };
-  useEffect(() => {
-    getServices();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id]);
+
   // const services = "s";
   function ImageHandler(e) {
     setImage(URL.createObjectURL(e.target.files[0]));
@@ -93,6 +90,10 @@ const AddShopDetails = () => {
     });
     setImage("");
   };
+  useEffect(() => {
+    getServices();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   // console.log(image);
   return (
     <div className="bg-white p-2 h-sm-100">

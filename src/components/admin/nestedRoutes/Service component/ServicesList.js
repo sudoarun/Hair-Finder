@@ -1,11 +1,21 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { getAuthSlice } from "../../../../Redux/Slices/AuthSlice";
+import { deleteDoc, doc } from "firebase/firestore";
+import { db } from "../../../../Firebase/firebase";
 
 const ServicesList = ({ noImage, data }) => {
   const { ServiceImage, ServiceName, Price, Description, id } = data;
+  const authID = useSelector(getAuthSlice);
+  const ProID = authID[0].id;
+  // console.log(ProID);
   const UpdateHandle = () => {
     alert(`Service ID : ${id}`);
   };
-  const DeletHandler = () => {
+  const DeletHandler = async () => {
+    await deleteDoc(
+      doc(db, "ProfessionalDB", `${ProID}`, "Services", `${id}`)
+    ).catch((err) => console.log(err));
     alert(`Delete ID : ${id}`);
   };
   return (

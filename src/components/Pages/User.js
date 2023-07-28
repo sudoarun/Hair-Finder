@@ -128,28 +128,6 @@ const User = () => {
                 </span>
               </div>
             </div>
-            {/* <div className="col-12 col-sm-6 d-flex justify-content-center">
-              <div className="text-white">
-                <h3>Name </h3>
-                <p>Mobile</p>
-                <p>Email</p>
-                <p>Location</p>
-              </div>
-              <div className="text-white">
-                <h3>
-                  : <span className="ms-2">{state.name}</span>
-                </h3>
-                <p>
-                  : <span className="ms-2">{state.number}</span>
-                </p>
-                <p>
-                  : <span className="ms-2">{state.email}</span>
-                </p>
-                <p>
-                  : <span className="ms-2">not available</span>
-                </p>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>

@@ -17,8 +17,8 @@ function LoginPage({ name, setIsLoggedIn }) {
     number: "",
   });
   const [user, setUser] = useState({
-    email: "",
-    password: "",
+    email: "user@user.in",
+    password: "user@user.in",
   });
   // Onchange for Sign in User
   const onloadSignin = (e) => {

@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./User.css";
 import Slider from "react-slick";
 import { Rate } from "antd";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../Firebase/firebase";
 
 const User = () => {
   const desc = ["terrible", "bad", "normal", "good", "wonderful"];
+  const [state, setState] = useState("");
   const [value, setValue] = useState(5);
-  const getState = useSelector((state) => state);
-  console.log(getState);
+  const userID = useSelector((state) => state.auth[0]);
+  const getUserData = async () => {
+    await getDoc(doc(db, "UserDB", `${userID.id}`)).then((res) =>
+      setState(res.data())
+    );
+  };
+  useEffect(() => {
+    getUserData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  console.log(state);
   const Slide = {
     infinite: false,
     arrows: false,
@@ -54,24 +66,90 @@ const User = () => {
           </span>
         </h3>
         <div className="profile-page">
-          <div className="row">
-            <div className="col-4 col-sm-3">
+          <div className="row ">
+            <div className="col-12 col-sm-6 d-flex justify-content-center">
               <img
                 src="https://img.freepik.com/premium-vector/realistic-sunbed-illustration_23-2149443982.jpg?size=626&ext=jpg"
                 alt=""
-                className="w-100 w-sm-50"
+                className="w-50 w-sm-50 rounded-circle"
               />
             </div>
-
-            <div className="col-8 col-sm-9">
-              <div className="text-white">
-                <h3>Name : User name </h3>
-                <p>Mobile : 9993335555</p>
-                <p>Email : yourmail@gmail.com</p>
-                <p>Age : 25</p>
-                <p>Location : India </p>
+            <div className="col-12 col-sm-6">
+              <div className="d-flex align-items-center text-white position-relative">
+                <span class="material-icons-outlined">person_outline</span>
+                <div className="ms-3">
+                  <label className="d-block text-secondary">Name</label>
+                  <label className="fw-semibold">{state.name}</label>
+                </div>
+                <span
+                  class="material-icons-outlined position-absolute py-2 px-2 bg-warning rounded-circle end-0"
+                  id="userEdit"
+                >
+                  edit
+                </span>
+              </div>
+              <div className="d-flex align-items-center text-white position-relative mt-2">
+                <span class="material-icons-outlined">email</span>
+                <div className="ms-3">
+                  <label className="d-block text-secondary">Email</label>
+                  <label className="fw-semibold">{state.email}</label>
+                </div>
+                <span
+                  class="material-icons-outlined position-absolute py-2 px-2 bg-warning rounded-circle end-0"
+                  id="userEdit"
+                >
+                  edit
+                </span>
+              </div>
+              <div className="d-flex align-items-center text-white position-relative mt-2">
+                <span class="material-icons-outlined">call</span>
+                <div className="ms-3">
+                  <label className="d-block text-secondary">Number</label>
+                  <label className="fw-semibold">{state.number}</label>
+                </div>
+                <span
+                  class="material-icons-outlined position-absolute py-2 px-2 bg-warning rounded-circle end-0"
+                  id="userEdit"
+                >
+                  edit
+                </span>
+              </div>
+              <div className="d-flex align-items-center text-white position-relative mt-2">
+                <span class="material-icons-outlined">home</span>
+                <div className="ms-3">
+                  <label className="d-block text-secondary">Address</label>
+                  <label className="fw-semibold">not available</label>
+                </div>
+                <span
+                  class="material-icons-outlined position-absolute py-2 px-2 bg-warning rounded-circle end-0"
+                  id="userEdit"
+                >
+                  edit
+                </span>
               </div>
             </div>
+            {/* <div className="col-12 col-sm-6 d-flex justify-content-center">
+              <div className="text-white">
+                <h3>Name </h3>
+                <p>Mobile</p>
+                <p>Email</p>
+                <p>Location</p>
+              </div>
+              <div className="text-white">
+                <h3>
+                  : <span className="ms-2">{state.name}</span>
+                </h3>
+                <p>
+                  : <span className="ms-2">{state.number}</span>
+                </p>
+                <p>
+                  : <span className="ms-2">{state.email}</span>
+                </p>
+                <p>
+                  : <span className="ms-2">not available</span>
+                </p>
+              </div>
+            </div> */}
           </div>
         </div>
       </div>

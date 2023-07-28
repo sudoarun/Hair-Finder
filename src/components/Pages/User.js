@@ -3,10 +3,13 @@ import "./User.css";
 import Slider from "react-slick";
 import { Rate } from "antd";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const User = () => {
   const desc = ["terrible", "bad", "normal", "good", "wonderful"];
   const [value, setValue] = useState(5);
+  const getState = useSelector((state) => state);
+  console.log(getState);
   const Slide = {
     infinite: false,
     arrows: false,

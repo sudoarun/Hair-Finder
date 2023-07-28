@@ -32,6 +32,7 @@ const ShopDetail = () => {
     getServiceBySaloon();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
+  // console.log(services);
   return (
     <div className="container">
       <div className="mt-3">
@@ -77,7 +78,9 @@ const ShopDetail = () => {
             <span className="text-decoration-underline">Professional</span>
           </h3>
           <div className="row ">
-            {!services ? (
+            {services.length === 0 ? (
+              <Loader bgcolor="black" />
+            ) : (
               services.map((doc) => (
                 <div className="col-6 col-sm-3 mt-2" key={doc.id}>
                   <div className=" ">
@@ -90,8 +93,6 @@ const ShopDetail = () => {
                   </div>
                 </div>
               ))
-            ) : (
-              <Loader bgcolor="black" />
             )}
           </div>
         </div>

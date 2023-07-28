@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import "./ShopCard.css";
 import Slider from "react-slick/lib/slider";
 
-const ShopCard = () => {
+const ShopCard = ({ data }) => {
+  console.log(data);
   const settings = {
     dots: true,
     infinite: true,
@@ -53,29 +54,31 @@ const ShopCard = () => {
         style={{ backgroundColor: "#2D2727" }}
       >
         <Slider className="" {...settings}>
-          <div className="">
-            <Link to={"/shop"}>
-              <div className="d-flex card mx-2 ">
-                <div className="w-100 position-relative ">
-                  <img
-                    src="https://img.freepik.com/premium-photo/portrait-stylish-bearded-man-with-hair-scissors_265223-2028.jpg?w=740"
-                    className="w-100 rounded"
-                    alt=""
-                  />
-                </div>
-                <div className="position-absolute text-white bottom-0 start-0">
-                  <div className="px-2">
-                    <div>
-                      <h6>Shop 1</h6>
-                      <p>Rating</p>
+          {data.map((doc) => (
+            <div className="" key={doc.id}>
+              <Link to={"/shop"}>
+                <div className="d-flex card mx-2 ">
+                  <div className="w-100 position-relative ">
+                    <img
+                      src="https://img.freepik.com/premium-photo/portrait-stylish-bearded-man-with-hair-scissors_265223-2028.jpg?w=740"
+                      className="w-100 rounded"
+                      alt=""
+                    />
+                  </div>
+                  <div className="position-absolute text-white bottom-0 start-0">
+                    <div className="px-2">
+                      <div>
+                        <h6>{doc.shopName}</h6>
+                        <p>{doc.name}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </Link>
-          </div>
+              </Link>
+            </div>
+          ))}
 
-          <div className="">
+          {/* <div className="">
             <Link to={"/shop"}>
               <div className="d-flex card mx-2">
                 <div className="w-100 position-relative">
@@ -93,9 +96,9 @@ const ShopCard = () => {
                 </div>
               </div>
             </Link>
-          </div>
+          </div> */}
 
-          <div className="">
+          {/* <div className="">
             <Link to={"/shop"}>
               <div className="d-flex card mx-2">
                 <div className="w-100 position-relative">
@@ -113,9 +116,9 @@ const ShopCard = () => {
                 </div>
               </div>
             </Link>
-          </div>
+          </div> */}
 
-          <div className="">
+          {/* <div className="">
             <Link to={"/shop"}>
               <div className="d-flex card mx-2">
                 <div className="w-100 position-relative">
@@ -133,7 +136,7 @@ const ShopCard = () => {
                 </div>
               </div>
             </Link>
-          </div>
+          </div> */}
         </Slider>
       </div>
     </div>

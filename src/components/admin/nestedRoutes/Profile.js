@@ -18,7 +18,7 @@ const ProfessionalProfile = () => {
     shopName: "",
     shopAddress: "",
     shopOpen: "10:00AM",
-    shopClose: "09:00PM",
+    shopClose: "08:00PM",
   });
   const [messageApi, contextHolder] = message.useMessage();
   const MessageBox = (messageText, varient) => {

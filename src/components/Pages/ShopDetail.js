@@ -2,24 +2,36 @@ import React from "react";
 import StyleCard from "./StyleCard";
 import Breadcrumb from "../BreadCrumbs/Breadcrumb";
 import { useParams } from "react-router-dom";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { db } from "../../Firebase/firebase";
 import { useEffect } from "react";
 import { useState } from "react";
+import Loader from "../Loader/loader";
 
 const ShopDetail = () => {
   const { id } = useParams();
   const [shopDetails, setShopdetails] = useState("");
+  const [services, setServices] = useState([]);
   const getSaloon = async () => {
     await getDoc(doc(db, "ProfessionalDB", `${id}`)).then((res) =>
       setShopdetails(res.data())
     );
   };
+  const getServiceBySaloon = async () => {
+    const data = await getDocs(
+      collection(db, "ProfessionalDB", `${id}`, "Services")
+    ).catch((err) => console.log(err));
+    const get = data.docs.map((res) => ({
+      ...res.data(),
+      id: res.id,
+    }));
+    setServices(get);
+  };
   useEffect(() => {
     getSaloon();
+    getServiceBySaloon();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
-  // console.log(shopDetails);
   return (
     <div className="container">
       <div className="mt-3">
@@ -64,27 +76,23 @@ const ShopDetail = () => {
             Services by{" "}
             <span className="text-decoration-underline">Professional</span>
           </h3>
-          <div className="row">
-            <div className="col-6 col-sm-3 mt-2">
-              <div className=" ">
-                <StyleCard price={120} book="/booking" />
-              </div>
-            </div>
-            <div className="col-6 col-sm-3 mt-2">
-              <div className=" ">
-                <StyleCard price={250} book="/booking" />
-              </div>
-            </div>
-            <div className="col-6 col-sm-3 mt-2">
-              <div className="">
-                <StyleCard price={430} book="/booking" />
-              </div>
-            </div>
-            <div className="col-6 col-sm-3 mt-2">
-              <div className="">
-                <StyleCard price={299} book="/booking" />
-              </div>
-            </div>
+          <div className="row ">
+            {!services ? (
+              services.map((doc) => (
+                <div className="col-6 col-sm-3 mt-2" key={doc.id}>
+                  <div className=" ">
+                    <StyleCard
+                      price={doc.Price}
+                      name={doc.ServiceName}
+                      image={doc.ServiceImage}
+                      book="/booking"
+                    />
+                  </div>
+                </div>
+              ))
+            ) : (
+              <Loader bgcolor="black" />
+            )}
           </div>
         </div>
       </div>

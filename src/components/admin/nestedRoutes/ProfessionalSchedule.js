@@ -9,7 +9,7 @@ import ListItem from "./ScheduleList/listItem";
 const ProfessionalSchedule = () => {
   const [schedules, setSchedules] = useState("");
   useEffect(() => {
-    setSchedules("hello");
+    setSchedules("Hello");
   }, []);
 
   return schedules === "" ? (

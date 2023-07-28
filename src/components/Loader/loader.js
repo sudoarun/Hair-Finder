@@ -1,9 +1,11 @@
 import React from "react";
 import "./loader.css";
 
-const Loader = () => {
+const Loader = ({ bgcolor }) => {
   return (
-    <div className="bg-white d-flex justify-content-center align-items-center  h-100">
+    <div
+      className={`bg-${bgcolor} d-flex justify-content-center align-items-center  h-100`}
+    >
       <div>
         <svg className="pl" width="240" height="240" viewBox="0 0 240 240">
           <circle
@@ -53,7 +55,7 @@ const Loader = () => {
             strokeLinecap="round"
           ></circle>
         </svg>
-        <h6 className="text-center mt-3 text-secondary">Loading ...</h6>
+        <h6 className={`text-center mt-3 text-secondary`}>Loading ...</h6>
       </div>
     </div>
   );

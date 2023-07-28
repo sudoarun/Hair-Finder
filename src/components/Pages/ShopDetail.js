@@ -1,8 +1,25 @@
 import React from "react";
 import StyleCard from "./StyleCard";
 import Breadcrumb from "../BreadCrumbs/Breadcrumb";
+import { useParams } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../Firebase/firebase";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const ShopDetail = () => {
+  const { id } = useParams();
+  const [shopDetails, setShopdetails] = useState("");
+  // console.log(id);
+  const getSaloon = async () => {
+    await getDoc(doc(db, "ProfessionalDB", `${id}`)).then((res) =>
+      setShopdetails(res.data())
+    );
+  };
+  useEffect(() => {
+    getSaloon();
+  }, []);
+  console.log(shopDetails);
   return (
     <div className="container">
       <div className="mt-3">

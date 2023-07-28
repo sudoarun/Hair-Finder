@@ -56,7 +56,7 @@ const ShopCard = ({ data }) => {
         <Slider className="" {...settings}>
           {data.map((doc) => (
             <div className="" key={doc.id}>
-              <Link to={"/shop"}>
+              <Link to={`/shop/${doc.id}`}>
                 <div className="d-flex card mx-2 ">
                   <div className="w-100 position-relative ">
                     <img

@@ -49,28 +49,45 @@ const ShopDetail = () => {
             <img
               alt=""
               src="https://img.freepik.com/premium-photo/beauty-saloon-eyebrow-care_524291-978.jpg?size=626&ext=jpg&ga=GA1.2.1543915203.1685795707&semt=ais"
-              className="w-100"
+              className="w-100 mb-3"
             />
           </div>
-          <div className="col-12 col-sm-8 ms-3 d-flex">
-            <div className="text-white">
-              <span className="d-block">Shop Name</span>
-              <span className="d-block">Owner Name</span>
-              <span className="d-block">Timing</span>
-              <span className="d-block">Contact Number</span>
-              <span className="d-block">Shop Rating</span>
+          {!shopDetails ? (
+            <div>
+              <Loader />
             </div>
-            <div className="text-white ps-3">
-              <span className="d-block">: {shopDetails.shopName}</span>
-              <span className="d-block">: {shopDetails.name}</span>
-              <span className="d-block">
-                : {!shopDetails.shopOpen ? "10:00 AM" : shopDetails.shopOpen} -{" "}
-                {shopDetails.shopClose}
-              </span>
-              <span className="d-block">: {shopDetails.number}</span>
-              <span className="d-block">: Not Available</span>
+          ) : (
+            <div className="col-12 col-sm-8 ms-sm-3 d-flex">
+              <div className="text-white">
+                <span className="d-block">Shop Name</span>
+                <span className="d-block">Owner Name</span>
+                <span className="d-block">Timing</span>
+                <span className="d-block">Contact Number</span>
+                <span className="d-block">Shop Rating</span>
+              </div>
+              <div className="text-white ps-3">
+                <span className="d-block">
+                  : <span className="ms-2">{shopDetails.shopName}</span>
+                </span>
+                <span className="d-block">
+                  : <span className="ms-2">{shopDetails.name}</span>
+                </span>
+                <span className="d-block">
+                  :{" "}
+                  <span className="ms-2">
+                    {!shopDetails.shopOpen ? "10:00 AM" : shopDetails.shopOpen}{" "}
+                    - {shopDetails.shopClose}
+                  </span>
+                </span>
+                <span className="d-block">
+                  : <span className="ms-2">{shopDetails.number}</span>
+                </span>
+                <span className="d-block">
+                  : <span className="ms-2">Not Available</span>
+                </span>
+              </div>
             </div>
-          </div>
+          )}
         </div>
         <div className="mt-5">
           <h3 className="text-white mb-3">

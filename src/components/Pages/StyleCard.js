@@ -19,7 +19,7 @@ const StyleCard = ({ price, book, name, image }) => {
           </p>
           <Link
             to={book}
-            className="w-100 px-2 py-2 d-block fw-bold text-white bg-black"
+            className="w-100 px-2 py-2 d-block fw-bold text-white bg-black rounded"
           >
             Buy
           </Link>

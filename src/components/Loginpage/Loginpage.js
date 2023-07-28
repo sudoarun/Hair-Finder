@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faGoogle, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { useNavigate } from "react-router-dom";
+import { UserSignIn, UserSignUp } from "../../Auth/UserAuth";
 
 function LoginPage({ name, setIsLoggedIn }) {
   const [isSignUpMode, setIsSignUpMode] = useState(false);
@@ -16,7 +17,7 @@ function LoginPage({ name, setIsLoggedIn }) {
     number: "",
   });
   const [user, setUser] = useState({
-    username: "",
+    email: "",
     password: "",
   });
   // Onchange for Sign in User
@@ -38,20 +39,25 @@ function LoginPage({ name, setIsLoggedIn }) {
   // One Submit of Sign In
   const handlesignIn = (e) => {
     e.preventDefault();
-    console.log(user);
-    setIsLoggedIn(true);
-    alert("logged in");
-    navigate("/");
-    setUser({
-      username: "",
-      password: "",
+    // console.log(user);
+    UserSignIn(user).then(() => {
+      setIsLoggedIn(true);
+      alert("logged in");
+      navigate("/");
+      setUser({
+        email: "",
+        password: "",
+      });
     });
   };
 
   // on Submit for Sign up User
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
-    console.log(signUser);
+    await UserSignUp(signUser).then(() => {
+      alert("User details Saved !!");
+      setIsLoggedIn(true);
+    });
     setSignUser({
       email: "",
       username: "",
@@ -80,11 +86,11 @@ function LoginPage({ name, setIsLoggedIn }) {
               <FontAwesomeIcon icon={faUser} className="my-auto mx-auto" />
               <input
                 className="LoginInput"
-                name="username"
-                value={user.username}
+                name="email"
+                value={user.email}
                 onChange={onloadSignin}
-                type="text"
-                placeholder="Username"
+                type="email"
+                placeholder="Email ID"
               />
             </div>
 

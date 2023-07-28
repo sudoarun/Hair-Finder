@@ -9,9 +9,6 @@ const authSlice = createSlice({
     deleteState: (state, action) => {
       state.pop(action.payload);
     },
-    loginState: (state, action) => {
-      state.push(action.payload);
-    },
   },
 });
 export const getAuthSlice = createSelector(

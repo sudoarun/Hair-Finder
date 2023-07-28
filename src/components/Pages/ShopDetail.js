@@ -10,7 +10,6 @@ import { useState } from "react";
 const ShopDetail = () => {
   const { id } = useParams();
   const [shopDetails, setShopdetails] = useState("");
-  // console.log(id);
   const getSaloon = async () => {
     await getDoc(doc(db, "ProfessionalDB", `${id}`)).then((res) =>
       setShopdetails(res.data())
@@ -18,8 +17,9 @@ const ShopDetail = () => {
   };
   useEffect(() => {
     getSaloon();
-  }, []);
-  console.log(shopDetails);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
+  // console.log(shopDetails);
   return (
     <div className="container">
       <div className="mt-3">
@@ -31,20 +31,31 @@ const ShopDetail = () => {
         </span>
       </h3>
       <div className="mt-5">
-        <div className="d-flex justify-content-between align-items-center">
-          <div className="w-50">
+        <div className="row align-items-center">
+          <div className="col-12 col-sm-3">
             <img
               alt=""
               src="https://img.freepik.com/premium-photo/beauty-saloon-eyebrow-care_524291-978.jpg?size=626&ext=jpg&ga=GA1.2.1543915203.1685795707&semt=ais"
               className="w-100"
             />
           </div>
-          <div className="w-50 ms-3">
+          <div className="col-12 col-sm-8 ms-3 d-flex">
             <div className="text-white">
               <span className="d-block">Shop Name</span>
-              <span className="d-block">Timing: 10am - 9pm</span>
-              <span className="d-block">Owner contact Number</span>
+              <span className="d-block">Owner Name</span>
+              <span className="d-block">Timing</span>
+              <span className="d-block">Contact Number</span>
               <span className="d-block">Shop Rating</span>
+            </div>
+            <div className="text-white ps-3">
+              <span className="d-block">: {shopDetails.shopName}</span>
+              <span className="d-block">: {shopDetails.name}</span>
+              <span className="d-block">
+                : {!shopDetails.shopOpen ? "10:00 AM" : shopDetails.shopOpen} -{" "}
+                {shopDetails.shopClose}
+              </span>
+              <span className="d-block">: {shopDetails.number}</span>
+              <span className="d-block">: Not Available</span>
             </div>
           </div>
         </div>

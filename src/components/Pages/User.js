@@ -76,52 +76,52 @@ const User = () => {
             </div>
             <div className="col-12 col-sm-6">
               <div className="d-flex align-items-center text-white position-relative">
-                <span class="material-icons-outlined">person_outline</span>
+                <span className="material-icons-outlined">person_outline</span>
                 <div className="ms-3">
                   <label className="d-block text-secondary">Name</label>
                   <label className="fw-semibold">{state.name}</label>
                 </div>
                 <span
-                  class="material-icons-outlined position-absolute py-2 px-2 bg-warning rounded-circle end-0"
+                  className="material-icons-outlined position-absolute py-2 px-2 bg-warning rounded-circle end-0"
                   id="userEdit"
                 >
                   edit
                 </span>
               </div>
               <div className="d-flex align-items-center text-white position-relative mt-2">
-                <span class="material-icons-outlined">email</span>
+                <span className="material-icons-outlined">email</span>
                 <div className="ms-3">
                   <label className="d-block text-secondary">Email</label>
                   <label className="fw-semibold">{state.email}</label>
                 </div>
                 <span
-                  class="material-icons-outlined position-absolute py-2 px-2 bg-warning rounded-circle end-0"
+                  className="material-icons-outlined position-absolute py-2 px-2 bg-warning rounded-circle end-0"
                   id="userEdit"
                 >
                   edit
                 </span>
               </div>
               <div className="d-flex align-items-center text-white position-relative mt-2">
-                <span class="material-icons-outlined">call</span>
+                <span className="material-icons-outlined">call</span>
                 <div className="ms-3">
                   <label className="d-block text-secondary">Number</label>
                   <label className="fw-semibold">{state.number}</label>
                 </div>
                 <span
-                  class="material-icons-outlined position-absolute py-2 px-2 bg-warning rounded-circle end-0"
+                  className="material-icons-outlined position-absolute py-2 px-2 bg-warning rounded-circle end-0"
                   id="userEdit"
                 >
                   edit
                 </span>
               </div>
               <div className="d-flex align-items-center text-white position-relative mt-2">
-                <span class="material-icons-outlined">home</span>
+                <span className="material-icons-outlined">home</span>
                 <div className="ms-3">
                   <label className="d-block text-secondary">Address</label>
                   <label className="fw-semibold">not available</label>
                 </div>
                 <span
-                  class="material-icons-outlined position-absolute py-2 px-2 bg-warning rounded-circle end-0"
+                  className="material-icons-outlined position-absolute py-2 px-2 bg-warning rounded-circle end-0"
                   id="userEdit"
                 >
                   edit

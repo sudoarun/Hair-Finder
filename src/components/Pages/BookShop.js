@@ -5,13 +5,15 @@ import "react-day-picker/dist/style.css";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import List from "./List";
 
-const BookShop = () => {
+const BookShop = ({ services, shopDetails }) => {
   const [selected, setSelected] = useState(Date);
   const isSmallDevice = useMediaQuery("(max-width : 748px)");
   const isMediumDevice = useMediaQuery("(min-width : 769px)");
   let today = new Date();
   let year = today.getFullYear();
 
+  console.log(services);
+  console.log(shopDetails);
   return (
     <div className="">
       <div className="container">

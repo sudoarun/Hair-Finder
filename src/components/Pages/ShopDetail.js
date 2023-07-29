@@ -32,7 +32,7 @@ const ShopDetail = () => {
     getServiceBySaloon();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
-  // console.log(services);
+
   return (
     <div className="container">
       <div className="mt-3">
@@ -102,6 +102,8 @@ const ShopDetail = () => {
                 <div className="col-6 col-sm-3 mt-2" key={doc.id}>
                   <div className=" ">
                     <StyleCard
+                      shopDetails={shopDetails}
+                      services={services}
                       price={doc.Price}
                       name={doc.ServiceName}
                       image={doc.ServiceImage}

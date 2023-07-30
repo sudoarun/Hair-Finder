@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./ShopCard.css";
 import Slider from "react-slick/lib/slider";
+import Loader from "../Loader/loader";
 
 const ShopCard = ({ data }) => {
   // console.log(data);
@@ -53,31 +54,35 @@ const ShopCard = ({ data }) => {
         className=" responsiveWidth mt-n5 px-4 card pt-3 pb-3"
         style={{ backgroundColor: "#2D2727" }}
       >
-        <Slider className="" {...settings}>
-          {data.map((doc) => (
-            <div className="" key={doc.id}>
-              <Link to={`/shop/${doc.id}`}>
-                <div className="d-flex card mx-2 ">
-                  <div className="w-100 position-relative ">
-                    <img
-                      src="https://img.freepik.com/premium-photo/portrait-stylish-bearded-man-with-hair-scissors_265223-2028.jpg?w=740"
-                      className="w-100 rounded"
-                      alt=""
-                    />
-                  </div>
-                  <div className="position-absolute text-white bottom-0 start-0">
-                    <div className="px-2">
-                      <div>
-                        <h6>{doc.shopName}</h6>
-                        <p>{doc.name}</p>
+        {data.length === 0 ? (
+          <Loader />
+        ) : (
+          <Slider className="" {...settings}>
+            {data.map((doc) => (
+              <div className="" key={doc.id}>
+                <Link to={`/shop/${doc.id}`}>
+                  <div className="d-flex card mx-2 ">
+                    <div className="w-100 position-relative ">
+                      <img
+                        src="https://img.freepik.com/premium-photo/portrait-stylish-bearded-man-with-hair-scissors_265223-2028.jpg?w=740"
+                        className="w-100 rounded"
+                        alt=""
+                      />
+                    </div>
+                    <div className="position-absolute text-white bottom-0 start-0">
+                      <div className="px-2">
+                        <div>
+                          <h6>{doc.shopName}</h6>
+                          <p>{doc.name}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            </div>
-          ))}
-        </Slider>
+                </Link>
+              </div>
+            ))}
+          </Slider>
+        )}
       </div>
     </div>
   );

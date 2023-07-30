@@ -5,7 +5,6 @@ import Slider from "react-slick/lib/slider";
 import Loader from "../Loader/loader";
 
 const ShopCard = ({ data }) => {
-  // console.log(data);
   const settings = {
     dots: true,
     infinite: true,
@@ -54,6 +53,14 @@ const ShopCard = ({ data }) => {
         className=" responsiveWidth mt-n5 px-4 card pt-3 pb-3"
         style={{ backgroundColor: "#2D2727" }}
       >
+        <div className="mb-2">
+          <h6 className="text-white text-center">
+            <span className="border py-2 ps-2">
+              Top 10{" "}
+              <span className="py-2 px-2 bg-white text-black">Shops</span>
+            </span>
+          </h6>
+        </div>
         {data.length === 0 ? (
           <Loader />
         ) : (
@@ -72,8 +79,8 @@ const ShopCard = ({ data }) => {
                     <div className="position-absolute text-white bottom-0 start-0">
                       <div className="px-2">
                         <div>
-                          <h6>{doc.shopName}</h6>
-                          <p>{doc.name}</p>
+                          <h6 className="fw-semibold">{doc.shopName}</h6>
+                          <p className="fs-6">{doc.name}</p>
                         </div>
                       </div>
                     </div>

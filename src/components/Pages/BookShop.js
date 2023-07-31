@@ -26,7 +26,7 @@ const BookShop = () => {
 
     if (docSnap.exists()) {
       setService(docSnap.data());
-      console.log(service);
+      // console.log(service);
     } else {
       console.log("No such document!");
     }
@@ -49,7 +49,6 @@ const BookShop = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   let PurchasePrice = parseInt(service.Price) + cartTotal;
-  // console.log(parseInt(service.Price) + parseInt(cartTotal));
 
   return (
     <div className="">
@@ -193,7 +192,7 @@ const BookShop = () => {
                   name="shampoo"
                   value=""
                   id="flexCheckDefault"
-                  onChange={() => handleCheckBoxChange("shampoo", 80)}
+                  onChange={() => handleCheckBoxChange("shampoo", 30)}
                 />
                 <label className="form-check-label" htmlFor="flexCheckDefault">
                   Shampoo (80rs)

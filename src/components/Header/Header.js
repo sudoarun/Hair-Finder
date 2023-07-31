@@ -8,6 +8,7 @@ import { addAuth } from "../../Redux/Slices/AuthSlice";
 import { message } from "antd";
 import { useDispatch } from "react-redux";
 import { professionalLogOut } from "../../Redux/Slices/professionalRedux";
+import { userLogout } from "../../Redux/Slices/UserRedux";
 // import { useState } from "react";
 
 const Header = ({
@@ -27,6 +28,7 @@ const Header = ({
   const navigate = useNavigate();
   const logOutHandle = () => {
     setIsLoggedIn(false);
+    dispatch(userLogout());
     navigate("/");
     setTimeout(() => {
       let varient = "success";

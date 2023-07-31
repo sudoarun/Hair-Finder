@@ -8,6 +8,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from "../Firebase/firebase";
 import store from "../Redux/reduxStore";
 import { addAuth } from "../Redux/Slices/AuthSlice";
+import { userLogIn } from "../Redux/Slices/UserRedux";
 
 const UserSignUp = async (signUser, sendMessage, setIsLoggedIn, navigate) => {
   // console.log("before fucntion:", signUser);
@@ -38,6 +39,7 @@ const UserSignUp = async (signUser, sendMessage, setIsLoggedIn, navigate) => {
                 password: signUser.password,
               }).then(() => {
                 setIsLoggedIn(true);
+                store.dispatch(userLogIn());
                 let varient = "success";
                 let messageText = "Register Successfully !!!";
                 sendMessage(varient, messageText);
@@ -75,6 +77,7 @@ const UserSignIn = async (user, setIsLoggedIn, sendMessage, navigate) => {
       );
       // console.log(data);
       setIsLoggedIn(true);
+      store.dispatch(userLogIn());
       let varient = "success";
       let messageText = "User Login Success !!!";
       sendMessage(varient, messageText);
@@ -84,7 +87,6 @@ const UserSignIn = async (user, setIsLoggedIn, sendMessage, navigate) => {
       }, 1200);
     })
     .catch((err) => {
-      setIsLoggedIn(false);
       let varient = "error";
       let messageText = err.message;
       sendMessage(varient, messageText);

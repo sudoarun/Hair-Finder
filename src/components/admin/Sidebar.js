@@ -3,18 +3,22 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import store from "../../Redux/reduxStore";
 import { addAuth } from "../../Redux/Slices/AuthSlice";
+import { useDispatch } from "react-redux";
+import { professionalLogOut } from "../../Redux/Slices/professionalRedux";
 
 const Sidebar = ({ setProfessional }) => {
   const imgPath =
     "https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg?size=626&ext=jpg&ga=GA1.1.1357742209.1688643562&semt=sph";
   const auth = getAuth();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const HandleSignOut = () => {
     signOut(auth)
       .then((res) => {
         navigate("/");
         alert("Signout");
         setProfessional(false);
+        dispatch(professionalLogOut());
         console.log("Signout success :", res);
       })
       .catch((err) => {

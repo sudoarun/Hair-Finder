@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../Firebase/firebase";
 import { useEffect } from "react";
+import Loader from "../Loader/loader";
 
 const BookShop = ({ services, shopDetails }) => {
   const [selected, setSelected] = useState(Date);
@@ -16,7 +17,7 @@ const BookShop = ({ services, shopDetails }) => {
   let today = new Date();
   let year = today.getFullYear();
   const { id, parent } = useParams();
-  const [service, setService] = useState(null);
+  const [service, setService] = useState("");
   // console.log("parent :", parent, "id :", id);
   const getService = async () => {
     // const data = await getDocs(
@@ -32,7 +33,7 @@ const BookShop = ({ services, shopDetails }) => {
 
     if (docSnap.exists()) {
       setService(docSnap.data());
-      // console.log(service);
+      console.log(service);
     } else {
       // docSnap.data() will be undefined in this case
       console.log("No such document!");
@@ -42,7 +43,7 @@ const BookShop = ({ services, shopDetails }) => {
   useEffect(() => {
     getService();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id, parent]);
+  }, []);
 
   return (
     <div className="">
@@ -66,27 +67,31 @@ const BookShop = ({ services, shopDetails }) => {
             <div className="text-white">
               <span className="d-block">Shop Name</span>
               <span className="d-block">Service Name</span>
-              <span className="d-block">Shop Rating</span>
-              <span className="d-block">Shop Time</span>
+              <span className="d-block">Service Price</span>
+              <span className="d-block">Service Time</span>
             </div>
-            <div className="text-white">
-              <span className="d-block">
-                <span className="mx-2">:</span>
-                {service.ServiceName}
-              </span>
-              <span className="d-block">
-                <span className="mx-2">:</span>
-                {service.ServiceName}
-              </span>
-              <span className="d-block">
-                <span className="mx-2">:</span>
-                {service.Price}
-              </span>
-              <span className="d-block">
-                <span className="mx-2">:</span>
-                {service.Description}
-              </span>
-            </div>
+            {services === "" ? (
+              <Loader />
+            ) : (
+              <div className="text-white">
+                <span className="d-block">
+                  <span className="mx-2">:</span>
+                  Shop Name
+                </span>
+                <span className="d-block">
+                  <span className="mx-2">:</span>
+                  {service.ServiceName}
+                </span>
+                <span className="d-block">
+                  <span className="mx-2">:</span>
+                  {service.Price}
+                </span>
+                <span className="d-block">
+                  <span className="mx-2">:</span>
+                  {service.Description}
+                </span>
+              </div>
+            )}
           </div>
           <div className="col-12 col-sm-6 mt-3">
             <div className="text-white ">
@@ -206,7 +211,7 @@ const BookShop = ({ services, shopDetails }) => {
               <div className="pt-2">
                 <div className="d-flex justify-content-between">
                   <span>Total Services :</span>
-                  <span>Name of Services</span>
+                  <span>{service.ServiceName}</span>
                 </div>
                 <div className="d-flex justify-content-between">
                   <span>Book Time :</span>

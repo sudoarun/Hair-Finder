@@ -54,14 +54,6 @@ function App() {
         <Route path="/shop/:id" element={<ShopDetail />} />
         <Route path="/shop/:parent/:id/booking" element={<BookShop />} />
 
-        {/* <Route
-          path="/booking"
-          element={
-            <PrivateRoute isLoggedIn={isLoggedIn}>
-              <BookShop />
-            </PrivateRoute>
-          }
-        /> */}
         <Route
           path="/user"
           element={

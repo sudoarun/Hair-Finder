@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import Loader from "../Loader/loader";
 import asset from "../../assets/hairfinder assest.png";
 
-const BookShop = ({ services, shopDetails }) => {
+const BookShop = () => {
   const [selected, setSelected] = useState(Date);
   const isSmallDevice = useMediaQuery("(max-width : 748px)");
   const isMediumDevice = useMediaQuery("(min-width : 769px)");
@@ -19,16 +19,7 @@ const BookShop = ({ services, shopDetails }) => {
   let year = today.getFullYear();
   const { id, parent } = useParams();
   const [service, setService] = useState("");
-  // console.log("parent :", parent, "id :", id);
   const getService = async () => {
-    // const data = await getDocs(
-    //   collection(db, "ProfessionalDB", `${parent}`, "Services", `${id}`)
-    // ).catch((err) => console.log(err));
-    // const get = data.docs.map((res) => ({
-    //   ...res.data(),
-    //   id: res.id,
-    // }));
-    // console.log(get);
     const docRef = doc(db, "ProfessionalDB", `${parent}`, "Services", `${id}`);
     const docSnap = await getDoc(docRef);
 
@@ -36,7 +27,6 @@ const BookShop = ({ services, shopDetails }) => {
       setService(docSnap.data());
       console.log(service);
     } else {
-      // docSnap.data() will be undefined in this case
       console.log("No such document!");
     }
   };
@@ -69,16 +59,19 @@ const BookShop = ({ services, shopDetails }) => {
               <div className="col-4 col-sm-6">
                 <img alt="" src={asset} className="w-100" />
               </div>
-              <div className="col-8 col-sm-6 d-flex">
-                <div className="text-white">
-                  <span className="d-block fw-semibold">Shop Name</span>
-                  <span className="d-block fw-semibold">Service Name</span>
-                  <span className="d-block fw-semibold">Service Price</span>
-                  <span className="d-block fw-semibold">Service Time</span>
-                </div>
-                {services === "" ? (
+
+              {service === "" ? (
+                <div className="col-8 col-sm-6">
                   <Loader />
-                ) : (
+                </div>
+              ) : (
+                <div className="col-8 col-sm-6 d-flex">
+                  <div className="text-white">
+                    <span className="d-block fw-semibold">Shop Name</span>
+                    <span className="d-block fw-semibold">Service Name</span>
+                    <span className="d-block fw-semibold">Service Price</span>
+                    <span className="d-block fw-semibold">Service Time</span>
+                  </div>
                   <div className="text-white">
                     <span className="d-block">
                       <span className="mx-2">:</span>
@@ -97,8 +90,8 @@ const BookShop = ({ services, shopDetails }) => {
                       {service.Description}
                     </span>
                   </div>
-                )}
-              </div>
+                </div>
+              )}
             </div>
           </div>
           <div className="col-12 col-sm-6 mt-3">

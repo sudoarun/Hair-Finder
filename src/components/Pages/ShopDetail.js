@@ -107,7 +107,7 @@ const ShopDetail = () => {
                       price={doc.Price}
                       name={doc.ServiceName}
                       image={doc.ServiceImage}
-                      book="/booking"
+                      book={`/shop/${id}/${doc.id}/booking`}
                     />
                   </div>
                 </div>

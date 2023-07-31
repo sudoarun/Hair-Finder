@@ -4,6 +4,10 @@ import BreadCrumb from "../BreadCrumbs/Breadcrumb";
 import "react-day-picker/dist/style.css";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import List from "./List";
+import { useParams } from "react-router-dom";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import { db } from "../../Firebase/firebase";
+import { useEffect } from "react";
 
 const BookShop = ({ services, shopDetails }) => {
   const [selected, setSelected] = useState(Date);
@@ -11,15 +15,40 @@ const BookShop = ({ services, shopDetails }) => {
   const isMediumDevice = useMediaQuery("(min-width : 769px)");
   let today = new Date();
   let year = today.getFullYear();
+  const { id, parent } = useParams();
+  const [service, setService] = useState(null);
+  // console.log("parent :", parent, "id :", id);
+  const getService = async () => {
+    // const data = await getDocs(
+    //   collection(db, "ProfessionalDB", `${parent}`, "Services", `${id}`)
+    // ).catch((err) => console.log(err));
+    // const get = data.docs.map((res) => ({
+    //   ...res.data(),
+    //   id: res.id,
+    // }));
+    // console.log(get);
+    const docRef = doc(db, "ProfessionalDB", `${parent}`, "Services", `${id}`);
+    const docSnap = await getDoc(docRef);
 
-  console.log(services);
-  console.log(shopDetails);
+    if (docSnap.exists()) {
+      setService(docSnap.data());
+      // console.log(service);
+    } else {
+      // docSnap.data() will be undefined in this case
+      console.log("No such document!");
+    }
+  };
+
+  useEffect(() => {
+    getService();
+  }, []);
+
   return (
     <div className="">
       <div className="container">
         <BreadCrumb //BreadCrumbs component
           prevPage={"Shop"}
-          link={"/shop"}
+          link={`/shop/${parent}`}
           activePage={"Booking"}
           text="white"
         />
@@ -32,12 +61,30 @@ const BookShop = ({ services, shopDetails }) => {
 
       <div className="container">
         <div className="row mt-5  align-items-center">
-          <div className="col-12 col-sm-6">
+          <div className="col-12 col-sm-6 d-flex">
             <div className="text-white">
               <span className="d-block">Shop Name</span>
               <span className="d-block">Service Name</span>
               <span className="d-block">Shop Rating</span>
               <span className="d-block">Shop Time</span>
+            </div>
+            <div className="text-white">
+              <span className="d-block">
+                <span className="mx-2">:</span>
+                {service.ServiceName}
+              </span>
+              <span className="d-block">
+                <span className="mx-2">:</span>
+                {service.ServiceName}
+              </span>
+              <span className="d-block">
+                <span className="mx-2">:</span>
+                {service.Price}
+              </span>
+              <span className="d-block">
+                <span className="mx-2">:</span>
+                {service.Description}
+              </span>
             </div>
           </div>
           <div className="col-12 col-sm-6 mt-3">

@@ -1,5 +1,5 @@
 import React from "react";
-import SearchContent from "../Search/SearchContent";
+// import SearchContent from "../Search/SearchContent";
 
 export default function Schedule() {
   return (
@@ -12,9 +12,7 @@ export default function Schedule() {
 
       <div className="container">
         <div className="p-3">
-          <div className="">
-            <SearchContent btn={"cancel"} />
-          </div>
+          <div className="">{/* <SearchContent btn={"cancel"} /> */}</div>
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ import "react-day-picker/dist/style.css";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import List from "./List";
 import { useParams } from "react-router-dom";
-import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../Firebase/firebase";
 import { useEffect } from "react";
 
@@ -41,7 +41,8 @@ const BookShop = ({ services, shopDetails }) => {
 
   useEffect(() => {
     getService();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id, parent]);
 
   return (
     <div className="">

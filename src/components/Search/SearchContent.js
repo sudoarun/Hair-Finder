@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SearchContent = ({ shop, btn, data }) => {
-  const { email, name, number, shopAddress, shopName, shopClose } = data;
+const SearchContent = ({ btn, data }) => {
+  const { email, name, number, shopAddress, shopName, shopClose, id } = data;
   const ShopImg =
     "https://img.freepik.com/premium-vector/vintage-art-illustration-man-getting-his-hair-cut_697324-8454.jpg?size=626&ext=jpg&ga=GA1.1.1543915203.1685795707&semt=sph";
   return (
@@ -41,7 +41,10 @@ const SearchContent = ({ shop, btn, data }) => {
                 Cancel
               </button>
             ) : (
-              <Link to={shop} className="py-2 px-4 border bg-black text-white">
+              <Link
+                to={`/shop/${id}`}
+                className="py-2 px-4 border bg-black text-white"
+              >
                 Check Shop
               </Link>
             )}

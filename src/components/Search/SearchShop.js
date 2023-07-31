@@ -16,7 +16,7 @@ const SearchShop = () => {
               Detect my location
             </span>
             <input
-              placeholder="Search Your Favorite Shop and Service here.."
+              placeholder="Search Your Favorite Shops..."
               type="search"
               id="HomeSearch"
               className="text- bg-white w-75 border border-end-0 border-start-0 border-dark ps-3 pe-3 py-3"
@@ -41,9 +41,7 @@ const SearchShop = () => {
               {!shops ? (
                 <Loader />
               ) : (
-                shops.map((res) => (
-                  <SearchContent data={res} key={res.id} shop="/shop" />
-                ))
+                shops.map((res) => <SearchContent data={res} key={res.id} />)
               )}
 
               {/* <SearchContent shop="/shop" />

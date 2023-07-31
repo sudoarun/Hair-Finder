@@ -46,7 +46,7 @@ const UserSignUp = async (signUser) => {
     .catch((err) => console.log("Auth Create :", err));
 };
 
-const UserSignIn = async (user) => {
+const UserSignIn = async (user, setIsLoggedIn, sendMessage, navigate) => {
   const auth = getAuth();
   await signInWithEmailAndPassword(auth, user.email, user.password)
     .then((data) => {
@@ -59,9 +59,22 @@ const UserSignIn = async (user) => {
           user: true,
         })
       );
-      console.log(data);
+      // console.log(data);
+      setIsLoggedIn(true);
+      let varient = "success";
+      let messageText = "User Login Success !!!";
+      sendMessage(varient, messageText);
+
+      setTimeout(() => {
+        navigate("/");
+      }, 1200);
     })
-    .catch((err) => console.log("Sign in Error :", err.message));
+    .catch((err) => {
+      setIsLoggedIn(false);
+      let varient = "error";
+      let messageText = err.message;
+      sendMessage(varient, messageText);
+    });
 };
 
 export { UserSignUp, UserSignIn };

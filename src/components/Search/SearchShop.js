@@ -7,12 +7,15 @@ const SearchShop = () => {
       <div className="bg-white ">
         <div className="container pt-3 pb-5">
           <BreadCrumbs text="black" activePage={"Search"} />
-          <div className="d-flex justify-content-center pt-3">
+          <div className="d-flex justify-content-center align-items-center pt-3">
+            <span className="border  py-3 border-dark ps-2 pe-2">
+              Detect my location
+            </span>
             <input
               placeholder="Search Your Favorite Shop and Service here.."
               type="search"
               id="HomeSearch"
-              className="text- bg-white w-75 border border-end-0 border-dark ps-3 pe-3 py-3"
+              className="text- bg-white w-75 border border-end-0 border-start-0 border-dark ps-3 pe-3 py-3"
             />
             <span className="material-icons py-3 px-3 bg-black text-white border-dark border border-start-0">
               search

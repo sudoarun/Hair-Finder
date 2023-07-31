@@ -6,6 +6,7 @@ import { faUser, faLock, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faGoogle, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { UserSignIn, UserSignUp } from "../../Auth/UserAuth";
+import { message } from "antd";
 
 function LoginPage({ name, setIsLoggedIn }) {
   const [isSignUpMode, setIsSignUpMode] = useState(false);
@@ -16,6 +17,16 @@ function LoginPage({ name, setIsLoggedIn }) {
     password: "",
     number: "",
   });
+  const [messageApi, context] = message.useMessage();
+  const sendMessage = (varient, messageText) => {
+    messageApi.open({
+      type: varient,
+      content: messageText,
+    });
+  };
+
+  // const state = useSelector((state) => state);
+  // const id = state.auth;
   const [user, setUser] = useState({
     email: "user@user.in",
     password: "user@user.in",
@@ -37,17 +48,12 @@ function LoginPage({ name, setIsLoggedIn }) {
     });
   };
   // One Submit of Sign In
-  const handlesignIn = (e) => {
+  const handlesignIn = async (e) => {
     e.preventDefault();
-    // console.log(user);
-    UserSignIn(user).then(() => {
-      setIsLoggedIn(true);
-      alert("logged in");
-      navigate("/");
-      setUser({
-        email: "",
-        password: "",
-      });
+    await UserSignIn(user, setIsLoggedIn, sendMessage, navigate);
+    setUser({
+      email: "",
+      password: "",
     });
   };
 
@@ -73,10 +79,11 @@ function LoginPage({ name, setIsLoggedIn }) {
   const handleSignInClick = () => {
     setIsSignUpMode(false);
   };
-
+  // console.log(id.length);
   return (
     <div className={`loginContainer ${isSignUpMode ? "sign-up-mode" : ""}`}>
       <div className="forms-container">
+        {context}
         {/* Signin Page */}
         <div className="signin-signup">
           <form action="#" className="sign-in-form loginForm">

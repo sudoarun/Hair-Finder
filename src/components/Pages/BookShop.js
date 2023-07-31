@@ -9,6 +9,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../Firebase/firebase";
 import { useEffect } from "react";
 import Loader from "../Loader/loader";
+import asset from "../../assets/hairfinder assest.png";
 
 const BookShop = ({ services, shopDetails }) => {
   const [selected, setSelected] = useState(Date);
@@ -63,35 +64,42 @@ const BookShop = ({ services, shopDetails }) => {
 
       <div className="container">
         <div className="row mt-5  align-items-center">
-          <div className="col-12 col-sm-6 d-flex">
-            <div className="text-white">
-              <span className="d-block">Shop Name</span>
-              <span className="d-block">Service Name</span>
-              <span className="d-block">Service Price</span>
-              <span className="d-block">Service Time</span>
-            </div>
-            {services === "" ? (
-              <Loader />
-            ) : (
-              <div className="text-white">
-                <span className="d-block">
-                  <span className="mx-2">:</span>
-                  Shop Name
-                </span>
-                <span className="d-block">
-                  <span className="mx-2">:</span>
-                  {service.ServiceName}
-                </span>
-                <span className="d-block">
-                  <span className="mx-2">:</span>
-                  {service.Price}
-                </span>
-                <span className="d-block">
-                  <span className="mx-2">:</span>
-                  {service.Description}
-                </span>
+          <div className="col-12 col-sm-6">
+            <div className="row align-items-center">
+              <div className="col-4 col-sm-6">
+                <img alt="" src={asset} className="w-100" />
               </div>
-            )}
+              <div className="col-8 col-sm-6 d-flex">
+                <div className="text-white">
+                  <span className="d-block fw-semibold">Shop Name</span>
+                  <span className="d-block fw-semibold">Service Name</span>
+                  <span className="d-block fw-semibold">Service Price</span>
+                  <span className="d-block fw-semibold">Service Time</span>
+                </div>
+                {services === "" ? (
+                  <Loader />
+                ) : (
+                  <div className="text-white">
+                    <span className="d-block">
+                      <span className="mx-2">:</span>
+                      Shop Name
+                    </span>
+                    <span className="d-block">
+                      <span className="mx-2">:</span>
+                      {service.ServiceName}
+                    </span>
+                    <span className="d-block">
+                      <span className="mx-2">:</span>
+                      {service.Price}
+                    </span>
+                    <span className="d-block">
+                      <span className="mx-2">:</span>
+                      {service.Description}
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
           <div className="col-12 col-sm-6 mt-3">
             <div className="text-white ">

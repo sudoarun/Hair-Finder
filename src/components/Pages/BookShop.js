@@ -15,6 +15,7 @@ const BookShop = () => {
   const [selected, setSelected] = useState(Date);
   const isSmallDevice = useMediaQuery("(max-width : 748px)");
   const isMediumDevice = useMediaQuery("(min-width : 769px)");
+
   let today = new Date();
   let year = today.getFullYear();
   const { id, parent } = useParams();
@@ -31,10 +32,24 @@ const BookShop = () => {
     }
   };
 
+  const [selectedValues, setSelectedValues] = useState([]);
+  const [cartTotal, setCartTotal] = useState(0);
+  const handleCheckBoxChange = (name, value) => {
+    if (selectedValues.includes(value)) {
+      setSelectedValues(selectedValues.filter((v) => v !== value));
+      setCartTotal((prevCartTotal) => prevCartTotal - value);
+    } else {
+      setSelectedValues([...selectedValues, value]);
+      setCartTotal((prevCartTotal) => prevCartTotal + value);
+    }
+  };
+
   useEffect(() => {
     getService();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  let PurchasePrice = parseInt(service.Price) + cartTotal;
+  // console.log(parseInt(service.Price) + parseInt(cartTotal));
 
   return (
     <div className="">
@@ -175,8 +190,10 @@ const BookShop = () => {
                 <input
                   className="form-check-input"
                   type="checkbox"
+                  name="shampoo"
                   value=""
                   id="flexCheckDefault"
+                  onChange={() => handleCheckBoxChange("shampoo", 80)}
                 />
                 <label className="form-check-label" htmlFor="flexCheckDefault">
                   Shampoo (80rs)
@@ -186,7 +203,9 @@ const BookShop = () => {
                 <input
                   className="form-check-input"
                   type="checkbox"
+                  name="HeadMassage"
                   value=""
+                  onChange={() => handleCheckBoxChange("HeadMassage", 50)}
                   id="flexCheckDefault"
                 />
                 <label className="form-check-label" htmlFor="flexCheckDefault">
@@ -198,7 +217,9 @@ const BookShop = () => {
                   className="form-check-input"
                   type="checkbox"
                   value=""
+                  name="FaceMask"
                   id="flexCheckDefault"
+                  onChange={() => handleCheckBoxChange("FaceMask", 80)}
                 />
                 <label className="form-check-label" htmlFor="flexCheckDefault">
                   Face Mask (80rs)
@@ -220,7 +241,7 @@ const BookShop = () => {
                 </div>
                 <div className="d-flex justify-content-between">
                   <span>Total Bill :</span>
-                  <span className="fw-bold">3000rs</span>
+                  <span className="fw-bold">{PurchasePrice}rs</span>
                 </div>
               </div>
               <button className="px-5 py-2 bg-black text-white border-0 mt-3">

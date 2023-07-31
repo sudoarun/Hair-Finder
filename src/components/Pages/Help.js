@@ -2,7 +2,7 @@ import React from "react";
 
 const Help = () => {
   return (
-    <div className="container">
+    <div className="container ">
       <h5 className="text-white text-center">
         <span className="border py-2 ps-3">
           How Can{" "}
@@ -12,7 +12,7 @@ const Help = () => {
         </span>
       </h5>
       <div className="mt-5 ">
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center align-items-center">
           <span className="fs-1">😊</span>
         </div>
 

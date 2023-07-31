@@ -1,11 +1,11 @@
 import React from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import "./Header.css";
 import logo from "../../assets/logo.png";
 import BarberRegister from "../Pages/BarberRegister";
 import store from "../../Redux/reduxStore";
 import { addAuth } from "../../Redux/Slices/AuthSlice";
-import { addProfessionaDB } from "../../Redux/Slices/ProfessionalSlice";
+import { message } from "antd";
 // import { useState } from "react";
 
 const Header = ({
@@ -14,14 +14,33 @@ const Header = ({
   isProfessional,
   setProfessional,
 }) => {
+  const [messageAPi, context] = message.useMessage();
+  const sendMessage = (varient, textMessage) => {
+    messageAPi.open({
+      type: varient,
+      content: textMessage,
+    });
+  };
+  const navigate = useNavigate();
   const logOutHandle = () => {
     setIsLoggedIn(false);
-    alert("Logged Out");
+    navigate("/");
+    setTimeout(() => {
+      let varient = "success";
+      let textMessage = "User Logout !!!";
+      sendMessage(varient, textMessage);
+    }, 1200);
+    store.dispatch(addAuth.deleteState(""));
   };
   const ProfessionalLogOUt = () => {
     setProfessional(false);
-    alert("Professional Logout !!!");
-    store.dispatch(addAuth.deleteState(null), addProfessionaDB.addState(null));
+    navigate("/");
+    setTimeout(() => {
+      let varient = "success";
+      let textMessage = "Professional Logout !!!";
+      sendMessage(varient, textMessage);
+    }, 1200);
+    store.dispatch(addAuth.deleteState(""));
   };
   const location = useLocation();
   const hideHeaderOnPath = [
@@ -36,6 +55,7 @@ const Header = ({
   return (
     <div>
       <div>
+        {context}
         <div className="bg-black text-white py-2">
           <div className="d-flex justify-content-between container-fluid px-sm-5 align-items-center">
             <Link to={"/"}>

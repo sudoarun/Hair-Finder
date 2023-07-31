@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SearchContent = ({ shop, btn }) => {
+const SearchContent = ({ shop, btn, data }) => {
+  const { email, name, number, shopAddress, shopName, shopClose } = data;
   const ShopImg =
     "https://img.freepik.com/premium-vector/vintage-art-illustration-man-getting-his-hair-cut_697324-8454.jpg?size=626&ext=jpg&ga=GA1.1.1543915203.1685795707&semt=sph";
   return (
@@ -13,14 +14,14 @@ const SearchContent = ({ shop, btn }) => {
         <div className="d-flex justify-content-between">
           <div className="">
             <div>
-              <h5>Shop Name</h5>
+              <h5>{shopName}</h5>
             </div>
             <div>
-              <li>Shop Services</li>
-              <li>Shop Timing</li>
-              <li>Other details</li>
-              <li>Shop Timing</li>
-              <li>Rating</li>
+              <li>{name}</li>
+              <li>10:00 AM - {shopClose}</li>
+              <li>{shopAddress}</li>
+              <li>{number}</li>
+              <li>{email}</li>
             </div>
           </div>
         </div>

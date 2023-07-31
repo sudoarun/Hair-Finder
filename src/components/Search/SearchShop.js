@@ -1,7 +1,11 @@
 import React from "react";
 import BreadCrumbs from "../BreadCrumbs/Breadcrumb";
 import SearchContent from "./SearchContent";
+import { useSelector } from "react-redux";
+import Loader from "../Loader/loader";
 const SearchShop = () => {
+  const shops = useSelector((state) => state.allshops[0]);
+  console.log(shops);
   return (
     <div className="mb-3">
       <div className="bg-white ">
@@ -29,15 +33,22 @@ const SearchShop = () => {
             <h6>Search Results ...</h6>
             <div className="d-flex align-items-center">
               <span className="material-icons-outlined">tune</span>
-              <span className="ms-2">Filter</span>
+              <span className="ms-2"></span>
             </div>
           </div>
           <div className="border p-3">
             <div className="overflow-auto" style={{ height: "500px" }}>
+              {!shops ? (
+                <Loader />
+              ) : (
+                shops.map((res) => (
+                  <SearchContent data={res} key={res.id} shop="/shop" />
+                ))
+              )}
+
+              {/* <SearchContent shop="/shop" />
               <SearchContent shop="/shop" />
-              <SearchContent shop="/shop" />
-              <SearchContent shop="/shop" />
-              <SearchContent shop="/shop" />
+              <SearchContent shop="/shop" /> */}
             </div>
           </div>
         </div>

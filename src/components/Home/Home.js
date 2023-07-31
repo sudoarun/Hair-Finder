@@ -6,6 +6,8 @@ import "./Home.css";
 import SearchHome from "../Search/SearchHome";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../Firebase/firebase";
+import store from "../../Redux/reduxStore";
+import { addShop } from "../../Redux/Slices/AllShops";
 
 const Home = () => {
   const [getShops, setGetShops] = useState([]);
@@ -15,7 +17,9 @@ const Home = () => {
       ...res.data(),
       id: res.id,
     }));
+
     setGetShops(newData);
+    store.dispatch(addShop(newData));
   };
   useEffect(() => {
     getShopData();

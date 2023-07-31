@@ -9,8 +9,8 @@ import { db } from "../Firebase/firebase";
 import store from "../Redux/reduxStore";
 import { addAuth } from "../Redux/Slices/AuthSlice";
 
-const UserSignUp = async (signUser) => {
-  console.log("before fucntion:", signUser);
+const UserSignUp = async (signUser, sendMessage, setIsLoggedIn, navigate) => {
+  // console.log("before fucntion:", signUser);
   const auth = getAuth();
   await createUserWithEmailAndPassword(auth, signUser.email, signUser.password)
     .then((res) => {
@@ -36,14 +36,28 @@ const UserSignUp = async (signUser) => {
                 email: signUser.email,
                 number: signUser.number,
                 password: signUser.password,
-              }).then(() => alert("User Saved !!!"));
+              }).then(() => {
+                setIsLoggedIn(true);
+                let varient = "success";
+                let messageText = "Register Successfully !!!";
+                sendMessage(varient, messageText);
+                setTimeout(() => {
+                  navigate("/");
+                }, 1200);
+              });
             });
         });
       } catch (error) {
-        console.log(error);
+        let varient = "warning";
+        let messageText = error;
+        sendMessage(varient, messageText);
       }
     })
-    .catch((err) => console.log("Auth Create :", err));
+    .catch((err) => {
+      let varient = "error";
+      let messageText = err.message;
+      sendMessage(varient, messageText);
+    });
 };
 
 const UserSignIn = async (user, setIsLoggedIn, sendMessage, navigate) => {

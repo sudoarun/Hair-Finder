@@ -25,8 +25,6 @@ function LoginPage({ name, setIsLoggedIn }) {
     });
   };
 
-  // const state = useSelector((state) => state);
-  // const id = state.auth;
   const [user, setUser] = useState({
     email: "user@user.in",
     password: "user@user.in",
@@ -60,10 +58,7 @@ function LoginPage({ name, setIsLoggedIn }) {
   // on Submit for Sign up User
   const handleSignUp = async (e) => {
     e.preventDefault();
-    await UserSignUp(signUser).then(() => {
-      alert("User details Saved !!");
-      setIsLoggedIn(true);
-    });
+    await UserSignUp(signUser, setIsLoggedIn, sendMessage, navigate);
     setSignUser({
       email: "",
       username: "",
@@ -73,7 +68,7 @@ function LoginPage({ name, setIsLoggedIn }) {
   };
 
   const handleSignUpClick = () => {
-    setIsSignUpMode(true);
+    setIsSignUpMode(true); //login page btn menu
   };
 
   const handleSignInClick = () => {

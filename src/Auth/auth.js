@@ -8,6 +8,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from "../Firebase/firebase";
 import { addAuth } from "../Redux/Slices/AuthSlice";
 import store from "../Redux/reduxStore";
+import { professionalLogIn } from "../Redux/Slices/professionalRedux";
 
 const auth = getAuth();
 
@@ -42,6 +43,7 @@ const ProfessionalSignUp = async (state, sendMessage, setProfessional) => {
               }).then(() => alert("Form Saved"));
             });
           setProfessional(true);
+          store.dispatch(professionalLogIn());
           let messageText = "Registered Successfully !!!";
           let varient = "success";
           sendMessage(messageText, varient);
@@ -69,6 +71,7 @@ const ProfessionalSignIn = async (state, sendMessage, setProfessional) => {
         })
       );
       setProfessional(true);
+      store.dispatch(professionalLogIn());
       let messageText = "Logged in Successfully !!!";
       let varient = "success";
       sendMessage(messageText, varient);

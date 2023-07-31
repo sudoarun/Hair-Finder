@@ -17,13 +17,13 @@ import DashBoard from "./components/admin/DashBoard";
 import ProfessionalProfile from "./components/admin/nestedRoutes/Profile";
 import AddShopDetails from "./components/admin/nestedRoutes/AddShopDetails";
 import ProfessionalSchedule from "./components/admin/nestedRoutes/ProfessionalSchedule";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); //user Route
   const [isProfessional, setProfessional] = useState(false); //Professional Route
-  const check = useSelector((state) => state);
-  console.log(check);
+  // const check = useSelector((state) => state);
+  // console.log(check);
   //user Private Route
   function PrivateRoute({ isLoggedIn, children }) {
     if (!isLoggedIn) {

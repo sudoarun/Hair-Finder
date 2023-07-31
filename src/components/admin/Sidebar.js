@@ -3,7 +3,6 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import store from "../../Redux/reduxStore";
 import { addAuth } from "../../Redux/Slices/AuthSlice";
-import { addProfessionaDB } from "../../Redux/Slices/ProfessionalSlice";
 
 const Sidebar = ({ setProfessional }) => {
   const imgPath =
@@ -22,10 +21,7 @@ const Sidebar = ({ setProfessional }) => {
         console.log("Signout error :", err);
       });
     setTimeout(() => {
-      store.dispatch(
-        addAuth.deleteState(null),
-        addProfessionaDB.addState(null)
-      );
+      store.dispatch(addAuth.deleteState(null));
     }, 2000);
   };
 

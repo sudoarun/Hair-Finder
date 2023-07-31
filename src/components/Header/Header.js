@@ -6,6 +6,8 @@ import BarberRegister from "../Pages/BarberRegister";
 import store from "../../Redux/reduxStore";
 import { addAuth } from "../../Redux/Slices/AuthSlice";
 import { message } from "antd";
+import { useDispatch } from "react-redux";
+import { professionalLogOut } from "../../Redux/Slices/professionalRedux";
 // import { useState } from "react";
 
 const Header = ({
@@ -21,6 +23,7 @@ const Header = ({
       content: textMessage,
     });
   };
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const logOutHandle = () => {
     setIsLoggedIn(false);
@@ -34,6 +37,7 @@ const Header = ({
   };
   const ProfessionalLogOUt = () => {
     setProfessional(false);
+    dispatch(professionalLogOut());
     navigate("/");
     setTimeout(() => {
       let varient = "success";

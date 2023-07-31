@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { ProfessionalSignIn, ProfessionalSignUp } from "../../Auth/auth";
-import { useNavigate } from "react-router-dom";
 import { message } from "antd";
 // import LoginPage from "../Loginpage/Loginpage";
 
 const BarberRegister = ({ setProfessional }) => {
   const [messageApi, contextHolder] = message.useMessage();
 
-  const success = (messageText, varient) => {
+  const sendMessage = (messageText, varient) => {
     messageApi.open({
       type: varient,
       content: messageText,
@@ -26,7 +25,6 @@ const BarberRegister = ({ setProfessional }) => {
     email: "",
     password: "",
   });
-  const navigate = useNavigate();
 
   const onChangeRegister = (e) => {
     const name = e.target.name; //Function for Register Section
@@ -42,22 +40,14 @@ const BarberRegister = ({ setProfessional }) => {
     });
   };
 
-  const onSubmitRegister = (e) => {
+  const onSubmitRegister = async (e) => {
     e.preventDefault();
     if (regValue === "") {
       alert("Enter SignUp Details");
       return;
     }
 
-    ProfessionalSignUp(regValue)
-      .then(() => {
-        let messageText = "hello";
-        let varient = "success";
-        success(messageText, varient);
-        setProfessional(true);
-      })
-      .catch((err) => console.log(err));
-    navigate("/");
+    await ProfessionalSignUp(regValue, sendMessage, setProfessional);
     setRegValue({
       username: "",
       email: "",
@@ -65,22 +55,17 @@ const BarberRegister = ({ setProfessional }) => {
       password: "",
     });
   };
-  const OnSubmitLogin = (e) => {
+  const OnSubmitLogin = async (e) => {
     e.preventDefault();
     if (value === "") {
       alert("Enter Login Details");
       return;
     }
-    ProfessionalSignIn(value, setProfessional).then(() => {
-      let messageText = "Logged in Successfully !!!";
-      let varient = "success";
-      success(messageText, varient);
-      setProfessional(true);
-    });
-    setValue({
-      email: "",
-      password: "",
-    });
+    await ProfessionalSignIn(value, sendMessage, setProfessional);
+    // setValue({
+    //   email: "",
+    //   password: "",
+    // });
   };
 
   return (

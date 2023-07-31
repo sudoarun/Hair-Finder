@@ -11,7 +11,7 @@ import store from "../Redux/reduxStore";
 
 const auth = getAuth();
 
-const ProfessionalSignUp = async (state) => {
+const ProfessionalSignUp = async (state, sendMessage, setProfessional) => {
   await createUserWithEmailAndPassword(auth, state.email, state.password)
     .then((res) => {
       const user = res.user;
@@ -41,14 +41,22 @@ const ProfessionalSignUp = async (state) => {
                 shopClose: "09:00PM",
               }).then(() => alert("Form Saved"));
             });
+          setProfessional(true);
+          let messageText = "Registered Successfully !!!";
+          let varient = "success";
+          sendMessage(messageText, varient);
         });
       } catch (error) {
         console.log(error);
       }
     })
-    .catch((err) => console.log("Auth Create :", err));
+    .catch((err) => {
+      let messageText = err.message;
+      let varient = "error";
+      sendMessage(messageText, varient);
+    });
 };
-const ProfessionalSignIn = async (state) => {
+const ProfessionalSignIn = async (state, sendMessage, setProfessional) => {
   await signInWithEmailAndPassword(auth, state.email, state.password)
     .then((data) => {
       const check = data.user;
@@ -60,8 +68,16 @@ const ProfessionalSignIn = async (state) => {
           Professional: true,
         })
       );
+      setProfessional(true);
+      let messageText = "Logged in Successfully !!!";
+      let varient = "success";
+      sendMessage(messageText, varient);
     })
-    .catch((err) => console.log("Sign in Error :", err.message));
+    .catch((err) => {
+      let messageText = err.message;
+      let varient = "error";
+      sendMessage(messageText, varient);
+    });
 };
 
 export { ProfessionalSignUp, ProfessionalSignIn };

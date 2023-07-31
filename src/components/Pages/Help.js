@@ -18,7 +18,7 @@ const Help = () => {
 
         <div className="">
           <h6 className="text-white text-center">
-            Contact us on text@gmail.com
+            Contact us on sudoarun.js@gmail.com
           </h6>
         </div>
       </div>

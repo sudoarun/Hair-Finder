@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Time from "../../bookingTime/bookingTime";
 
-const List = ({ name }) => {
-  const [mark, setMark] = useState(null);
+const List = ({ name, mark, setMark }) => {
+  // console.log(mark);
   return (
     <div className={`${name}`}>
       {Time.map((data, i) => (

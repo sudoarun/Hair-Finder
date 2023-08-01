@@ -15,9 +15,12 @@ const BookShop = () => {
   const [selected, setSelected] = useState(Date);
   const isSmallDevice = useMediaQuery("(max-width : 748px)");
   const isMediumDevice = useMediaQuery("(min-width : 769px)");
+  const [mark, setMark] = useState("");
 
   let today = new Date();
   let year = today.getFullYear();
+  // let toDay = today.getDay();
+  // // console.log(toDay + 2);
   const { id, parent } = useParams();
   const [service, setService] = useState("");
   const getService = async () => {
@@ -49,6 +52,18 @@ const BookShop = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   let PurchasePrice = parseInt(service.Price) + cartTotal;
+  let sample = !mark ? " Please Select Time" : mark.time + mark.shift;
+  let footerDetail = selected.toString().substring(0, 15).concat("/", sample);
+  const handleBookNow = () => {
+    alert("Payment Gatway is not added yet !!!");
+    console.log({
+      "Service Name ": service.ServiceName,
+      "Service Price": service.Price,
+      "Service Time": footerDetail,
+      "Service Description": service.Description,
+      "Additional Service": "not available",
+    });
+  };
 
   return (
     <div className="">
@@ -112,7 +127,7 @@ const BookShop = () => {
             <div className="text-white ">
               <div
                 className="d-flex border justify-content-center p-2 text-center"
-                style={{ height: "400px" }}
+                style={{ height: "410px" }}
               >
                 <div>
                   <h6 className="fw-bold">Pick Your Date</h6>
@@ -122,10 +137,12 @@ const BookShop = () => {
                       required
                       selected={selected}
                       onSelect={setSelected}
-                      footer={selected.toString().substring(0, 15)}
+                      footer={footerDetail}
                       fromYear={year}
                       fromMonth={today}
-                      showOutsideDays
+                      //showOutsideDays
+                      //toDate={toDay}
+                      toMonth={today}
                       fixedWeeks
                       modifiersClassNames={{
                         today: "my-today",
@@ -139,7 +156,7 @@ const BookShop = () => {
                     <h6 className="fw-bold">Pick Your Time</h6>
                     <div className="text-white scheduleTime h-100 mt-5">
                       <div className="overflow-auto h-75">
-                        <List />
+                        <List mark={mark} setMark={setMark} />
                       </div>
                     </div>
                   </div>
@@ -152,7 +169,7 @@ const BookShop = () => {
                 <div className="container mt-4">
                   <h6 className="fw-bold text-center mb-3">Pick Your Time</h6>
                   <div className="w-100 overflow-auto">
-                    <List name="d-flex" />
+                    <List name="d-flex" mark={mark} setMark={setMark} />
                   </div>
                 </div>
               ) : (
@@ -182,7 +199,7 @@ const BookShop = () => {
               />
             </div>
           </div>
-          <div className="col-7 col-sm-4 d-flex justify-content-center">
+          <div className="col-7 col-sm-4  ">
             <div className="w-100">
               <h6 className="fw-bold">Additional Services</h6>
               <div className="d-block pt-2">
@@ -226,8 +243,8 @@ const BookShop = () => {
               </div>
             </div>
           </div>
-          <div className="col-12 col-sm-4 mt-5 d-flex justify-content-center me-0 overflow-hidden">
-            <div className="w-75">
+          <div className="col-12 col-sm-4 mt-5 me-0 overflow-hidden">
+            <div className="w-100">
               <h6 className="fw-bold text-center">Services Details</h6>
               <div className="pt-2">
                 <div className="d-flex justify-content-between">
@@ -236,15 +253,26 @@ const BookShop = () => {
                 </div>
                 <div className="d-flex justify-content-between">
                   <span>Book Time :</span>
-                  <span>23/05/23 at 12pm</span>
+                  <span>
+                    {selected
+                      .toString()
+                      .substring(0, 10)
+                      .concat(
+                        "-",
+                        !mark ? "Select Time" : mark.time + mark.shift
+                      )}
+                  </span>
                 </div>
                 <div className="d-flex justify-content-between">
                   <span>Total Bill :</span>
                   <span className="fw-bold">{PurchasePrice}rs</span>
                 </div>
               </div>
-              <button className="px-5 py-2 bg-black text-white border-0 mt-3">
-                Paynow
+              <button
+                className="px-5 py-2 bg-black fw-semibold rounded text-white w-100 border-0 mt-3"
+                onClick={handleBookNow}
+              >
+                Book Now
               </button>
             </div>
           </div>

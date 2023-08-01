@@ -15,7 +15,7 @@ const auth = getAuth();
 const ProfessionalSignUp = async (
   state,
   sendMessage,
-  setProfessional,
+
   isUser
 ) => {
   await createUserWithEmailAndPassword(auth, state.email, state.password)
@@ -54,7 +54,6 @@ const ProfessionalSignUp = async (
             sendMessage(messageText, varient);
             return;
           }
-          setProfessional(true);
           store.dispatch(professionalLogIn());
           let messageText = "Registered Successfully !!!";
           let varient = "success";
@@ -70,7 +69,7 @@ const ProfessionalSignUp = async (
       sendMessage(messageText, varient);
     });
 };
-const ProfessionalSignIn = async (state, sendMessage, setProfessional) => {
+const ProfessionalSignIn = async (state, sendMessage) => {
   await signInWithEmailAndPassword(auth, state.email, state.password)
     .then((data) => {
       const check = data.user;
@@ -82,7 +81,6 @@ const ProfessionalSignIn = async (state, sendMessage, setProfessional) => {
           Professional: true,
         })
       );
-      setProfessional(true);
       store.dispatch(professionalLogIn());
       let messageText = "Logged in Successfully !!!";
       let varient = "success";

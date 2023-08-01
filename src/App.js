@@ -1,6 +1,5 @@
 import "./App.css";
 import { Route, Routes, Navigate } from "react-router-dom";
-import { useState } from "react";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Loginpage from "./components/Loginpage/Loginpage";
@@ -17,16 +16,17 @@ import DashBoard from "./components/admin/DashBoard";
 import ProfessionalProfile from "./components/admin/nestedRoutes/Profile";
 import AddShopDetails from "./components/admin/nestedRoutes/AddShopDetails";
 import ProfessionalSchedule from "./components/admin/nestedRoutes/ProfessionalSchedule";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); //user Route
-  const [isProfessional, setProfessional] = useState(false); //Professional Route
-  // const check = useSelector((state) => state);
-  // console.log(check);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false); //user Route
+  // const [isProfessional, setProfessional] = useState(false); //Professional Route
+  const isPro = useSelector((state) => state.isPro.isProfessional);
+  const isUser = useSelector((state) => state.isUser.isUser);
+  // console.log("Professional:", isPro, "User: ", isUser);
   //user Private Route
-  function PrivateRoute({ isLoggedIn, children }) {
-    if (!isLoggedIn) {
+  function PrivateRoute({ children }) {
+    if (!isUser) {
       return <Navigate to="/login" />;
     } else {
       return children;
@@ -34,9 +34,9 @@ function App() {
   }
 
   //Professional Private Route
-  function ProfessionalRoute({ children, isProfessional }) {
-    if (!isProfessional) {
-      return <Navigate to="/login" />;
+  function ProfessionalRoute({ children }) {
+    if (!isPro) {
+      return <Navigate to="/" />;
     } else {
       return children;
     }
@@ -44,12 +44,7 @@ function App() {
 
   return (
     <>
-      <Header
-        setIsLoggedIn={setIsLoggedIn}
-        isLoggedIn={isLoggedIn}
-        isProfessional={isProfessional}
-        setProfessional={setProfessional}
-      />
+      <Header isUser={isUser} isPro={isPro} />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -59,17 +54,14 @@ function App() {
         <Route
           path="/user"
           element={
-            <PrivateRoute isLoggedIn={isLoggedIn}>
-              <User setIsLoggedIn={setIsLoggedIn} />
+            <PrivateRoute isUser={isUser}>
+              <User />
             </PrivateRoute>
           }
         />
         <Route path="/professional-register" element={<BarberRegister />} />
         <Route path="/help" element={<Help />} />
-        <Route
-          path="/Login"
-          element={<Loginpage setIsLoggedIn={setIsLoggedIn} />}
-        />
+        <Route path="/Login" element={<Loginpage />} />
         <Route path="/search" element={<SearchShop />} />
         <Route path="/schedule" element={<Schedule />} />
 
@@ -78,8 +70,8 @@ function App() {
         <Route
           path="/dashboard"
           element={
-            <ProfessionalRoute isProfessional={isProfessional}>
-              <DashBoard setProfessional={setProfessional} />
+            <ProfessionalRoute isPro={isPro}>
+              <DashBoard />
             </ProfessionalRoute>
           }
         >

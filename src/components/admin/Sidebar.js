@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { professionalLogOut } from "../../Redux/Slices/professionalRedux";
 import { message } from "antd";
 
-const Sidebar = ({ setProfessional }) => {
+const Sidebar = () => {
   const imgPath =
     "https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg?size=626&ext=jpg&ga=GA1.1.1357742209.1688643562&semt=sph";
   const auth = getAuth();
@@ -28,12 +28,13 @@ const Sidebar = ({ setProfessional }) => {
         sendMessage(varient, messageText);
         setTimeout(() => {
           navigate("/");
-          setProfessional(false);
           dispatch(professionalLogOut());
         }, 1200);
       })
       .catch((err) => {
-        console.log("Signout error :", err);
+        let varient = "success";
+        let messageText = err.message;
+        sendMessage(varient, messageText);
       });
     setTimeout(() => {
       store.dispatch(addAuth.deleteState(null));

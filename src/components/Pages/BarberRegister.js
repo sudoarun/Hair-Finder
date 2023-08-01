@@ -4,7 +4,7 @@ import { message } from "antd";
 import { useSelector } from "react-redux";
 // import LoginPage from "../Loginpage/Loginpage";
 
-const BarberRegister = ({ setProfessional }) => {
+const BarberRegister = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const isUser = useSelector((state) => state.isUser.isUser);
   // console.log(isUser);
@@ -49,7 +49,7 @@ const BarberRegister = ({ setProfessional }) => {
       return;
     }
 
-    await ProfessionalSignUp(regValue, sendMessage, setProfessional, isUser);
+    await ProfessionalSignUp(regValue, sendMessage, isUser);
     setRegValue({
       username: "",
       email: "",
@@ -70,7 +70,7 @@ const BarberRegister = ({ setProfessional }) => {
       alert("Enter Login Details");
       return;
     }
-    await ProfessionalSignIn(value, sendMessage, setProfessional);
+    await ProfessionalSignIn(value, sendMessage);
     setValue({
       email: "",
       password: "",

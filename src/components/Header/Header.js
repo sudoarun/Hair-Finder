@@ -11,12 +11,7 @@ import { professionalLogOut } from "../../Redux/Slices/professionalRedux";
 import { userLogout } from "../../Redux/Slices/UserRedux";
 // import { useState } from "react";
 
-const Header = ({
-  isLoggedIn,
-  setIsLoggedIn,
-  isProfessional,
-  setProfessional,
-}) => {
+const Header = ({ isUser, isPro }) => {
   const [messageAPi, context] = message.useMessage();
   const sendMessage = (varient, textMessage) => {
     messageAPi.open({
@@ -27,7 +22,6 @@ const Header = ({
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const logOutHandle = () => {
-    setIsLoggedIn(false);
     dispatch(userLogout());
     navigate("/");
     setTimeout(() => {
@@ -38,7 +32,6 @@ const Header = ({
     store.dispatch(addAuth.deleteState(""));
   };
   const ProfessionalLogOUt = () => {
-    setProfessional(false);
     dispatch(professionalLogOut());
     navigate("/");
     setTimeout(() => {
@@ -67,7 +60,7 @@ const Header = ({
             <Link to={"/"}>
               <img src={logo} width={50} alt="profile" />
             </Link>
-            {isProfessional ? ( //condition when Professional log in
+            {isPro ? ( //condition when Professional log in
               ""
             ) : (
               //condition when user log in
@@ -86,7 +79,7 @@ const Header = ({
             <div className="d-flex">
               <div id="mainMenu">
                 <div className="d-flex list-unstyled fw-bold ">
-                  {isProfessional ? (
+                  {isPro ? (
                     ""
                   ) : (
                     <button
@@ -99,11 +92,11 @@ const Header = ({
                     </button>
                   )}
 
-                  {isLoggedIn ? (
+                  {isUser ? (
                     <Link to={"/schedule"} className="me-5 text-white">
                       My Booking
                     </Link>
-                  ) : isProfessional ? (
+                  ) : isPro ? (
                     <Link to={"/dashboard"} className="me-5 text-white">
                       Dashboard
                     </Link>
@@ -116,7 +109,7 @@ const Header = ({
                   </Link>
                 </div>
               </div>
-              {isLoggedIn || isProfessional ? (
+              {isUser || isPro ? (
                 <div className="dropdown">
                   <a
                     className="dropdown-toggle d-flex align-items-center hidden-arrow"
@@ -138,7 +131,7 @@ const Header = ({
                     className="dropdown-menu dropdown-menu-end"
                     aria-labelledby="navbarDropdownMenuAvatar"
                   >
-                    {isLoggedIn ? (
+                    {isUser ? (
                       <span>
                         <li>
                           <Link to={"/user"} className="dropdown-item">
@@ -155,7 +148,7 @@ const Header = ({
                           </Link>
                         </li>
                       </span>
-                    ) : isProfessional ? (
+                    ) : isPro ? (
                       <li>
                         <Link
                           to={"/dashboard"}
@@ -168,7 +161,7 @@ const Header = ({
                     ) : (
                       ""
                     )}
-                    {isLoggedIn ? (
+                    {isUser ? (
                       <li>
                         <button
                           className="dropdown-item"
@@ -177,7 +170,7 @@ const Header = ({
                           Logout
                         </button>
                       </li>
-                    ) : isProfessional ? (
+                    ) : isPro ? (
                       <li>
                         <button
                           className="dropdown-item"
@@ -210,7 +203,7 @@ const Header = ({
         </div>
       </div>
       {/* Professional Registration Modal */}
-      <BarberRegister setProfessional={setProfessional} />
+      <BarberRegister />
     </div>
   );
 };

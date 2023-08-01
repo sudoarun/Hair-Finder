@@ -13,7 +13,7 @@ import { userLogIn } from "../Redux/Slices/UserRedux";
 const UserSignUp = async (
   signUser,
   sendMessage,
-  setIsLoggedIn,
+
   navigate,
   isPro
 ) => {
@@ -54,7 +54,6 @@ const UserSignUp = async (
                   }, 1200);
                   return;
                 }
-                setIsLoggedIn(true);
                 store.dispatch(userLogIn());
                 let varient = "success";
                 let messageText = "Register Successfully !!!";
@@ -78,7 +77,7 @@ const UserSignUp = async (
     });
 };
 
-const UserSignIn = async (user, setIsLoggedIn, sendMessage, navigate) => {
+const UserSignIn = async (user, sendMessage, navigate) => {
   const auth = getAuth();
   await signInWithEmailAndPassword(auth, user.email, user.password)
     .then((data) => {
@@ -92,7 +91,6 @@ const UserSignIn = async (user, setIsLoggedIn, sendMessage, navigate) => {
         })
       );
       // console.log(data);
-      setIsLoggedIn(true);
       store.dispatch(userLogIn());
       let varient = "success";
       let messageText = "User Login Success !!!";

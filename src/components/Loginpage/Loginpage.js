@@ -9,7 +9,7 @@ import { UserSignIn, UserSignUp } from "../../Auth/UserAuth";
 import { message } from "antd";
 import { useSelector } from "react-redux";
 
-function LoginPage({ name, setIsLoggedIn }) {
+function LoginPage({ name }) {
   const [isSignUpMode, setIsSignUpMode] = useState(false);
   const navigate = useNavigate();
   const [signUser, setSignUser] = useState({
@@ -19,7 +19,7 @@ function LoginPage({ name, setIsLoggedIn }) {
     number: "",
   });
   const isPro = useSelector((state) => state.isPro.isProfessional);
-  console.log(isPro);
+  // console.log(isPro);
   const [messageApi, context] = message.useMessage();
   const sendMessage = (varient, messageText) => {
     messageApi.open({
@@ -57,7 +57,7 @@ function LoginPage({ name, setIsLoggedIn }) {
       sendMessage(varient, messageText);
       return;
     }
-    await UserSignIn(user, setIsLoggedIn, sendMessage, navigate);
+    await UserSignIn(user, sendMessage, navigate);
     setUser({
       email: "",
       password: "",
@@ -67,7 +67,7 @@ function LoginPage({ name, setIsLoggedIn }) {
   // on Submit for Sign up User
   const handleSignUp = async (e) => {
     e.preventDefault();
-    await UserSignUp(signUser, setIsLoggedIn, sendMessage, navigate, isPro);
+    await UserSignUp(signUser, sendMessage, navigate, isPro);
     setSignUser({
       email: "",
       username: "",

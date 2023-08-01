@@ -7,6 +7,7 @@ import { faGoogle, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { UserSignIn, UserSignUp } from "../../Auth/UserAuth";
 import { message } from "antd";
+import { useSelector } from "react-redux";
 
 function LoginPage({ name, setIsLoggedIn }) {
   const [isSignUpMode, setIsSignUpMode] = useState(false);
@@ -17,6 +18,8 @@ function LoginPage({ name, setIsLoggedIn }) {
     password: "",
     number: "",
   });
+  const isPro = useSelector((state) => state.isPro.isProfessional);
+  console.log(isPro);
   const [messageApi, context] = message.useMessage();
   const sendMessage = (varient, messageText) => {
     messageApi.open({
@@ -48,6 +51,12 @@ function LoginPage({ name, setIsLoggedIn }) {
   // One Submit of Sign In
   const handlesignIn = async (e) => {
     e.preventDefault();
+    if (isPro === true) {
+      let varient = "warning";
+      let messageText = "Please Logout from Professional Account !!";
+      sendMessage(varient, messageText);
+      return;
+    }
     await UserSignIn(user, setIsLoggedIn, sendMessage, navigate);
     setUser({
       email: "",
@@ -58,7 +67,7 @@ function LoginPage({ name, setIsLoggedIn }) {
   // on Submit for Sign up User
   const handleSignUp = async (e) => {
     e.preventDefault();
-    await UserSignUp(signUser, setIsLoggedIn, sendMessage, navigate);
+    await UserSignUp(signUser, setIsLoggedIn, sendMessage, navigate, isPro);
     setSignUser({
       email: "",
       username: "",

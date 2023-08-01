@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 const BarberRegister = ({ setProfessional }) => {
   const [messageApi, contextHolder] = message.useMessage();
   const isUser = useSelector((state) => state.isUser.isUser);
-  console.log(isUser);
+  // console.log(isUser);
   const sendMessage = (messageText, varient) => {
     messageApi.open({
       type: varient,

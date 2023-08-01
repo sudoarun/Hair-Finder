@@ -10,7 +10,13 @@ import store from "../Redux/reduxStore";
 import { addAuth } from "../Redux/Slices/AuthSlice";
 import { userLogIn } from "../Redux/Slices/UserRedux";
 
-const UserSignUp = async (signUser, sendMessage, setIsLoggedIn, navigate) => {
+const UserSignUp = async (
+  signUser,
+  sendMessage,
+  setIsLoggedIn,
+  navigate,
+  isPro
+) => {
   // console.log("before fucntion:", signUser);
   const auth = getAuth();
   await createUserWithEmailAndPassword(auth, signUser.email, signUser.password)
@@ -38,6 +44,16 @@ const UserSignUp = async (signUser, sendMessage, setIsLoggedIn, navigate) => {
                 number: signUser.number,
                 password: signUser.password,
               }).then(() => {
+                if (isPro === true) {
+                  let varient = "success";
+                  let messageText =
+                    "Registered But Logout from Professional to access Account !!!";
+                  sendMessage(varient, messageText);
+                  setTimeout(() => {
+                    navigate("/");
+                  }, 1200);
+                  return;
+                }
                 setIsLoggedIn(true);
                 store.dispatch(userLogIn());
                 let varient = "success";

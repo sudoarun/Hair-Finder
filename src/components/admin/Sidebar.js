@@ -5,6 +5,7 @@ import store from "../../Redux/reduxStore";
 import { addAuth } from "../../Redux/Slices/AuthSlice";
 import { useDispatch } from "react-redux";
 import { professionalLogOut } from "../../Redux/Slices/professionalRedux";
+import { message } from "antd";
 
 const Sidebar = ({ setProfessional }) => {
   const imgPath =
@@ -12,14 +13,24 @@ const Sidebar = ({ setProfessional }) => {
   const auth = getAuth();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [messageApi, context] = message.useMessage();
+  const sendMessage = (varient, messageText) => {
+    messageApi.open({
+      type: varient,
+      content: messageText,
+    });
+  };
   const HandleSignOut = () => {
     signOut(auth)
-      .then((res) => {
-        navigate("/");
-        alert("Signout");
-        setProfessional(false);
-        dispatch(professionalLogOut());
-        console.log("Signout success :", res);
+      .then(() => {
+        let varient = "success";
+        let messageText = "Professional SignOut !!!";
+        sendMessage(varient, messageText);
+        setTimeout(() => {
+          navigate("/");
+          setProfessional(false);
+          dispatch(professionalLogOut());
+        }, 1200);
       })
       .catch((err) => {
         console.log("Signout error :", err);
@@ -35,6 +46,7 @@ const Sidebar = ({ setProfessional }) => {
       className="text-white w-25 d-flex justify-content-between flex-column h-100 border px-2 pb-2 "
       style={{ background: "#001C30" }}
     >
+      {context}
       <div id="main" className="">
         <div className="d-flex justify-content-center mt-2">
           <img alt="" src={imgPath} className="rounded-circle w-50" />

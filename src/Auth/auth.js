@@ -12,7 +12,12 @@ import { professionalLogIn } from "../Redux/Slices/professionalRedux";
 
 const auth = getAuth();
 
-const ProfessionalSignUp = async (state, sendMessage, setProfessional) => {
+const ProfessionalSignUp = async (
+  state,
+  sendMessage,
+  setProfessional,
+  isUser
+) => {
   await createUserWithEmailAndPassword(auth, state.email, state.password)
     .then((res) => {
       const user = res.user;
@@ -42,6 +47,13 @@ const ProfessionalSignUp = async (state, sendMessage, setProfessional) => {
                 shopClose: "09:00PM",
               }).then(() => alert("Form Saved"));
             });
+          if (isUser === true) {
+            let messageText =
+              "Registered Successfully But Logout From User to Access your account !!!";
+            let varient = "warning";
+            sendMessage(messageText, varient);
+            return;
+          }
           setProfessional(true);
           store.dispatch(professionalLogIn());
           let messageText = "Registered Successfully !!!";

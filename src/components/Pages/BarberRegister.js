@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { ProfessionalSignIn, ProfessionalSignUp } from "../../Auth/auth";
 import { message } from "antd";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 // import LoginPage from "../Loginpage/Loginpage";
 
 const BarberRegister = ({ setProfessional }) => {
   const [messageApi, contextHolder] = message.useMessage();
-  // const checkState = useSelector((state) => state.auth[0]);
-  // console.log(checkState);
+  const isUser = useSelector((state) => state.isUser.isUser);
+  console.log(isUser);
   const sendMessage = (messageText, varient) => {
     messageApi.open({
       type: varient,
@@ -49,7 +49,7 @@ const BarberRegister = ({ setProfessional }) => {
       return;
     }
 
-    await ProfessionalSignUp(regValue, sendMessage, setProfessional);
+    await ProfessionalSignUp(regValue, sendMessage, setProfessional, isUser);
     setRegValue({
       username: "",
       email: "",
@@ -59,7 +59,13 @@ const BarberRegister = ({ setProfessional }) => {
   };
   const OnSubmitLogin = async (e) => {
     e.preventDefault();
-
+    if (isUser === true) {
+      let varient = "warning";
+      let messageText =
+        "Want to Switch your Account to Profesional Kindly visit User Profile !!!";
+      sendMessage(messageText, varient);
+      return;
+    }
     if (value === "") {
       alert("Enter Login Details");
       return;

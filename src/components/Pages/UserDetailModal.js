@@ -46,6 +46,7 @@ const UserDetailModal = ({
 
   const handleCancel = () => {
     setIsModalOpen(false);
+    setValue("");
   };
 
   return (

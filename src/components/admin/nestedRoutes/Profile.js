@@ -76,7 +76,7 @@ const ProfessionalProfile = () => {
       return;
     }
     const docRef = doc(db, "ProfessionalDB", `${id}`);
-    await setDoc(docRef, profile).then(() => alert("Form Saved"));
+    await setDoc(docRef, profile);
     localStorage.clear("data");
     let messageText = "Data Saved Successfully !!";
     let varient = "success";

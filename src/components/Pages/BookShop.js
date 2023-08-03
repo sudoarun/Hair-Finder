@@ -209,7 +209,7 @@ const BookShop = () => {
                   onChange={() => handleCheckBoxChange("shampoo", 30)}
                 />
                 <label className="form-check-label" htmlFor="flexCheckDefault">
-                  Shampoo (80rs)
+                  Shampoo (30rs)
                 </label>
               </div>
               <div className="d-block">

@@ -57,9 +57,31 @@ const AddShopDetails = () => {
   const SubmitHandler = async (e) => {
     e.preventDefault();
     if (image === "") {
-      let varient = "error";
-      let message = "Please add image Before Proceed !!";
-      notification(message, varient);
+      // let varient = "error";
+      // let message = "Please add image Before Proceed !!";
+      // notification(message, varient);
+      addDoc(dbRef, {
+        ServiceName: state.serviceName,
+        Price: state.price,
+        Description: state.description,
+        ServiceImage: "",
+      })
+        .then(() => {
+          let varient = "success";
+          let message = "Service Added !!";
+          notification(message, varient);
+        })
+        .catch((err) => {
+          let varient = "error";
+          let message = err.message;
+          notification(message, varient);
+        });
+      setState({
+        serviceName: "",
+        price: "",
+        description: "",
+        serviceImage: "",
+      });
       return;
     }
     const metadata = {

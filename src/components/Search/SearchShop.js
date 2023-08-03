@@ -4,11 +4,10 @@ import SearchContent from "./SearchContent";
 import { useSelector } from "react-redux";
 import Loader from "../Loader/loader";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 const SearchShop = () => {
   const shops = useSelector((state) => state.allshops[0]);
-  // console.log(
-  //   shops.filter((data) => console.log("filer:", data.includes("h")))
-  // );
+  const [search, setSearch] = useState("");
   // console.log(shops);
   return (
     <div className="mb-3">
@@ -22,6 +21,8 @@ const SearchShop = () => {
             <input
               placeholder="Search Your Favorite Shops..."
               type="search"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
               id="HomeSearch"
               className="text- bg-white w-75 border border-end-0 border-dark ps-3 pe-3 py-3"
             />
@@ -45,11 +46,17 @@ const SearchShop = () => {
               {!shops ? (
                 <Loader />
               ) : (
-                shops.map((res) => (
-                  <NavLink key={res.id} to={`/shop/${res.id}`}>
-                    <SearchContent data={res} />
-                  </NavLink>
-                ))
+                shops
+                  .filter((item) => {
+                    return search.toLowerCase() === ""
+                      ? item
+                      : item.shopName.toLowerCase().includes(search);
+                  })
+                  .map((res) => (
+                    <NavLink key={res.id} to={`/shop/${res.id}`}>
+                      <SearchContent data={res} />
+                    </NavLink>
+                  ))
               )}
             </div>
           </div>

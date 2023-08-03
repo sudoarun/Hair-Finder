@@ -12,7 +12,7 @@ const User = () => {
   const desc = ["terrible", "bad", "normal", "good", "wonderful"];
   const [state, setState] = useState("");
   const [value, setValue] = useState(5);
-  const [modalData, setModalData] = useState(null);
+  const [modalData, setModalData] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const userID = useSelector((state) => state.auth[0]);
@@ -84,6 +84,7 @@ const User = () => {
                 setIsModalOpen={setIsModalOpen}
                 isModalOpen={isModalOpen}
                 modalData={modalData}
+                userID={userID.id}
               />
               <div className="d-flex align-items-center text-white position-relative">
                 <span className="material-icons-outlined">person_outline</span>
@@ -140,14 +141,14 @@ const User = () => {
                 <span className="material-icons-outlined">home</span>
                 <div className="ms-3">
                   <label className="d-block text-secondary">Address</label>
-                  <label className="fw-semibold">not available</label>
+                  <label className="fw-semibold">{state.Address}</label>
                 </div>
                 <span
                   className="material-icons-outlined position-absolute py-2 px-2 bg-warning rounded-circle end-0"
                   id="userEdit"
                   onClick={() =>
                     setIsModalOpen(true) ||
-                    setModalData({ state: state.address, title: "Address" })
+                    setModalData({ state: state.Address, title: "Address" })
                   }
                 >
                   edit

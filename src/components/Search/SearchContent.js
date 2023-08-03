@@ -1,3 +1,4 @@
+import { Rate } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -10,7 +11,7 @@ const SearchContent = ({ btn, data }) => {
       <div className="col-4 col-sm-3">
         <img alt="" src={ShopImg} className="w-100 rounded" />
       </div>
-      <div className="col-8 col-sm-6 text-white text-left">
+      <div className="col-8 col-sm-5 text-white text-left">
         <div className="d-flex justify-content-between">
           <div className="">
             <div>
@@ -26,11 +27,10 @@ const SearchContent = ({ btn, data }) => {
           </div>
         </div>
       </div>
-      <div className="d-flex col-12 col-sm-3 align-items-end">
+      <div className="d-flex col-12 col-sm-4 align-items-end">
         <div className="d-flex justify-content-between align-items-center w-100">
           <div className="d-flex justify-content-between text-white">
-            <span>Price :-</span>
-            <span>399rs</span>
+            <Rate defaultValue={4} />
           </div>
           <div>
             {btn ? (

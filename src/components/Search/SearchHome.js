@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const SearchHome = () => {
   const navigate = useNavigate();
@@ -19,22 +19,25 @@ const SearchHome = () => {
       </div>
       <div className="d-flex justify-content-center mt-5">
         {/* <form> */}
+
         <div className=" border responsiveSearchHome bg-white">
-          <form className="align-items-center d-flex">
-            <input
-              placeholder="Search Your Service..."
-              type="search"
-              id="HomeSearch"
-              className="text- w-100 border-0 ms-2 me-2 py-3"
-            />
-            <button
-              className="material-icons bg-black text-white py-3 px-3 border-0"
-              type="submit"
-              onClick={handleSearch}
-            >
-              search
-            </button>
-          </form>
+          <NavLink to={"/search"}>
+            <form className="align-items-center d-flex">
+              <input
+                placeholder="Search Your Service..."
+                type="search"
+                id="HomeSearch"
+                className="text- w-100 border-0 ms-2 me-2 py-3"
+              />
+              <button
+                className="material-icons bg-black text-white py-3 px-3 border-0"
+                type="submit"
+                onClick={handleSearch}
+              >
+                search
+              </button>
+            </form>
+          </NavLink>
         </div>
         {/* </form> */}
       </div>

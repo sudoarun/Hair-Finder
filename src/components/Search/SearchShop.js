@@ -3,25 +3,27 @@ import BreadCrumbs from "../BreadCrumbs/Breadcrumb";
 import SearchContent from "./SearchContent";
 import { useSelector } from "react-redux";
 import Loader from "../Loader/loader";
+import { NavLink } from "react-router-dom";
 const SearchShop = () => {
   const shops = useSelector((state) => state.allshops[0]);
   // console.log(
   //   shops.filter((data) => console.log("filer:", data.includes("h")))
   // );
+  // console.log(shops);
   return (
     <div className="mb-3">
       <div className="bg-white ">
         <div className="container pt-3 pb-5">
           <BreadCrumbs text="black" activePage={"Search"} />
           <div className="d-flex justify-content-center align-items-center pt-3">
-            <span className="border  py-3 border-dark ps-2 pe-2">
+            {/* <span className="border  py-3 border-dark ps-2 pe-2">
               Detect my location
-            </span>
+            </span> */}
             <input
               placeholder="Search Your Favorite Shops..."
               type="search"
               id="HomeSearch"
-              className="text- bg-white w-75 border border-end-0 border-start-0 border-dark ps-3 pe-3 py-3"
+              className="text- bg-white w-75 border border-end-0 border-dark ps-3 pe-3 py-3"
             />
             <span className="material-icons py-3 px-3 bg-black text-white border-dark border border-start-0">
               search
@@ -43,12 +45,12 @@ const SearchShop = () => {
               {!shops ? (
                 <Loader />
               ) : (
-                shops.map((res) => <SearchContent data={res} key={res.id} />)
+                shops.map((res) => (
+                  <NavLink key={res.id} to={`/shop/${res.id}`}>
+                    <SearchContent data={res} />
+                  </NavLink>
+                ))
               )}
-
-              {/* <SearchContent shop="/shop" />
-              <SearchContent shop="/shop" />
-              <SearchContent shop="/shop" /> */}
             </div>
           </div>
         </div>

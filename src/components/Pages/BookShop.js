@@ -16,6 +16,7 @@ const BookShop = () => {
   const isSmallDevice = useMediaQuery("(max-width : 748px)");
   const isMediumDevice = useMediaQuery("(min-width : 769px)");
   const [mark, setMark] = useState("");
+  const [shopDetail, setShopDetail] = useState(undefined);
 
   let today = new Date();
   let year = today.getFullYear();
@@ -30,6 +31,11 @@ const BookShop = () => {
     } else {
       console.log("No such document!");
     }
+  };
+  const getShopDetail = async () => {
+    await getDoc(doc(db, "ProfessionalDB", `${parent}`)).then((res) =>
+      setShopDetail(res.data())
+    );
   };
 
   const [selectedValues, setSelectedValues] = useState([]);
@@ -46,6 +52,7 @@ const BookShop = () => {
 
   useEffect(() => {
     getService();
+    getShopDetail();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   let PurchasePrice = parseInt(service.Price) + cartTotal;
@@ -61,7 +68,7 @@ const BookShop = () => {
       "Additional Service": "not available",
     });
   };
-
+  // console.log(shopDetail);
   return (
     <div className="">
       <div className="container">
@@ -82,7 +89,7 @@ const BookShop = () => {
         <div className="row mt-5  align-items-center">
           <div className="col-12 col-sm-6">
             <div className="row align-items-center">
-              <div className="col-4 col-sm-6">
+              <div className="col-6 col-sm-5">
                 <img alt="" src={asset} className="w-100" />
               </div>
 
@@ -91,7 +98,7 @@ const BookShop = () => {
                   <Loader />
                 </div>
               ) : (
-                <div className="col-8 col-sm-6 d-flex">
+                <div className="col-12 col-sm-6 d-flex">
                   <div className="text-white">
                     <span className="d-block fw-semibold">Shop Name</span>
                     <span className="d-block fw-semibold">Service Name</span>
@@ -101,7 +108,7 @@ const BookShop = () => {
                   <div className="text-white">
                     <span className="d-block">
                       <span className="mx-2">:</span>
-                      Shop Name
+                      {shopDetail.shopName}
                     </span>
                     <span className="d-block">
                       <span className="mx-2">:</span>
@@ -113,7 +120,7 @@ const BookShop = () => {
                     </span>
                     <span className="d-block">
                       <span className="mx-2">:</span>
-                      {service.Description}
+                      10AM -{shopDetail.shopClose}
                     </span>
                   </div>
                 </div>

@@ -108,7 +108,7 @@ const BookShop = () => {
                   <div className="text-white">
                     <span className="d-block">
                       <span className="mx-2">:</span>
-                      {shopDetail.shopName}
+                      {!shopDetail ? "Shop Name" : shopDetail.shopName}
                     </span>
                     <span className="d-block">
                       <span className="mx-2">:</span>
@@ -120,7 +120,7 @@ const BookShop = () => {
                     </span>
                     <span className="d-block">
                       <span className="mx-2">:</span>
-                      10AM -{shopDetail.shopClose}
+                      10AM -{!shopDetail ? "9PM" : shopDetail.shopClose}
                     </span>
                   </div>
                 </div>

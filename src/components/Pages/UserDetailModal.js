@@ -4,7 +4,6 @@ import { useState } from "react";
 const UserDetailModal = ({ isModalOpen, setIsModalOpen, modalData }) => {
   const [value, setValue] = useState("");
   const handleOk = () => {
-    // setIsModalOpen(false);
     setValue("okay");
   };
 
@@ -22,12 +21,17 @@ const UserDetailModal = ({ isModalOpen, setIsModalOpen, modalData }) => {
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <input placeholder={modalData.title} defaultValue={value} />
-        <p>
-          {modalData.state === undefined
-            ? `${modalData.title} Not Found`
-            : modalData.state}
-        </p>
+        <div className="d-flex justify-content-between mx-2 mb-2">
+          <span>{modalData.title}:</span>
+          <span>
+            {modalData.state === undefined ? `not found` : modalData.state}
+          </span>
+        </div>
+        <input
+          placeholder={`Please enter ${modalData.title}`}
+          className="form-control"
+          defaultValue={value}
+        />
       </Modal>
     </>
   );

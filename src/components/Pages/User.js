@@ -12,7 +12,7 @@ const User = () => {
   const desc = ["terrible", "bad", "normal", "good", "wonderful"];
   const [state, setState] = useState("");
   const [value, setValue] = useState(5);
-  const [modalData, setModalData] = useState("");
+  const [modalData, setModalData] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const userID = useSelector((state) => state.auth[0]);
@@ -95,7 +95,8 @@ const User = () => {
                   className="material-icons-outlined position-absolute py-2 px-2 bg-warning rounded-circle end-0"
                   id="userEdit"
                   onClick={() =>
-                    setIsModalOpen(true) || setModalData(state.name)
+                    setIsModalOpen(true) ||
+                    setModalData({ state: state.name, title: "Name" })
                   }
                 >
                   edit
@@ -111,7 +112,8 @@ const User = () => {
                   className="material-icons-outlined position-absolute py-2 px-2 bg-warning rounded-circle end-0"
                   id="userEdit"
                   onClick={() =>
-                    setIsModalOpen(true) || setModalData(state.email)
+                    setIsModalOpen(true) ||
+                    setModalData({ state: state.email, title: "Email" })
                   }
                 >
                   edit
@@ -127,7 +129,8 @@ const User = () => {
                   className="material-icons-outlined position-absolute py-2 px-2 bg-warning rounded-circle end-0"
                   id="userEdit"
                   onClick={() =>
-                    setIsModalOpen(true) || setModalData(state.number)
+                    setIsModalOpen(true) ||
+                    setModalData({ state: state.number, title: "Number" })
                   }
                 >
                   edit
@@ -143,7 +146,8 @@ const User = () => {
                   className="material-icons-outlined position-absolute py-2 px-2 bg-warning rounded-circle end-0"
                   id="userEdit"
                   onClick={() =>
-                    setIsModalOpen(true) || setModalData(state.address)
+                    setIsModalOpen(true) ||
+                    setModalData({ state: state.address, title: "Address" })
                   }
                 >
                   edit

@@ -5,7 +5,9 @@ import { useSelector } from "react-redux";
 import Loader from "../Loader/loader";
 const SearchShop = () => {
   const shops = useSelector((state) => state.allshops[0]);
-  console.log(shops);
+  // console.log(
+  //   shops.filter((data) => console.log("filer:", data.includes("h")))
+  // );
   return (
     <div className="mb-3">
       <div className="bg-white ">

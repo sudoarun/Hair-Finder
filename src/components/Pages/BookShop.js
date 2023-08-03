@@ -19,8 +19,6 @@ const BookShop = () => {
 
   let today = new Date();
   let year = today.getFullYear();
-  // let toDay = today.getDay();
-  // // console.log(toDay + 2);
   const { id, parent } = useParams();
   const [service, setService] = useState("");
   const getService = async () => {
@@ -29,7 +27,6 @@ const BookShop = () => {
 
     if (docSnap.exists()) {
       setService(docSnap.data());
-      // console.log(service);
     } else {
       console.log("No such document!");
     }

@@ -6,11 +6,15 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../Firebase/firebase";
+import UserDetailModal from "./UserDetailModal";
 
 const User = () => {
   const desc = ["terrible", "bad", "normal", "good", "wonderful"];
   const [state, setState] = useState("");
   const [value, setValue] = useState(5);
+  const [modalData, setModalData] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const userID = useSelector((state) => state.auth[0]);
   const getUserData = async () => {
     await getDoc(doc(db, "UserDB", `${userID.id}`)).then((res) =>
@@ -21,7 +25,8 @@ const User = () => {
     getUserData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(state);
+  // console.log(state);
+
   const Slide = {
     infinite: false,
     arrows: false,
@@ -75,6 +80,11 @@ const User = () => {
               />
             </div>
             <div className="col-12 col-sm-6">
+              <UserDetailModal
+                setIsModalOpen={setIsModalOpen}
+                isModalOpen={isModalOpen}
+                modalData={modalData}
+              />
               <div className="d-flex align-items-center text-white position-relative">
                 <span className="material-icons-outlined">person_outline</span>
                 <div className="ms-3">
@@ -84,6 +94,9 @@ const User = () => {
                 <span
                   className="material-icons-outlined position-absolute py-2 px-2 bg-warning rounded-circle end-0"
                   id="userEdit"
+                  onClick={() =>
+                    setIsModalOpen(true) || setModalData(state.name)
+                  }
                 >
                   edit
                 </span>
@@ -97,6 +110,9 @@ const User = () => {
                 <span
                   className="material-icons-outlined position-absolute py-2 px-2 bg-warning rounded-circle end-0"
                   id="userEdit"
+                  onClick={() =>
+                    setIsModalOpen(true) || setModalData(state.email)
+                  }
                 >
                   edit
                 </span>
@@ -110,6 +126,9 @@ const User = () => {
                 <span
                   className="material-icons-outlined position-absolute py-2 px-2 bg-warning rounded-circle end-0"
                   id="userEdit"
+                  onClick={() =>
+                    setIsModalOpen(true) || setModalData(state.number)
+                  }
                 >
                   edit
                 </span>
@@ -123,6 +142,9 @@ const User = () => {
                 <span
                   className="material-icons-outlined position-absolute py-2 px-2 bg-warning rounded-circle end-0"
                   id="userEdit"
+                  onClick={() =>
+                    setIsModalOpen(true) || setModalData(state.address)
+                  }
                 >
                   edit
                 </span>

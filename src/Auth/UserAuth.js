@@ -18,6 +18,7 @@ const UserSignUp = async (
   isPro
 ) => {
   // console.log("before fucntion:", signUser);
+
   const auth = getAuth();
   await createUserWithEmailAndPassword(auth, signUser.email, signUser.password)
     .then((res) => {

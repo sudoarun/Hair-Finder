@@ -44,11 +44,14 @@ const BarberRegister = () => {
 
   const onSubmitRegister = async (e) => {
     e.preventDefault();
+
     if (regValue === "") {
       alert("Enter SignUp Details");
       return;
     }
-
+    let varient = "warning";
+    let messageText = "Preparing Professional View!!";
+    sendMessage(messageText, varient);
     await ProfessionalSignUp(regValue, sendMessage, isUser);
     setRegValue({
       username: "",
@@ -70,6 +73,9 @@ const BarberRegister = () => {
       alert("Enter Login Details");
       return;
     }
+    let varient = "warning";
+    let messageText = "Hold On Dude!!";
+    sendMessage(messageText, varient);
     await ProfessionalSignIn(value, sendMessage);
     setValue({
       email: "",

@@ -51,12 +51,21 @@ function LoginPage({ name }) {
   // One Submit of Sign In
   const handlesignIn = async (e) => {
     e.preventDefault();
+    if (user.email === "") {
+      let varient = "error";
+      let messageText = "Add User Details !!";
+      sendMessage(varient, messageText);
+      return;
+    }
     if (isPro === true) {
       let varient = "warning";
       let messageText = "Please Logout from Professional Account !!";
       sendMessage(varient, messageText);
       return;
     }
+    let varient = "warning";
+    let messageText = "Hold on Tight !!";
+    sendMessage(varient, messageText);
     await UserSignIn(user, sendMessage, navigate);
     setUser({
       email: "",
@@ -67,6 +76,15 @@ function LoginPage({ name }) {
   // on Submit for Sign up User
   const handleSignUp = async (e) => {
     e.preventDefault();
+    if (signUser.email === "") {
+      let varient = "error";
+      let messageText = "Fill all details First";
+      sendMessage(varient, messageText);
+      return;
+    }
+    let varient = "warning";
+    let messageText = "Preparing Account!!";
+    sendMessage(varient, messageText);
     await UserSignUp(signUser, sendMessage, navigate, isPro);
     setSignUser({
       email: "",
@@ -100,6 +118,7 @@ function LoginPage({ name }) {
                 name="email"
                 value={user.email}
                 onChange={onloadSignin}
+                required
                 type="email"
                 placeholder="Email ID"
               />
@@ -111,6 +130,7 @@ function LoginPage({ name }) {
                 className="LoginInput"
                 type="password"
                 value={user.password}
+                required
                 name="password"
                 onChange={onloadSignin}
                 placeholder="Password"
@@ -147,6 +167,7 @@ function LoginPage({ name }) {
                 className="LoginInput"
                 name="username"
                 value={signUser.username}
+                required
                 onChange={onloadSignUp}
                 type="text"
                 placeholder="Username"
@@ -157,6 +178,7 @@ function LoginPage({ name }) {
               <input
                 className="LoginInput"
                 type="email"
+                required
                 name="email"
                 value={signUser.email}
                 onChange={onloadSignUp}
@@ -170,6 +192,7 @@ function LoginPage({ name }) {
                 className="LoginInput"
                 type="phone"
                 name="number"
+                required
                 value={signUser.number}
                 onChange={onloadSignUp}
                 placeholder="Phone number"
@@ -182,6 +205,7 @@ function LoginPage({ name }) {
                 name="password"
                 value={signUser.password}
                 onChange={onloadSignUp}
+                required
                 type="password"
                 placeholder="Password"
               />

@@ -28,6 +28,7 @@ const ShopDetail = () => {
     setServices(get);
   };
   useEffect(() => {
+    window.scrollTo(0, 0);
     getSaloon();
     getServiceBySaloon();
     // eslint-disable-next-line react-hooks/exhaustive-deps

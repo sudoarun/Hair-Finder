@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import BreadCrumbs from "../BreadCrumbs/Breadcrumb";
 import SearchContent from "./SearchContent";
 import { useSelector } from "react-redux";
@@ -8,7 +8,9 @@ import { useState } from "react";
 const SearchShop = () => {
   const shops = useSelector((state) => state.allshops[0]);
   const [search, setSearch] = useState("");
-  // console.log(shops);
+useEffect(()=>{
+  window.scrollTo(0, 0);
+},[])
   return (
     <div className="mb-3">
       <div className="bg-white ">

@@ -51,6 +51,7 @@ const BookShop = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     getService();
     getShopDetail();
     // eslint-disable-next-line react-hooks/exhaustive-deps

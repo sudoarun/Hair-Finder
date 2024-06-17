@@ -49,7 +49,7 @@ const ShopCard = ({ data }) => {
   };
   return (
     <div className="d-flex justify-content-center">
-      <div
+      <div 
         className=" responsiveWidth mt-n5 px-4 card pt-3 pb-3"
         style={{ backgroundColor: "#2D2727" }}
       >

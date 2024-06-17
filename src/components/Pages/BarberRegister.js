@@ -186,7 +186,7 @@ const BarberRegister = () => {
                       data-mdb-dismiss="modal"
                     >
                       Sign in
-                    </button>
+                    </button> 
                   </form>
                 </div>
                 <div
